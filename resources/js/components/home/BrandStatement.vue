@@ -15,7 +15,7 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
 <template>
     <section ref="root" class="brand-statement shell" aria-label="Философия бренда">
         <span class="statement-index">01 — Философия</span>
-        <p><span class="statement-word">Мы</span> <span class="statement-word">создаём</span> <span class="statement-word">не просто</span> <span class="statement-word"><em>коробки.</em></span><br><span class="statement-word">Мы создаём</span> <span class="statement-word">первое</span> <span class="statement-word">впечатление</span> <span class="statement-word">от подарка.</span></p>
+        <p><span class="statement-word">Мы</span> <span class="statement-word">создаём</span> <span class="statement-word">не просто</span> <span class="statement-word"><em>сувениры.</em></span><br><span class="statement-word">Мы сохраняем</span> <span class="statement-word">личные</span> <span class="statement-word">моменты</span> <span class="statement-word">в подарках.</span></p>
         <i class="statement-line"></i>
     </section>
 </template>

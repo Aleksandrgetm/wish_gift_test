@@ -9,7 +9,7 @@ export const useCatalogStore = defineStore('catalog', () => {
     const sort = ref('featured');
     const page = ref(1);
     const perPage = 6;
-    const filters = ref({ occasions: [], categories: [], materials: [], capacity: null, maxPrice: 5000, available: false });
+    const filters = ref({ occasions: [], categories: [], materials: [], capacity: null, maxPrice: 60, available: false });
     const favorites = ref([]);
 
     const filtered = computed(() => {
@@ -31,9 +31,9 @@ export const useCatalogStore = defineStore('catalog', () => {
     });
     const pageCount = computed(() => Math.max(1, Math.ceil(filtered.value.length / perPage)));
     const visibleProducts = computed(() => filtered.value.slice((page.value - 1) * perPage, page.value * perPage));
-    const activeFilterCount = computed(() => filters.value.occasions.length + filters.value.categories.length + filters.value.materials.length + Number(Boolean(filters.value.capacity)) + Number(filters.value.maxPrice < 5000) + Number(filters.value.available));
+    const activeFilterCount = computed(() => filters.value.occasions.length + filters.value.categories.length + filters.value.materials.length + Number(Boolean(filters.value.capacity)) + Number(filters.value.maxPrice < 60) + Number(filters.value.available));
 
-    const reset = () => { filters.value = { occasions: [], categories: [], materials: [], capacity: null, maxPrice: 5000, available: false }; query.value = ''; page.value = 1; };
+    const reset = () => { filters.value = { occasions: [], categories: [], materials: [], capacity: null, maxPrice: 60, available: false }; query.value = ''; page.value = 1; };
     const toggleFavorite = (id) => { favorites.value = favorites.value.includes(id) ? favorites.value.filter((item) => item !== id) : [...favorites.value, id]; };
     const finishLoading = () => { error.value = false; window.setTimeout(() => { loading.value = false; }, 450); };
     const retry = () => { loading.value = true; finishLoading(); };

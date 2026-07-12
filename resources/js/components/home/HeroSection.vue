@@ -43,25 +43,25 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
         <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
         <div class="shell hero-grid">
             <div class="hero-copy">
-                <div class="hero-eyebrow-mask"><p class="eyebrow hero-eyebrow">Весенняя коллекция · 2026</p></div>
-                <h1 aria-label="Упаковка, которая делает подарок незабываемым">
-                    <span class="hero-line"><span>Упаковка, которая</span></span>
-                    <span class="hero-line"><span>делает подарок</span></span>
-                    <span class="hero-line"><span><em>незабываемым</em></span></span>
+                <div class="hero-eyebrow-mask"><p class="eyebrow hero-eyebrow">Персональные сувениры · QR-видео</p></div>
+                <h1 aria-label="Подарки, которые оживают">
+                    <span class="hero-line"><span>Подарки,</span></span>
+                    <span class="hero-line"><span>которые</span></span>
+                    <span class="hero-line"><span><em>оживают</em></span></span>
                 </h1>
-                <p class="hero-lead">Продуманные коробки для конфет и шоколада — от одного особенного подарка до брендированного тиража.</p>
+                <p class="hero-lead">Фото, видео и личные моменты превращаются в сувениры с настоящей эмоцией. Наведите камеру на QR-код — и фотография оживёт.</p>
                 <div class="hero-actions">
-                    <span ref="primaryCta" class="magnetic-wrap"><v-btn color="primary" size="large" to="/catalog" append-icon="mdi-arrow-right">Выбрать упаковку</v-btn></span>
-                    <v-btn class="link-underline" variant="text" size="large" href="#collections">Смотреть коллекции</v-btn>
+                    <span ref="primaryCta" class="magnetic-wrap"><v-btn color="primary" size="large" to="/souvenirs" append-icon="mdi-arrow-right">Создать оживайку</v-btn></span>
+                    <v-btn class="link-underline" variant="text" size="large" href="#collections">Смотреть подарки</v-btn>
                 </div>
-                <div class="hero-proof"><strong>4,9</strong><span aria-label="Рейтинг 4,9 из 5">★★★★★<small>Более 800 заказов с заботой о деталях</small></span></div>
+                <div class="hero-proof"><strong>QR</strong><span>Фото + видео<small>Персональный подарок согласуется перед оформлением</small></span></div>
             </div>
-            <div ref="stage" class="gift-stage" aria-label="Композиция из подарочных коробок шоколадного, кремового и зелёного цвета" role="img">
+            <div ref="stage" class="gift-stage" aria-label="Подарочная карточка с QR-кодом и персональным видео" role="img">
                 <div class="gift-stage-inner">
-                    <div class="stage-note">Собрано вручную<br><strong>в нашей мастерской</strong></div>
-                    <div class="gift-box box-tall"><span>ÉCLAT</span><i></i></div>
-                    <div class="gift-box box-round"><span>pour vous</span></div>
-                    <div class="gift-box box-flat"><span>COLLECTION<br>PRINTEMPS</span><i></i></div>
+                    <div class="stage-note">Ваше фото<br><strong>становится историей</strong></div>
+                    <div class="gift-box box-tall"><span>QR VIDEO</span><i></i></div>
+                    <div class="gift-box box-round qr-orb"><span>play</span></div>
+                    <div class="gift-box box-flat qr-card"><span>SCAN<br>MEMORY</span><i></i><b></b></div>
                 </div>
             </div>
         </div>

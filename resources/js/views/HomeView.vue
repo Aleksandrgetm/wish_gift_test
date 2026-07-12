@@ -5,7 +5,10 @@ import BrandStatement from '../components/home/BrandStatement.vue';
 import OccasionStory from '../components/home/OccasionStory.vue';
 import FeaturedCollections from '../components/home/FeaturedCollections.vue';
 import EditorialTicker from '../components/home/EditorialTicker.vue';
+import HowItWorks from '../components/home/HowItWorks.vue';
 import PackageFinder from '../components/home/PackageFinder.vue';
+import ProductExamples from '../components/home/ProductExamples.vue';
+import ServiceNotice from '../components/home/ServiceNotice.vue';
 import BenefitsSection from '../components/home/BenefitsSection.vue';
 import CorporateSection from '../components/home/CorporateSection.vue';
 import TrustSection from '../components/home/TrustSection.vue';
@@ -29,7 +32,10 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
         <OccasionStory />
         <FeaturedCollections />
         <EditorialTicker />
+        <HowItWorks />
         <PackageFinder />
+        <ProductExamples />
+        <ServiceNotice />
         <BenefitsSection />
         <CorporateSection />
         <TrustSection />

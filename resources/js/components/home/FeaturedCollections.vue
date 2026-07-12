@@ -5,10 +5,10 @@ import { useGsapContext } from '../../composables/useGsapContext';
 const root = ref(null);
 const track = ref(null);
 const collections = [
-    { label: 'Бестселлер', number: '01', title: 'Шкатулка «Наследие»', detail: '24 конфеты · дизайнерский картон', price: 'от 1 890 ₽', style: 'heritage' },
-    { label: 'Новинка', number: '02', title: 'Коллекция «Ботаника»', detail: '16 конфет · тиснение золотом', price: 'от 1 490 ₽', style: 'botanica' },
-    { label: 'Для бизнеса', number: '03', title: 'Коробка «Монограмма»', detail: '12 конфет · персонализация', price: 'от 990 ₽', style: 'mono' },
-    { label: 'Лимитированная', number: '04', title: 'Набор «Après-midi»', detail: '36 конфет · ручная сборка', price: 'от 2 590 ₽', style: 'afternoon' },
+    { label: 'Главная коллекция', number: '01', title: 'Сувениры-оживайки', detail: 'Фото, кружки, майки, шоколад и другие подарки с QR-видео.', price: 'от 20 €', style: 'heritage' },
+    { label: 'Быстрый выбор', number: '02', title: 'Подарки по случаю', detail: 'Подберите подарок по празднику или получателю.', price: 'подбор', style: 'botanica' },
+    { label: 'Для близких', number: '03', title: 'Подарки для близких', detail: 'Мужчине, женщине, ребёнку, учителю или врачу.', price: 'индивидуально', style: 'mono' },
+    { label: 'Поводы', number: '04', title: 'Праздничные поводы', detail: 'Новый год, 14 февраля, 8 марта, День матери и другие даты.', price: 'по запросу', style: 'afternoon' },
 ];
 
 useGsapContext(root, ({ gsap, media, reduceMotion }) => {
@@ -28,14 +28,14 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
 
 <template>
     <section id="collections" ref="root" class="collection-section collection-story">
-        <div class="shell collection-header"><div><p class="eyebrow">03 — Выбор клиентов</p><h2>Коллекции,<br><em>созданные впечатлять</em></h2></div><p>Четыре характера. Одна философия: упаковку хочется сохранить даже после того, как подарок открыт.</p></div>
+        <div class="shell collection-header"><div><p class="eyebrow">03 — Выбор клиентов</p><h2>Подарки,<br><em>созданные оживать</em></h2></div><p>Четыре направления помогают быстро выбрать формат: по сувениру, поводу, получателю или личной истории.</p></div>
         <div ref="track" class="collection-track">
             <article v-for="item in collections" :key="item.title" class="product-card tilt-card">
-                <div class="product-visual" :class="item.style"><span>{{ item.label }}</span><span class="product-number">{{ item.number }}</span><div class="mini-package"><b>É</b><small>{{ item.title }}</small></div></div>
+                <div class="product-visual" :class="item.style"><span>{{ item.label }}</span><span class="product-number">{{ item.number }}</span><div class="mini-package"><b>QR</b><small>{{ item.title }}</small></div></div>
                 <div class="product-info"><div><h3>{{ item.title }}</h3><p>{{ item.detail }}</p></div><strong>{{ item.price }}</strong></div>
                 <v-btn class="product-action" icon="mdi-arrow-top-right" variant="outlined" aria-label="Открыть коллекцию" />
             </article>
-            <a class="collection-end" href="/catalog"><span>Смотреть всю<br>коллекцию</span><i>→</i></a>
+            <a class="collection-end" href="/souvenirs"><span>Смотреть все<br>оживайки</span><i>→</i></a>
         </div>
     </section>
 </template>

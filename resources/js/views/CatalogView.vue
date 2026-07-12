@@ -28,12 +28,12 @@ onMounted(store.finishLoading);
 <template>
     <main class="catalog-page">
         <section class="catalog-hero">
-            <div class="shell"><nav class="breadcrumbs" aria-label="Хлебные крошки"><router-link to="/">Главная</router-link><span>/</span><span>Каталог</span></nav><p class="eyebrow">Коллекция Éclat</p><h1>Упаковка для<br><em>особенных моментов</em></h1><p>Выберите готовое решение или найдите основу для упаковки, созданной специально для вас.</p></div>
+            <div class="shell"><nav class="breadcrumbs" aria-label="Хлебные крошки"><router-link to="/">Главная</router-link><span>/</span><span>Каталог</span></nav><p class="eyebrow">Сувениры-оживайки</p><h1>Подарки с фото,<br><em>видео и QR-кодом</em></h1><p>Выберите направление и согласуйте с менеджером фото, видео, музыку и финальный дизайн подарка.</p></div>
         </section>
 
         <section class="catalog-results shell">
             <div class="catalog-toolbar">
-                <div class="catalog-search"><v-icon icon="mdi-magnify" /><label class="sr-only" for="catalog-search">Поиск по каталогу</label><input id="catalog-search" v-model="query" type="search" placeholder="Найти упаковку или коллекцию"><button v-if="query" type="button" aria-label="Очистить поиск" @click="query = ''"><v-icon icon="mdi-close" /></button></div>
+                <div class="catalog-search"><v-icon icon="mdi-magnify" /><label class="sr-only" for="catalog-search">Поиск по каталогу</label><input id="catalog-search" v-model="query" type="search" placeholder="Найти оживайку или сувенир"><button v-if="query" type="button" aria-label="Очистить поиск" @click="query = ''"><v-icon icon="mdi-close" /></button></div>
                 <div class="catalog-toolbar-actions"><v-btn class="mobile-filter-trigger" variant="outlined" prepend-icon="mdi-tune-variant" @click="mobileFiltersOpen = true">Фильтры <span v-if="activeFilterCount">{{ activeFilterCount }}</span></v-btn><span class="result-count">{{ filtered.length }} {{ filtered.length === 1 ? 'товар' : 'товаров' }}</span><v-select v-model="sort" class="catalog-sort" :items="sortOptions" item-title="title" item-value="value" label="Сортировка" variant="outlined" density="compact" hide-details /></div>
             </div>
 
