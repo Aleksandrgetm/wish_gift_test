@@ -1,0 +1,53 @@
+- generic [ref=e4]:
+  - generic [ref=e5]: Персональные подарки с фото, видео, музыкой и QR-кодом — согласуйте заказ перед оформлением
+  - banner [ref=e6]:
+    - generic [ref=e7]:
+      - link "Wish Gift — главная" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - img "Wish Gift" [ref=e9]
+        - generic [ref=e10]: WISH GIFTПодарки, которые оживают
+      - navigation "Основная навигация" [ref=e11]:
+        - link "Каталог" [ref=e12] [cursor=pointer]:
+          - /url: /catalog
+        - link "Сувениры-оживайки" [ref=e13] [cursor=pointer]:
+          - /url: /souvenirs
+        - link "Контакты" [ref=e14] [cursor=pointer]:
+          - /url: /contacts
+      - generic [ref=e15]:
+        - button "Поиск" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: 󰍉
+        - button "Избранное" [ref=e19] [cursor=pointer]:
+          - generic [ref=e20]: 󰋕
+        - button "Корзина" [ref=e22] [cursor=pointer]:
+          - generic [ref=e23]: 󱇕
+        - button "Открыть меню" [ref=e25] [cursor=pointer]:
+          - generic [ref=e26]: 󰍜
+  - main [ref=e28]:
+    - paragraph [ref=e29]: Следующий этап
+    - heading "Страница не найдена" [level=1] [ref=e30]
+    - paragraph [ref=e31]: Раздел уже включён в навигацию и будет наполнен на следующем этапе разработки.
+    - link "Вернуться на главную" [ref=e32] [cursor=pointer]:
+      - /url: /
+  - contentinfo [ref=e34]:
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]: wish_gift
+        - paragraph [ref=e38]: "Подарки, которые оживают: фото, видео, музыка и QR-код в персональном сувенире."
+        - link "Создать свой подарок" [ref=e39] [cursor=pointer]:
+          - /url: mailto:ozivajka@inbox.lv
+      - generic [ref=e41]:
+        - heading "Навигация" [level=2] [ref=e42]
+        - link "Каталог" [ref=e43] [cursor=pointer]:
+          - /url: /catalog
+        - link "Сувениры-оживайки" [ref=e44] [cursor=pointer]:
+          - /url: /souvenirs
+        - link "Контакты" [ref=e45] [cursor=pointer]:
+          - /url: /contacts
+      - generic [ref=e46]:
+        - heading "Контакты" [level=2] [ref=e47]
+        - link "+371 28153310" [ref=e48] [cursor=pointer]:
+          - /url: tel:+37128153310
+        - link "ozivajka@inbox.lv" [ref=e49] [cursor=pointer]:
+          - /url: mailto:ozivajka@inbox.lv
+        - paragraph [ref=e50]: Сначала согласуйте фото, видео и музыку с менеджером.
+    - generic [ref=e51]: © 2026 wish_giftПолитика конфиденциальности

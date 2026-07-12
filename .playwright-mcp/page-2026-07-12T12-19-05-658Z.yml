@@ -1,0 +1,426 @@
+- generic [ref=e4]:
+  - generic [ref=e5]: Персональные подарки с фото, видео, музыкой и QR-кодом — согласуйте заказ перед оформлением
+  - banner [ref=e6]:
+    - generic [ref=e7]:
+      - link "Wish Gift — главная" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - img "Wish Gift" [ref=e9]
+        - generic [ref=e10]:
+          - text: WISH GIFT
+          - generic [ref=e11]: Подарки, которые оживают
+      - generic [ref=e12]:
+        - button "Поиск" [ref=e13] [cursor=pointer]:
+          - generic [ref=e14]: 󰍉
+        - button "Избранное" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: 󰋕
+        - button "Корзина" [ref=e19] [cursor=pointer]:
+          - generic [ref=e20]: 󱇕
+        - button "Открыть меню" [ref=e22] [cursor=pointer]:
+          - generic [ref=e23]: 󰍜
+  - main [ref=e25]:
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - paragraph [ref=e30]: Персональные сувениры · QR-видео
+        - heading "Подарки, которые оживают" [level=1] [ref=e31]:
+          - generic [ref=e32]: Подарки,
+          - generic [ref=e34]: которые
+          - emphasis [ref=e38]: оживают
+        - paragraph [ref=e39]: Фото, видео и личные моменты превращаются в сувениры с настоящей эмоцией. Наведите камеру на QR-код — и фотография оживёт.
+        - generic [ref=e40]:
+          - link "Создать оживайку" [ref=e42] [cursor=pointer]:
+            - /url: /souvenirs
+            - generic [ref=e44]: 󰁔
+          - link "Смотреть подарки" [ref=e46] [cursor=pointer]:
+            - /url: "#collections"
+        - generic [ref=e48]:
+          - strong [ref=e49]: QR
+          - generic [ref=e50]:
+            - text: Фото + видео
+            - generic [ref=e51]: Персональный подарок согласуется перед оформлением
+      - img "Подарочная карточка с QR-кодом и персональным видео" [ref=e52]:
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - text: Ваше фото
+            - strong [ref=e55]: становится историей
+          - generic [ref=e56]: QR VIDEO
+          - generic [ref=e59]: play
+          - generic [ref=e61]: SCANMEMORY
+    - region "Философия бренда" [ref=e65]:
+      - generic [ref=e66]: 01 — Философия
+      - paragraph [ref=e67]:
+        - text: Мы создаём не просто
+        - emphasis [ref=e69]: сувениры.
+        - text: Мы сохраняем личные моменты в подарках.
+    - generic [ref=e71]:
+      - article [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - generic [ref=e75]: 01 / 05
+            - heading "Фото-оживайка" [level=2] [ref=e76]
+            - heading "Больше, чем один момент" [level=3] [ref=e77]
+            - paragraph [ref=e78]: Фотография, которая хранит больше, чем один момент.
+            - link "Смотреть фото-оживайки →" [ref=e79] [cursor=pointer]:
+              - /url: /souvenirs
+              - text: Смотреть фото-оживайки
+              - generic [ref=e80]: →
+          - generic [ref=e81]:
+            - generic [ref=e82]: PHOTO
+            - generic [ref=e83]:
+              - generic [ref=e85]: QR
+              - generic [ref=e86]: PHOTO
+      - article [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - generic [ref=e91]: 02 / 05
+            - heading "Шоколад-оживайка" [level=2] [ref=e92]
+            - heading "Поздравление внутри дизайна" [level=3] [ref=e93]
+            - paragraph [ref=e94]: Персональный подарок с вашим фото, видео и поздравлением.
+            - link "Смотреть шоколад →" [ref=e95] [cursor=pointer]:
+              - /url: /souvenirs
+              - text: Смотреть шоколад
+              - generic [ref=e96]: →
+          - generic [ref=e97]:
+            - generic [ref=e98]: CHOCO
+            - generic [ref=e99]:
+              - generic [ref=e101]: QR
+              - generic [ref=e102]: CHOCO
+      - article [ref=e104]:
+        - generic [ref=e105]:
+          - generic [ref=e106]:
+            - generic [ref=e107]: 03 / 05
+            - heading "Кружка-оживайка" [level=2] [ref=e108]
+            - heading "Утро с воспоминанием" [level=3] [ref=e109]
+            - paragraph [ref=e110]: Каждое утро начинается с воспоминания.
+            - link "Смотреть кружки →" [ref=e111] [cursor=pointer]:
+              - /url: /souvenirs
+              - text: Смотреть кружки
+              - generic [ref=e112]: →
+          - generic [ref=e113]:
+            - generic [ref=e114]: MUG
+            - generic [ref=e115]:
+              - generic [ref=e117]: QR
+              - generic [ref=e118]: MUG
+      - article [ref=e120]:
+        - generic [ref=e121]:
+          - generic [ref=e122]:
+            - generic [ref=e123]: 04 / 05
+            - heading "Майка-оживайка" [level=2] [ref=e124]
+            - heading "История, которую носят" [level=3] [ref=e125]
+            - paragraph [ref=e126]: Личный сюжет, который можно носить.
+            - link "Смотреть майки →" [ref=e127] [cursor=pointer]:
+              - /url: /souvenirs
+              - text: Смотреть майки
+              - generic [ref=e128]: →
+          - generic [ref=e129]:
+            - generic [ref=e130]: TEE
+            - generic [ref=e131]:
+              - generic [ref=e133]: QR
+              - generic [ref=e134]: TEE
+      - article [ref=e136]:
+        - generic [ref=e137]:
+          - generic [ref=e138]:
+            - generic [ref=e139]: 05 / 05
+            - heading "Трек-пластинка" [level=2] [ref=e140]
+            - heading "Музыка, фото и видео" [level=3] [ref=e141]
+            - paragraph [ref=e142]: Фото, видео и любимая музыка в одном подарке.
+            - link "Смотреть пластинки →" [ref=e143] [cursor=pointer]:
+              - /url: /souvenirs
+              - text: Смотреть пластинки
+              - generic [ref=e144]: →
+          - generic [ref=e145]:
+            - generic [ref=e146]: TRACK
+            - generic [ref=e147]:
+              - generic [ref=e149]: QR
+              - generic [ref=e150]: TRACK
+    - generic [ref=e152]:
+      - generic [ref=e153]:
+        - generic [ref=e154]:
+          - paragraph [ref=e155]: 03 — Выбор клиентов
+          - heading [level=2] [ref=e156]:
+            - text: Подарки,
+            - emphasis [ref=e157]: созданные оживать
+        - paragraph [ref=e158]: "Четыре направления помогают быстро выбрать формат: по сувениру, поводу, получателю или личной истории."
+      - generic [ref=e159]:
+        - article [ref=e160]:
+          - generic [ref=e161]:
+            - generic [ref=e162]: Главная коллекция
+            - generic [ref=e163]: "01"
+            - generic [ref=e164]:
+              - generic [ref=e165]: QR
+              - generic [ref=e166]: Сувениры-оживайки
+          - generic [ref=e167]:
+            - generic [ref=e168]:
+              - heading "Сувениры-оживайки" [level=3] [ref=e169]
+              - paragraph [ref=e170]: Фото, кружки, майки, шоколад и другие подарки с QR-видео.
+            - strong [ref=e171]: от 20 €
+          - button "Открыть коллекцию" [ref=e172] [cursor=pointer]:
+            - generic [ref=e173]: 󰁜
+        - article [ref=e175]:
+          - generic [ref=e176]:
+            - generic [ref=e177]: Быстрый выбор
+            - generic [ref=e178]: "02"
+            - generic [ref=e179]:
+              - generic [ref=e180]: QR
+              - generic [ref=e181]: Подарки по случаю
+          - generic [ref=e182]:
+            - generic [ref=e183]:
+              - heading "Подарки по случаю" [level=3] [ref=e184]
+              - paragraph [ref=e185]: Подберите подарок по празднику или получателю.
+            - strong [ref=e186]: подбор
+          - button "Открыть коллекцию" [ref=e187] [cursor=pointer]:
+            - generic [ref=e188]: 󰁜
+        - article [ref=e190]:
+          - generic [ref=e191]:
+            - generic [ref=e192]: Для близких
+            - generic [ref=e193]: "03"
+            - generic [ref=e194]:
+              - generic [ref=e195]: QR
+              - generic [ref=e196]: Подарки для близких
+          - generic [ref=e197]:
+            - generic [ref=e198]:
+              - heading "Подарки для близких" [level=3] [ref=e199]
+              - paragraph [ref=e200]: Мужчине, женщине, ребёнку, учителю или врачу.
+            - strong [ref=e201]: индивидуально
+          - button "Открыть коллекцию" [ref=e202] [cursor=pointer]:
+            - generic [ref=e203]: 󰁜
+        - article [ref=e205]:
+          - generic [ref=e206]:
+            - generic [ref=e207]: Поводы
+            - generic [ref=e208]: "04"
+            - generic [ref=e209]:
+              - generic [ref=e210]: QR
+              - generic [ref=e211]: Праздничные поводы
+          - generic [ref=e212]:
+            - generic [ref=e213]:
+              - heading "Праздничные поводы" [level=3] [ref=e214]
+              - paragraph [ref=e215]: Новый год, 14 февраля, 8 марта, День матери и другие даты.
+            - strong [ref=e216]: по запросу
+          - button "Открыть коллекцию" [ref=e217] [cursor=pointer]:
+            - generic [ref=e218]: 󰁜
+        - link "Смотреть все оживайки →" [ref=e220] [cursor=pointer]:
+          - /url: /souvenirs
+          - generic [ref=e221]: Смотреть всеоживайки
+          - generic [ref=e222]: →
+    - region "Ценности бренда" [ref=e223]:
+      - generic [ref=e224]:
+        - generic [ref=e225]: DESIGNED TO BE KEPT
+        - generic [ref=e226]: ·
+        - generic [ref=e227]: MADE TO BE REMEMBERED
+        - generic [ref=e228]: ·
+        - generic [ref=e229]: PERSONALIZED FOR YOU
+        - generic [ref=e230]: ·
+        - generic [ref=e231]: DESIGNED TO BE KEPT
+        - generic [ref=e232]: ·
+        - generic [ref=e233]: MADE TO BE REMEMBERED
+        - generic [ref=e234]: ·
+        - generic [ref=e235]: PERSONALIZED FOR YOU
+        - generic [ref=e236]: ·
+    - generic [ref=e238]:
+      - generic [ref=e239]:
+        - generic [ref=e240]:
+          - paragraph [ref=e241]: 04 — Как это работает
+          - heading "От личного момента до подарка с QR-кодом" [level=2] [ref=e242]: От личного моментадо подарка с QR-кодом
+        - link "Выбрать формат →" [ref=e243] [cursor=pointer]:
+          - /url: /souvenirs
+      - generic [ref=e245]:
+        - article [ref=e246]:
+          - generic [ref=e247]: "01"
+          - heading "Выберите сувенир" [level=3] [ref=e248]
+          - paragraph [ref=e249]: Начните с фото, кружки, майки, шоколада или трек-пластинки.
+        - article [ref=e250]:
+          - generic [ref=e251]: "02"
+          - heading "Загрузите фото" [level=3] [ref=e252]
+          - paragraph [ref=e253]: Шаг собирает вашу историю в аккуратный персональный подарок.
+        - article [ref=e254]:
+          - generic [ref=e255]: "03"
+          - heading "Загрузите видео" [level=3] [ref=e256]
+          - paragraph [ref=e257]: Шаг собирает вашу историю в аккуратный персональный подарок.
+        - article [ref=e258]:
+          - generic [ref=e259]: "04"
+          - heading "При необходимости добавьте музыку" [level=3] [ref=e260]
+          - paragraph [ref=e261]: Шаг собирает вашу историю в аккуратный персональный подарок.
+        - article [ref=e262]:
+          - generic [ref=e263]: "05"
+          - heading "Согласуйте заказ с менеджером" [level=3] [ref=e264]
+          - paragraph [ref=e265]: Менеджер проверит материалы и подтвердит детали до оформления.
+        - article [ref=e266]:
+          - generic [ref=e267]: "06"
+          - heading "Получите готовый подарок с QR-кодом" [level=3] [ref=e268]
+          - paragraph [ref=e269]: Шаг собирает вашу историю в аккуратный персональный подарок.
+    - generic [ref=e271]:
+      - generic [ref=e272]:
+        - paragraph [ref=e273]: Не знаете, с чего начать?
+        - heading "Найдём подходящую оживайку за минуту" [level=2] [ref=e274]
+        - paragraph [ref=e275]: Ответьте на пять простых вопросов — мы покажем категории, которые подходят по получателю, празднику и формату.
+        - generic [ref=e276]:
+          - strong [ref=e277]: "01"
+          - text: / 05
+      - generic [ref=e278]:
+        - generic [ref=e281]:
+          - heading "Для кого подарок?" [level=3] [ref=e282]
+          - generic [ref=e283]:
+            - button "мужчине" [ref=e284] [cursor=pointer]:
+              - generic [ref=e286]: 󰝦
+            - button "женщине" [ref=e287] [cursor=pointer]:
+              - generic [ref=e289]: 󰝦
+            - button "ребёнку" [ref=e290] [cursor=pointer]:
+              - generic [ref=e292]: 󰝦
+            - button "учителю" [ref=e293] [cursor=pointer]:
+              - generic [ref=e295]: 󰝦
+            - button "врачу" [ref=e296] [cursor=pointer]:
+              - generic [ref=e298]: 󰝦
+            - button "другое" [ref=e299] [cursor=pointer]:
+              - generic [ref=e301]: 󰝦
+        - generic [ref=e302]:
+          - button "Продолжить" [disabled]:
+            - generic: 󰁔
+    - generic [ref=e304]:
+      - generic [ref=e305]:
+        - generic [ref=e306]:
+          - paragraph [ref=e307]: 06 — Примеры товаров
+          - heading "Сувениры, которые оживают в камере" [level=2] [ref=e308]: Сувениры, которыеоживают в камере
+        - link "Открыть каталог →" [ref=e309] [cursor=pointer]:
+          - /url: /catalog
+      - generic [ref=e310]:
+        - article [ref=e311]:
+          - generic [ref=e312]: "01"
+          - generic [ref=e324]:
+            - heading "Фото-оживайка A4" [level=3] [ref=e325]
+            - paragraph [ref=e326]: Печатная фотография с QR-видео и персональным сюжетом.
+          - strong [ref=e327]: 25 €
+        - article [ref=e328]:
+          - generic [ref=e329]: "02"
+          - generic [ref=e341]:
+            - heading "Фото-оживайка A3" [level=3] [ref=e342]
+            - paragraph [ref=e343]: Большой формат для семейных историй и праздничных портретов.
+          - strong [ref=e344]: 30 €
+        - article [ref=e345]:
+          - generic [ref=e346]: "03"
+          - generic [ref=e358]:
+            - heading "Электронная оживайка без обработки" [level=3] [ref=e359]
+            - paragraph [ref=e360]: Готовый QR-код для вашего фото и видео без дополнительной ретуши.
+          - strong [ref=e361]: 20 €
+        - article [ref=e362]:
+          - generic [ref=e363]: "04"
+          - generic [ref=e375]:
+            - heading "Электронная оживайка с обработкой" [level=3] [ref=e376]
+            - paragraph [ref=e377]: Видео, фото и дизайн собираются в аккуратную подарочную историю.
+          - strong [ref=e378]: 35 €
+        - article [ref=e379]:
+          - generic [ref=e380]: "05"
+          - generic [ref=e392]:
+            - heading "Трек-пластинка A5 с подставкой" [level=3] [ref=e393]
+            - paragraph [ref=e394]: Фото, видео и любимая музыка в одном подарке.
+          - strong [ref=e395]: 30 €
+        - article [ref=e396]:
+          - generic [ref=e397]: "06"
+          - generic [ref=e409]:
+            - heading "Майка-оживайка" [level=3] [ref=e410]
+            - paragraph [ref=e411]: Личный сюжет, который можно носить.
+          - strong [ref=e412]: Цена по согласованию
+        - article [ref=e413]:
+          - generic [ref=e414]: "07"
+          - generic [ref=e426]:
+            - heading "Кружка-оживайка" [level=3] [ref=e427]
+            - paragraph [ref=e428]: Каждое утро начинается с воспоминания.
+          - strong [ref=e429]: Цена по согласованию
+        - article [ref=e430]:
+          - generic [ref=e431]: "08"
+          - generic [ref=e443]:
+            - heading "Брелок-оживайка" [level=3] [ref=e444]
+            - paragraph [ref=e445]: Маленький сувенир с большим личным смыслом.
+          - strong [ref=e446]: Цена по согласованию
+        - article [ref=e447]:
+          - generic [ref=e448]: "09"
+          - generic [ref=e460]:
+            - heading "Шоколад-оживайка" [level=3] [ref=e461]
+            - paragraph [ref=e462]: Персональный шоколад с вашим дизайном и поздравлением.
+          - strong [ref=e463]: Цена по согласованию
+    - generic [ref=e465]:
+      - generic [ref=e466]:
+        - paragraph [ref=e467]: Важная информация
+        - heading "Не оформляйте заказ без согласования" [level=2] [ref=e468]: Не оформляйте заказбез согласования
+      - generic [ref=e469]:
+        - paragraph [ref=e470]: Сначала отправьте своё фото и видео. При необходимости добавьте музыкальный трек и исполнителя. После этого менеджер согласует заказ и подскажет лучший формат подарка.
+        - generic [ref=e471]:
+          - link "ozivajka@inbox.lv" [ref=e472] [cursor=pointer]:
+            - /url: mailto:ozivajka@inbox.lv
+          - link "+371 28153310" [ref=e473] [cursor=pointer]:
+            - /url: tel:+37128153310
+        - link "Создать свой подарок" [ref=e474] [cursor=pointer]:
+          - /url: mailto:ozivajka@inbox.lv
+          - generic [ref=e476]: 󰁔
+    - generic [ref=e479]:
+      - paragraph [ref=e480]: Почему wish_gift
+      - heading "Лично по смыслу. Точно по технологии." [level=2] [ref=e481]
+      - generic [ref=e482]:
+        - article [ref=e483]:
+          - generic [ref=e484]: 󰐳
+          - heading "QR-эффект оживания" [level=3] [ref=e485]
+          - paragraph [ref=e486]: Фото открывает видео, музыку или личное поздравление.
+        - article [ref=e487]:
+          - generic [ref=e488]: 󰋯
+          - heading "Ваши материалы" [level=3] [ref=e489]
+          - paragraph [ref=e490]: Работаем с фото, видео, музыкой и персональной надписью.
+        - article [ref=e491]:
+          - generic [ref=e492]: 󰯢
+          - heading "Согласование заказа" [level=3] [ref=e493]
+          - paragraph [ref=e494]: Менеджер проверит файлы и подтвердит формат до оформления.
+        - article [ref=e495]:
+          - generic [ref=e496]: 󰁨
+          - heading "Персональный дизайн" [level=3] [ref=e497]
+          - paragraph [ref=e498]: Соберём подарок под получателя, праздник и вашу историю.
+    - generic [ref=e500]:
+      - generic [ref=e501]: QRGIFT
+      - generic [ref=e506]:
+        - paragraph [ref=e507]: Корпоративные подарки
+        - heading "Ваш бренд — в живом поздравлении" [level=2] [ref=e508]
+        - paragraph [ref=e509]: "Создадим сувениры с QR-видео для клиентов, партнёров и команды: от шоколада до трек-пластинки с музыкой."
+        - list [ref=e510]:
+          - listitem [ref=e511]: ✓Персональный дизайн под бренд
+          - listitem [ref=e512]: ✓Согласование фото, видео и музыки
+          - listitem [ref=e513]: ✓Форматы для личных и корпоративных заказов
+        - link "Обсудить проект" [ref=e514] [cursor=pointer]:
+          - /url: mailto:ozivajka@inbox.lv
+          - generic [ref=e516]: 󰁔
+    - generic [ref=e518]:
+      - generic [ref=e519]:
+        - generic [ref=e520]: 󰝗
+        - blockquote [ref=e521]: «Мы отправили семейное фото и видео, а получили подарок, который действительно ожил. Это было очень личное поздравление, не похожее на обычный сувенир.»
+        - paragraph [ref=e522]:
+          - strong [ref=e523]: Мария Л.
+          - generic [ref=e524]: заказ фото-оживайки для мамы
+      - generic [ref=e525]:
+        - generic [ref=e526]:
+          - paragraph [ref=e527]: Идеи, которые хочется сохранить
+          - heading "Новые форматы оживаек и идеи для подарков" [level=2] [ref=e528]
+        - generic [ref=e529]:
+          - generic [ref=e530]: Электронная почта
+          - textbox "Электронная почта" [ref=e531]:
+            - /placeholder: Ваш email
+          - button "Подписаться" [ref=e532] [cursor=pointer]
+  - contentinfo [ref=e534]:
+    - generic [ref=e535]:
+      - generic [ref=e536]:
+        - generic [ref=e537]: wish_gift
+        - paragraph [ref=e538]: "Подарки, которые оживают: фото, видео, музыка и QR-код в персональном сувенире."
+        - link "Создать свой подарок" [ref=e539] [cursor=pointer]:
+          - /url: mailto:ozivajka@inbox.lv
+      - generic [ref=e541]:
+        - heading "Навигация" [level=2] [ref=e542]
+        - link "Каталог" [ref=e543] [cursor=pointer]:
+          - /url: /catalog
+        - link "Сувениры-оживайки" [ref=e544] [cursor=pointer]:
+          - /url: /souvenirs
+        - link "Контакты" [ref=e545] [cursor=pointer]:
+          - /url: /contacts
+      - generic [ref=e546]:
+        - heading "Контакты" [level=2] [ref=e547]
+        - link "+371 28153310" [ref=e548] [cursor=pointer]:
+          - /url: tel:+37128153310
+        - link "ozivajka@inbox.lv" [ref=e549] [cursor=pointer]:
+          - /url: mailto:ozivajka@inbox.lv
+        - paragraph [ref=e550]: Сначала согласуйте фото, видео и музыку с менеджером.
+    - generic [ref=e551]:
+      - generic [ref=e552]: © 2026 wish_gift
+      - generic [ref=e553]: Политика конфиденциальности
