@@ -141,7 +141,7 @@ useGsapContext(header, ({ gsap, reduceMotion }) => {
 
         <footer class="site-footer">
             <div class="shell footer-grid">
-                <div><div class="footer-brand">wish_gift</div><p>Dāvanas, kas atdzīvojas: foto, video, mūzika un QR kods personalizētā suvenīrā.</p><v-btn color="secondary" size="small" href="mailto:ozivajka@inbox.lv">Izveidot dāvanu</v-btn></div>
+                <div><div class="footer-brand">wish_gift</div><p class="footer-description">Dāvanas, kas atdzīvojas: foto, video,<br>mūzika un QR kods personalizētā suvenīrā.</p></div>
                 <div><h2>Navigācija</h2><router-link to="/catalog">Katalogs</router-link><router-link to="/souvenirs">Dzīvie suvenīri</router-link><router-link to="/contacts">Kontakti</router-link></div>
                 <div><h2>Kontakti</h2><a href="tel:+37128153310">+371 28153310</a><a href="mailto:ozivajka@inbox.lv">ozivajka@inbox.lv</a><p>Vispirms saskaņojam foto, video, mūziku un dāvanas maketu.</p></div>
             </div>
