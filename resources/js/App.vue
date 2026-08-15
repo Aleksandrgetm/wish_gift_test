@@ -9,12 +9,34 @@ const logoFailed = ref(false);
 const header = ref(null);
 const headerCompact = ref(false);
 const route = useRoute();
+const selectedLanguage = ref('RU');
 const links = [
+    { title: 'Sākums', to: '/' },
     { title: 'Katalogs', to: '/catalog' },
     { title: 'Dzīvie suvenīri', to: '/souvenirs' },
+    { title: 'Biežāk uzdotie jautājumi', to: { path: '/', hash: '#faq' } },
     { title: 'Kontakti', to: '/contacts' },
 ];
-const isActive = (to) => route.path === to || route.path.startsWith(`${to}/`);
+const languages = [
+    { title: 'Русский', code: 'RU' },
+    { title: 'English', code: 'EN' },
+];
+const getPath = (to) => (typeof to === 'string' ? to : to.path);
+const getHash = (to) => (typeof to === 'string' ? '' : to.hash || '');
+const isActive = (to) => {
+    const path = getPath(to);
+    const hash = getHash(to);
+
+    if (hash) {
+        return route.path === path && route.hash === hash;
+    }
+
+    if (path === '/') {
+        return route.path === path && !route.hash;
+    }
+
+    return route.path === path || route.path.startsWith(`${path}/`);
+};
 const updateHeaderState = () => { headerCompact.value = window.scrollY > 12; };
 
 onMounted(() => {
@@ -43,11 +65,33 @@ useGsapContext(header, ({ gsap, reduceMotion }) => {
                     <span class="brand-copy">Wish Gift<small>Dāvanas, kas atdzīvojas</small></span>
                 </router-link>
                 <nav class="desktop-nav" aria-label="Galvenā navigācija">
-                    <router-link v-for="link in links" :key="link.title" :class="{ 'router-link-active': isActive(link.to) }" :to="link.to">{{ link.title }}</router-link>
+                    <router-link
+                        v-for="link in links"
+                        :key="link.title"
+                        active-class="vue-router-link-active"
+                        exact-active-class="vue-router-link-exact-active"
+                        :class="{ 'router-link-active': isActive(link.to) }"
+                        :to="link.to"
+                    >
+                        {{ link.title }}
+                    </router-link>
                 </nav>
                 <div class="header-actions">
-                    <v-btn icon="mdi-magnify" variant="text" aria-label="Meklēt" />
-                    <v-btn icon="mdi-heart-outline" variant="text" aria-label="Izlase" />
+                    <v-menu location="bottom end" content-class="language-menu">
+                        <template #activator="{ props }">
+                            <v-btn v-bind="props" icon="mdi-earth" variant="text" aria-label="Izvēlēties valodu" />
+                        </template>
+                        <v-list density="compact" min-width="150">
+                            <v-list-item
+                                v-for="language in languages"
+                                :key="language.code"
+                                :active="selectedLanguage === language.code"
+                                @click="selectedLanguage = language.code"
+                            >
+                                <v-list-item-title>{{ language.title }}</v-list-item-title>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
                     <v-btn icon="mdi-shopping-outline" variant="text" aria-label="Grozs" />
                     <v-btn class="menu-button" icon="mdi-menu" variant="text" aria-label="Atvērt izvēlni" :aria-expanded="menuOpen" @click="menuOpen = !menuOpen" />
                 </div>
@@ -57,10 +101,33 @@ useGsapContext(header, ({ gsap, reduceMotion }) => {
                     <img v-if="!logoFailed" class="brand-logo" :src="logoSrc" alt="Wish Gift" @error="logoFailed = true">
                     <span v-else>WISH GIFT</span>
                 </router-link>
-                <router-link v-for="link in links" :key="link.title" :class="{ 'router-link-active': isActive(link.to) }" :to="link.to" @click="menuOpen = false">{{ link.title }}</router-link>
+                <router-link
+                    v-for="link in links"
+                    :key="link.title"
+                    active-class="vue-router-link-active"
+                    exact-active-class="vue-router-link-exact-active"
+                    :class="{ 'router-link-active': isActive(link.to) }"
+                    :to="link.to"
+                    @click="menuOpen = false"
+                >
+                    {{ link.title }}
+                </router-link>
                 <div class="mobile-nav-actions" aria-label="Ātrās darbības">
-                    <v-btn icon="mdi-magnify" variant="text" aria-label="Meklēt" />
-                    <v-btn icon="mdi-heart-outline" variant="text" aria-label="Izlase" />
+                    <v-menu location="bottom start" content-class="language-menu">
+                        <template #activator="{ props }">
+                            <v-btn v-bind="props" icon="mdi-earth" variant="text" aria-label="Izvēlēties valodu" />
+                        </template>
+                        <v-list density="compact" min-width="150">
+                            <v-list-item
+                                v-for="language in languages"
+                                :key="language.code"
+                                :active="selectedLanguage === language.code"
+                                @click="selectedLanguage = language.code"
+                            >
+                                <v-list-item-title>{{ language.title }}</v-list-item-title>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
                     <v-btn icon="mdi-shopping-outline" variant="text" aria-label="Grozs" />
                 </div>
             </nav>
