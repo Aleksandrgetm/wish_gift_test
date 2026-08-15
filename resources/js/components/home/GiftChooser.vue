@@ -4,32 +4,32 @@ import { computed, ref } from 'vue';
 const activeTab = ref('recipient');
 const groups = {
     recipient: {
-        label: 'По получателю',
-        title: 'Для кого ищем подарок?',
-        description: 'Выберите человека, а дальше каталог можно будет развить под конкретные сценарии.',
+        label: 'Pēc saņēmēja',
+        title: 'Kam meklējam dāvanu?',
+        description: 'Izvēlieties saņēmēju, un vēlāk katalogu varēs pielāgot konkrētām dāvanu situācijām.',
         items: [
-            ['Мужчине', '/recipient/man', 'Фото, музыка, шутка или тёплый семейный момент.'],
-            ['Женщине', '/recipient/woman', 'Эмоциональный сувенир с видео и личным поздравлением.'],
-            ['Ребёнку', '/recipient/child', 'Яркая история, которую интересно открыть с телефона.'],
-            ['Учителю', '/recipient/teacher', 'Подарок от класса с общим видео или подписью.'],
-            ['Врачу', '/recipient/doctor', 'Благодарность в аккуратном персональном формате.'],
-            ['Другие подарки', '/recipient/other', 'Если идея нестандартная, поможем собрать формат.'],
+            ['Vīrietim', '/recipient/man', 'Foto, mūzika, joks vai silts ģimenes mirklis.'],
+            ['Sievietei', '/recipient/woman', 'Emocionāls suvenīrs ar video un personīgu apsveikumu.'],
+            ['Bērnam', '/recipient/child', 'Spilgts stāsts, ko ir interesanti atvērt telefonā.'],
+            ['Skolotājam', '/recipient/teacher', 'Dāvana no klases ar kopīgu video vai uzrakstu.'],
+            ['Ārstam', '/recipient/doctor', 'Pateicība gaumīgā un personīgā formātā.'],
+            ['Citas dāvanas', '/recipient/other', 'Ja ideja ir neparasta, palīdzēsim atrast piemērotu formātu.'],
         ],
     },
     occasion: {
-        label: 'По празднику',
-        title: 'К какому событию готовимся?',
-        description: 'Повод помогает выбрать тон: нежный, праздничный, семейный или корпоративный.',
+        label: 'Pēc svētkiem',
+        title: 'Kādiem svētkiem gatavojamies?',
+        description: 'Notikums palīdz izvēlēties noskaņu: maigu, svinīgu, ģimenisku vai korporatīvu.',
         items: [
-            ['Рождество', '/occasion/christmas', 'Тёплые семейные видео и праздничные открытки.'],
-            ['Новый год', '/occasion/new-year', 'Итоги года, пожелания и музыкальные поздравления.'],
-            ['14 февраля', '/occasion/valentine', 'Личное признание, фото и любимая песня.'],
-            ['8 марта', '/occasion/womens-day', 'Шоколад, фото или открытка с QR-видео.'],
-            ['День матери', '/occasion/mothers-day', 'Самые личные воспоминания в красивом сувенире.'],
-            ['День учителя', '/occasion/teachers-day', 'Общее поздравление от класса или группы.'],
-            ['День студента', '/occasion/students-day', 'Весёлый подарок с фото, видео и шуткой.'],
-            ['1 сентября', '/occasion/september-first', 'Старт учебного года с персональным посланием.'],
-            ['День отца', '/occasion/fathers-day', 'Фото, голос, музыка и семейная история.'],
+            ['Ziemassvētki', '/occasion/christmas', 'Silti ģimenes video un svētku kartītes.'],
+            ['Jaunais gads', '/occasion/new-year', 'Gada atmiņas, novēlējumi un muzikāli apsveikumi.'],
+            ['Valentīndiena', '/occasion/valentine', 'Personīgs atzīšanās mirklis, foto un mīļākā dziesma.'],
+            ['8. marts', '/occasion/womens-day', 'Šokolāde, foto vai kartīte ar QR video.'],
+            ['Mātes diena', '/occasion/mothers-day', 'Vissiltākās atmiņas skaistā suvenīrā.'],
+            ['Skolotāju diena', '/occasion/teachers-day', 'Kopīgs apsveikums no klases vai grupas.'],
+            ['Studentu diena', '/occasion/students-day', 'Jautra dāvana ar foto, video un joku.'],
+            ['1. septembris', '/occasion/september-first', 'Mācību gada sākums ar personīgu vēstījumu.'],
+            ['Tēva diena', '/occasion/fathers-day', 'Foto, balss, mūzika un ģimenes stāsts.'],
         ],
     },
 };
@@ -42,10 +42,10 @@ const current = computed(() => groups[activeTab.value]);
         <div class="shell gift-chooser">
             <div class="gift-chooser-head">
                 <div>
-                    <p class="eyebrow">Выбор подарка</p>
-                    <h2 id="gift-chooser-title">Найдите подарок для своего человека</h2>
+                    <p class="eyebrow">Dāvanas izvēle</p>
+                    <h2 id="gift-chooser-title" class="section-title">Atrodiet dāvanu savam cilvēkam</h2>
                 </div>
-                <div class="gift-tabs" role="tablist" aria-label="Способ выбора подарка">
+                <div class="gift-tabs" role="tablist" aria-label="Dāvanas izvēles veids">
                     <button
                         v-for="(group, key) in groups"
                         :id="`gift-tab-${key}`"

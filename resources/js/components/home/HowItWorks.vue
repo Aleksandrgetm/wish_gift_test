@@ -4,11 +4,11 @@ import { useGsapContext } from '../../composables/useGsapContext';
 
 const root = ref(null);
 const steps = [
-    ['Выберите подарок', 'Фото, кружка, футболка, шоколад, брелок, открытка или музыкальная пластинка.'],
-    ['Отправьте фото и видео', 'Передайте материалы, которые должны стать частью личной истории.'],
-    ['Добавьте музыку или пожелание', 'Можно добавить песню, надпись, шарж или короткое поздравление.'],
-    ['Согласуйте макет', 'Мы проверяем материалы и согласуем дизайн перед изготовлением.'],
-    ['Получите готовый подарок', 'Сувенир приходит с QR-кодом, который открывает ваше послание.'],
+    ['Izvēlies dāvanu', 'Foto, krūze, T-krekls, šokolāde, piekariņš, kartīte vai dziesmas plāksne.'],
+    ['Nosūti foto un video', 'Atsūtiet materiālus, kas kļūs par daļu no personīga stāsta.'],
+    ['Pievieno mūziku vai novēlējumu', 'Var pievienot dziesmu, uzrakstu, karikatūru vai īsu apsveikumu.'],
+    ['Saskaņo maketu', 'Pirms izgatavošanas pārbaudām materiālus un saskaņojam dizainu.'],
+    ['Saņem gatavo dāvanu', 'Suvenīrs tiek sagatavots ar QR kodu, kas atver jūsu vēstījumu.'],
 ];
 
 useGsapContext(root, ({ gsap, media, reduceMotion }) => {
@@ -37,10 +37,10 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
         <div class="shell">
             <div class="section-heading">
                 <div>
-                    <p class="eyebrow">Как заказать</p>
-                    <h2 id="process-title">От идеи до готового подарка без лишней суеты</h2>
+                    <p class="eyebrow">Kā pasūtīt</p>
+                    <h2 id="process-title" class="section-title">No idejas līdz gatavai dāvanai bez liekas steigas</h2>
                 </div>
-                <a href="#finder">Подобрать формат <span>→</span></a>
+                <a href="#finder">Izvēlēties formātu <span>→</span></a>
             </div>
             <div class="process-line" aria-hidden="true"><i></i></div>
             <div class="process-track process-journey">

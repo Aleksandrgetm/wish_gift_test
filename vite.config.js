@@ -11,14 +11,15 @@ export default defineConfig({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
             fonts: [
-                bunny('Cormorant Garamond', {
-                    weights: [400, 500],
+                bunny('Playfair Display', {
+                    weights: [400, 500, 600],
                     styles: ['normal', 'italic'],
                     subsets: ['latin', 'latin-ext', 'cyrillic'],
                 }),
-                bunny('Manrope', {
-                    weights: [400, 500, 600],
-                    subsets: ['latin', 'latin-ext', 'cyrillic'],
+                bunny('Source Sans Pro', {
+                    weights: [400, 600],
+                    styles: ['normal'],
+                    subsets: ['latin', 'latin-ext', 'cyrillic', 'cyrillic-ext'],
                 }),
             ],
         }),

@@ -4,10 +4,10 @@ import { useGsapContext } from '../../composables/useGsapContext';
 
 const root = ref(null);
 const steps = [
-    ['01', 'Подарок', 'Фото, шоколад, открытка, кружка или другой сувенир становятся личной историей.'],
-    ['02', 'QR-код', 'На макете появляется аккуратный QR-код, связанный с вашим видео, музыкой или пожеланием.'],
-    ['03', 'Телефон', 'Получатель наводит камеру телефона и сразу открывает скрытое послание.'],
-    ['04', 'Эмоция', 'Подарок оживает: появляется видео, любимая песня, шарж или тёплое поздравление.'],
+    ['01', 'Dāvana', 'Foto, šokolāde, kartīte, krūze vai cits suvenīrs kļūst par personīgu stāstu.'],
+    ['02', 'QR kods', 'Maketa dizainā iekļaujam QR kodu, kas atver jūsu video, mūziku vai novēlējumu.'],
+    ['03', 'Telefons', 'Saņēmējs noskenē QR kodu ar telefonu un uzreiz atver paslēpto vēstījumu.'],
+    ['04', 'Emocija', 'Dāvana atdzīvojas: parādās video, mīļākā dziesma, karikatūra vai silts apsveikums.'],
 ];
 
 useGsapContext(root, ({ gsap, media, reduceMotion }) => {
@@ -24,9 +24,9 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
     <section id="ozhivayka" ref="root" class="section ozhivayka-section motion-reveal" aria-labelledby="ozhivayka-title">
         <div class="shell ozhivayka-grid">
             <div class="ozhivayka-copy">
-                <p class="eyebrow">Что такое «Оживайка»</p>
-                <h2 id="ozhivayka-title">Подарок, который открывает личное воспоминание</h2>
-                <p class="section-lead">Мы соединяем реальный сувенир с QR-кодом: человек получает вещь, сканирует её телефоном и видит ваше видео, музыку, шарж или поздравление.</p>
+                <p class="eyebrow">Kas ir dzīvā dāvana</p>
+                <h2 id="ozhivayka-title" class="section-title">Dāvana, kas atver personīgu atmiņu</h2>
+                <p class="section-lead">Mēs savienojam īstu suvenīru ar QR kodu: cilvēks saņem dāvanu, noskenē to ar telefonu un redz jūsu video, mūziku, karikatūru vai apsveikumu.</p>
                 <div class="ozhivayka-steps">
                     <article v-for="step in steps" :key="step[0]" class="ozhivayka-step">
                         <span>{{ step[0] }}</span>
@@ -37,10 +37,10 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
                     </article>
                 </div>
             </div>
-            <div class="ozhivayka-visual" aria-label="Сувенир с QR-кодом открывает видео на телефоне" role="img">
+            <div class="ozhivayka-visual" aria-label="Suvenīrs ar QR kodu atver video telefonā" role="img">
                 <div class="ozhivayka-product">
-                    <img :src="'/images/Products/день матери 4.png'" alt="Пример персонализированного подарка с QR-кодом" loading="lazy">
-                    <span>REAL GIFT</span>
+                    <img :src="'/images/Products/день матери 4.png'" alt="Personalizētas dāvanas piemērs ar QR kodu" loading="lazy">
+                    <span>Īsta dāvana</span>
                 </div>
                 <div class="ozhivayka-phone">
                     <div class="phone-speaker"></div>
@@ -48,7 +48,7 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
                         <img :src="'/images/Products/день учителя.png'" alt="" loading="lazy">
                         <div class="phone-play"><v-icon icon="mdi-play" size="24" /></div>
                     </div>
-                    <p>Видео + музыка</p>
+                    <p>Video + mūzika</p>
                 </div>
                 <div class="ozhivayka-qr" aria-hidden="true">
                     <i v-for="cell in 9" :key="cell"></i>
