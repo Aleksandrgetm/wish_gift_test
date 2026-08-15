@@ -66,7 +66,6 @@ const products = [
                     <router-link class="home-product-image" :to="product.to" :aria-label="`Atvērt ${product.name}`">
                         <img :src="product.image" :alt="product.name" loading="lazy">
                         <span>{{ product.badge }}</span>
-                        <i aria-hidden="true"><v-icon icon="mdi-qrcode-scan" size="20" /></i>
                     </router-link>
                     <div class="home-product-content">
                         <div>
