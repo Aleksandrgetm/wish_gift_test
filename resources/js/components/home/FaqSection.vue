@@ -1,20 +1,20 @@
 <script setup>
 const questions = [
-    ['Как работает Оживайка?', 'Мы размещаем QR-код на подарке. Получатель сканирует его телефоном и открывает видео, музыку, шарж, фото или персональное поздравление.'],
-    ['Как отправить фото и видео?', 'На этом этапе сайт показывает frontend-сценарий. Для заказа нужно перейти к созданию подарка или связаться с нами, а материалы согласовать с менеджером.'],
-    ['Можно ли добавить музыку?', 'Да, в формат можно включить музыку или песню, если она подходит к выбранному подарку и материалам.'],
-    ['Можно ли сделать шарж?', 'Да, шарж можно использовать как часть персонального дизайна, если он нужен для вашей идеи.'],
-    ['Сколько занимает изготовление?', 'Точный срок зависит от формата, макета и материалов. Мы не фиксируем срок на главной без согласования конкретного заказа.'],
-    ['Как происходит согласование?', 'Перед изготовлением проверяем материалы, обсуждаем макет и подтверждаем, что подарок будет выглядеть правильно.'],
+    ['Kā darbojas dzīvā dāvana?', 'Mēs izvietojam QR kodu uz dāvanas. Saņēmējs to noskenē ar telefonu un atver video, mūziku, karikatūru, foto vai personīgu apsveikumu.'],
+    ['Kā nosūtīt foto un video?', 'Šajā posmā vietne rāda pasūtījuma izvēles scenāriju. Lai pasūtītu dāvanu, pārejiet uz dāvanas izveidi vai sazinieties ar mums, un materiālus saskaņosim ar menedžeri.'],
+    ['Vai var pievienot mūziku?', 'Jā, formātā var iekļaut mūziku vai dziesmu, ja tā atbilst izvēlētajai dāvanai un materiāliem.'],
+    ['Vai var izveidot karikatūru?', 'Jā, karikatūru var izmantot kā daļu no personalizētā dizaina, ja tā iederas jūsu idejā.'],
+    ['Cik ilgi notiek izgatavošana?', 'Precīzs laiks ir atkarīgs no formāta, maketa un materiāliem. To nosakām pēc konkrētā pasūtījuma saskaņošanas.'],
+    ['Kā notiek pasūtījuma saskaņošana?', 'Pirms izgatavošanas pārbaudām materiālus, pārrunājam maketu un apstiprinām, ka dāvana izskatīsies pareizi.'],
 ];
 </script>
 
 <template>
     <section class="section faq-section motion-reveal" aria-labelledby="faq-title">
         <div class="shell faq-layout">
-            <div>
-                <p class="eyebrow">FAQ</p>
-                <h2 id="faq-title">Вопросы, которые помогают решиться</h2>
+            <div class="faq-heading">
+                <p class="eyebrow">Jautājumi</p>
+                <h2 id="faq-title" class="section-title">Biežāk uzdotie jautājumi</h2>
             </div>
             <v-expansion-panels class="faq-panels" variant="accordion" elevation="0">
                 <v-expansion-panel v-for="item in questions" :key="item[0]">

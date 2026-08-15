@@ -4,11 +4,11 @@ import { useGsapContext } from '../../composables/useGsapContext';
 
 const root = ref(null);
 const stories = [
-    { number: '01', title: 'Фото-оживайка', subtitle: 'Больше, чем один кадр', text: 'Фотография хранит момент, а QR-код открывает видео, голос или музыку.', tone: 'winter', mark: 'PHOTO', cta: 'Смотреть фото-подарки' },
-    { number: '02', title: 'Шоколад с QR', subtitle: 'Поздравление внутри дизайна', text: 'Персональная упаковка, фото, текст и скрытое видео для получателя.', tone: 'march', mark: 'CHOCO', cta: 'Смотреть шоколад' },
-    { number: '03', title: 'Кружка-оживайка', subtitle: 'Утро с воспоминанием', text: 'Каждый день может начинаться с личного послания, которое открывается камерой.', tone: 'easter', mark: 'MUG', cta: 'Смотреть кружки' },
-    { number: '04', title: 'Майка с QR', subtitle: 'История, которую носят', text: 'Личный сюжет становится частью вещи, а QR-код открывает его в нужный момент.', tone: 'wedding', mark: 'TEE', cta: 'Смотреть майки' },
-    { number: '05', title: 'Трек-пластинка', subtitle: 'Музыка, фото и видео', text: 'Любимая песня, фото и видео объединяются в одном подарочном формате.', tone: 'business', mark: 'TRACK', cta: 'Смотреть пластинки' },
+    { number: '01', title: 'Foto ar QR video', subtitle: 'Vairāk nekā viens kadrs', text: 'Fotogrāfija glabā mirkli, bet QR kods atver video, balsi vai mūziku.', tone: 'winter', mark: 'FOTO', cta: 'Apskatīt foto dāvanas' },
+    { number: '02', title: 'Šokolāde ar QR', subtitle: 'Apsveikums dizaina iekšpusē', text: 'Personalizēts iepakojums, foto, teksts un paslēpts video dāvanas saņēmējam.', tone: 'march', mark: 'ŠOKO', cta: 'Apskatīt šokolādi' },
+    { number: '03', title: 'Krūze ar QR video', subtitle: 'Rīts ar atmiņu', text: 'Katra diena var sākties ar personīgu vēstījumu, ko atver ar telefonu.', tone: 'easter', mark: 'KRŪZE', cta: 'Apskatīt krūzes' },
+    { number: '04', title: 'T-krekls ar QR', subtitle: 'Stāsts, ko nēsā līdzi', text: 'Personīgs sižets kļūst par daļu no lietas, bet QR kods atver to īstajā brīdī.', tone: 'wedding', mark: 'KREKLS', cta: 'Apskatīt T-kreklus' },
+    { number: '05', title: 'Dziesmas plāksne', subtitle: 'Mūzika, foto un video', text: 'Mīļākā dziesma, foto un video apvienojas vienā dāvanas formātā.', tone: 'business', mark: 'MŪZIKA', cta: 'Apskatīt plāksnes' },
 ];
 
 useGsapContext(root, ({ gsap, media, reduceMotion }) => {
@@ -33,7 +33,7 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
 <template>
     <section ref="root" class="occasion-story">
         <div class="occasion-pin">
-            <div class="occasion-label">06 — Главный WOW-момент</div>
+            <div class="occasion-label">06 — Galvenais atdzīvošanās mirklis</div>
             <article v-for="story in stories" :key="story.title" class="occasion-panel" :class="`occasion-${story.tone}`">
                 <div class="shell occasion-layout">
                     <div class="occasion-copy"><span class="occasion-kicker">{{ story.number }} / 05</span><h2>{{ story.title }}</h2><h3>{{ story.subtitle }}</h3><p>{{ story.text }}</p><router-link class="story-link" to="/souvenirs">{{ story.cta }} <span>→</span></router-link></div>
