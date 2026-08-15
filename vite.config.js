@@ -11,8 +11,14 @@ export default defineConfig({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
             fonts: [
-                bunny('Sora', {
-                    weights: [300, 400, 500, 600, 700, 800],
+                bunny('Cormorant Garamond', {
+                    weights: [400, 500],
+                    styles: ['normal', 'italic'],
+                    subsets: ['latin', 'latin-ext', 'cyrillic'],
+                }),
+                bunny('Manrope', {
+                    weights: [400, 500, 600],
+                    subsets: ['latin', 'latin-ext', 'cyrillic'],
                 }),
             ],
         }),
