@@ -10,7 +10,7 @@ const questions = [
 </script>
 
 <template>
-    <section class="section faq-section motion-reveal" aria-labelledby="faq-title">
+    <section id="faq" class="section faq-section motion-reveal" aria-labelledby="faq-title">
         <div class="shell faq-layout">
             <div class="faq-heading">
                 <p class="eyebrow">Jautājumi</p>
