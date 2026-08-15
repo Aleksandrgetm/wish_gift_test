@@ -4,11 +4,11 @@ import { useGsapContext } from '../../composables/useGsapContext';
 
 const root = ref(null);
 const stories = [
-    { number: '01', title: 'Фото-оживайка', subtitle: 'Больше, чем один момент', text: 'Фотография, которая хранит больше, чем один момент.', tone: 'winter', mark: 'PHOTO', cta: 'Смотреть фото-оживайки' },
-    { number: '02', title: 'Шоколад-оживайка', subtitle: 'Поздравление внутри дизайна', text: 'Персональный подарок с вашим фото, видео и поздравлением.', tone: 'march', mark: 'CHOCO', cta: 'Смотреть шоколад' },
-    { number: '03', title: 'Кружка-оживайка', subtitle: 'Утро с воспоминанием', text: 'Каждое утро начинается с воспоминания.', tone: 'easter', mark: 'MUG', cta: 'Смотреть кружки' },
-    { number: '04', title: 'Майка-оживайка', subtitle: 'История, которую носят', text: 'Личный сюжет, который можно носить.', tone: 'wedding', mark: 'TEE', cta: 'Смотреть майки' },
-    { number: '05', title: 'Трек-пластинка', subtitle: 'Музыка, фото и видео', text: 'Фото, видео и любимая музыка в одном подарке.', tone: 'business', mark: 'TRACK', cta: 'Смотреть пластинки' },
+    { number: '01', title: 'Foto ar QR video', subtitle: 'Vairāk nekā viens mirklis', text: 'Fotogrāfija, kas glabā vairāk nekā vienu mirkli.', tone: 'winter', mark: 'PHOTO', cta: 'Apskatīt foto dāvanas' },
+    { number: '02', title: 'Šokolāde ar QR video', subtitle: 'Apsveikums dizaina iekšpusē', text: 'Personalizēta dāvana ar jūsu foto, video un apsveikumu.', tone: 'march', mark: 'CHOCO', cta: 'Apskatīt šokolādi' },
+    { number: '03', title: 'Krūze ar QR video', subtitle: 'Rīts ar atmiņu', text: 'Katrs rīts sākas ar atmiņu.', tone: 'easter', mark: 'MUG', cta: 'Apskatīt krūzes' },
+    { number: '04', title: 'T-krekls ar QR video', subtitle: 'Stāsts, ko nēsā līdzi', text: 'Personīgs stāsts, ko var nēsāt.', tone: 'wedding', mark: 'TEE', cta: 'Apskatīt T-kreklus' },
+    { number: '05', title: 'Dziesmas plāksne', subtitle: 'Mūzika, foto un video', text: 'Foto, video un mīļākā mūzika vienā dāvanā.', tone: 'business', mark: 'TRACK', cta: 'Apskatīt plāksnes' },
 ];
 
 useGsapContext(root, ({ gsap, media, reduceMotion }) => {
@@ -33,7 +33,7 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
 <template>
     <section ref="root" class="occasion-story">
         <div class="occasion-pin">
-            <div class="occasion-label">02 — Сувениры-оживайки</div>
+            <div class="occasion-label">02 — Suvenīri ar QR video</div>
             <article v-for="story in stories" :key="story.title" class="occasion-panel" :class="`occasion-${story.tone}`">
                 <div class="shell occasion-layout">
                     <div class="occasion-copy"><span class="occasion-kicker">{{ story.number }} / 05</span><h2>{{ story.title }}</h2><h3>{{ story.subtitle }}</h3><p>{{ story.text }}</p><a class="story-link" href="/souvenirs">{{ story.cta }} <span>→</span></a></div>

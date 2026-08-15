@@ -6,9 +6,9 @@ const route = useRoute();
 
 <template>
     <main class="placeholder-page shell">
-        <p class="eyebrow">Следующий этап</p>
+        <p class="eyebrow">Nākamais posms</p>
         <h1>{{ route.meta.title }}</h1>
-        <p>Раздел уже включён в навигацию и будет наполнен на следующем этапе разработки.</p>
-        <v-btn color="primary" to="/">Вернуться на главную</v-btn>
+        <p>Sadaļa jau ir iekļauta navigācijā un tiks papildināta nākamajā izstrādes posmā.</p>
+        <v-btn color="primary" to="/">Atgriezties sākumlapā</v-btn>
     </main>
 </template>

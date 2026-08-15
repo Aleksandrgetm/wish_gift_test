@@ -4,12 +4,12 @@ import { useGsapContext } from '../../composables/useGsapContext';
 
 const root = ref(null);
 const steps = [
-    'Выберите сувенир',
-    'Загрузите фото',
-    'Загрузите видео',
-    'При необходимости добавьте музыку',
-    'Согласуйте заказ с менеджером',
-    'Получите готовый подарок с QR-кодом',
+    'Izvēlieties suvenīru',
+    'Augšupielādējiet foto',
+    'Augšupielādējiet video',
+    'Ja nepieciešams, pievienojiet mūziku',
+    'Saskaņojiet pasūtījumu ar menedžeri',
+    'Saņemiet gatavu dāvanu ar QR kodu',
 ];
 
 useGsapContext(root, ({ gsap, media, reduceMotion }) => {
@@ -37,17 +37,17 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
     <section id="how-it-works" ref="root" class="section process-section motion-reveal">
         <div class="shell">
             <div class="section-heading">
-                <div><p class="eyebrow">04 — Как это работает</p><h2>От личного момента<br>до подарка с QR-кодом</h2></div>
-                <a href="/souvenirs">Выбрать формат <span>→</span></a>
+                <div><p class="eyebrow">04 — Kā tas darbojas</p><h2>No personīga mirkļa<br>līdz dāvanai ar QR kodu</h2></div>
+                <a href="/souvenirs">Izvēlēties formātu <span>→</span></a>
             </div>
             <div class="process-line" aria-hidden="true"><i></i></div>
             <div class="process-track">
                 <article v-for="(step, index) in steps" :key="step" class="process-card">
                     <span>0{{ index + 1 }}</span>
                     <h3>{{ step }}</h3>
-                    <p v-if="index === 0">Начните с фото, кружки, майки, шоколада или трек-пластинки.</p>
-                    <p v-else-if="index === 4">Менеджер проверит материалы и подтвердит детали до оформления.</p>
-                    <p v-else>Шаг собирает вашу историю в аккуратный персональный подарок.</p>
+                    <p v-if="index === 0">Sāciet ar foto, krūzi, T-kreklu, šokolādi vai dziesmas plāksni.</p>
+                    <p v-else-if="index === 4">Menedžeris pārbaudīs materiālus un apstiprinās detaļas pirms noformēšanas.</p>
+                    <p v-else>Katrs solis veido jūsu stāstu rūpīgi sagatavotā personalizētā dāvanā.</p>
                 </article>
             </div>
         </div>

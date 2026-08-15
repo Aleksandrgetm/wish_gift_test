@@ -43,29 +43,29 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
         <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
         <div class="shell hero-grid">
             <div class="hero-copy">
-                <div class="hero-eyebrow-mask"><p class="eyebrow hero-eyebrow">Персональные сувениры · QR-видео</p></div>
-                <h1 aria-label="Подарки, которые оживают">
-                    <span class="hero-line"><span>Подарки,</span></span>
-                    <span class="hero-line"><span>которые</span></span>
-                    <span class="hero-line"><span><em>оживают</em></span></span>
+                <div class="hero-eyebrow-mask"><p class="eyebrow hero-eyebrow">Personalizēti suvenīri · QR video</p></div>
+                <h1 aria-label="Dāvanas, kas atdzīvojas">
+                    <span class="hero-line"><span>Dāvanas,</span></span>
+                    <span class="hero-line"><span>kas</span></span>
+                    <span class="hero-line"><span><em>atdzīvojas</em></span></span>
                 </h1>
-                <p class="hero-lead">Фото, видео и личные моменты превращаются в сувениры с настоящей эмоцией. Наведите камеру на QR-код — и фотография оживёт.</p>
+                <p class="hero-lead">Foto, video un personīgi mirkļi pārtop suvenīros ar īstu emociju. Pavērsiet kameru pret QR kodu, un fotogrāfija atdzīvosies.</p>
                 <div class="hero-actions">
-                    <span ref="primaryCta" class="magnetic-wrap"><v-btn color="primary" size="large" to="/souvenirs" append-icon="mdi-arrow-right">Создать оживайку</v-btn></span>
-                    <v-btn class="link-underline" variant="text" size="large" href="#collections">Смотреть подарки</v-btn>
+                    <span ref="primaryCta" class="magnetic-wrap"><v-btn color="primary" size="large" to="/souvenirs" append-icon="mdi-arrow-right">Izveidot dāvanu</v-btn></span>
+                    <v-btn class="link-underline" variant="text" size="large" href="#collections">Apskatīt dāvanas</v-btn>
                 </div>
-                <div class="hero-proof"><strong>QR</strong><span>Фото + видео<small>Персональный подарок согласуется перед оформлением</small></span></div>
+                <div class="hero-proof"><strong>QR</strong><span>Foto + video<small>Personalizēta dāvana tiek saskaņota pirms noformēšanas</small></span></div>
             </div>
-            <div ref="stage" class="gift-stage" aria-label="Подарочная карточка с QR-кодом и персональным видео" role="img">
+            <div ref="stage" class="gift-stage" aria-label="Dāvanu kartīte ar QR kodu un personīgu video" role="img">
                 <div class="gift-stage-inner">
-                    <div class="stage-note">Ваше фото<br><strong>становится историей</strong></div>
+                    <div class="stage-note">Jūsu foto<br><strong>kļūst par stāstu</strong></div>
                     <div class="gift-box box-tall"><span>QR VIDEO</span><i></i></div>
                     <div class="gift-box box-round qr-orb"><span>play</span></div>
                     <div class="gift-box box-flat qr-card"><span>SCAN<br>MEMORY</span><i></i><b></b></div>
                 </div>
             </div>
         </div>
-        <div class="scroll-cue"><span>SCROLL TO DISCOVER</span><i></i></div>
+        <div class="scroll-cue"><span>RITINIET, LAI ATKLĀTU</span><i></i></div>
         <div class="hero-wipe"></div>
     </section>
 </template>

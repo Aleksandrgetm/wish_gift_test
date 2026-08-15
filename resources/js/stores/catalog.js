@@ -13,9 +13,9 @@ export const useCatalogStore = defineStore('catalog', () => {
     const favorites = ref([]);
 
     const filtered = computed(() => {
-        const term = query.value.trim().toLocaleLowerCase('ru');
+        const term = query.value.trim().toLocaleLowerCase('lv-LV');
         const result = products.filter((product) => {
-            const matchesQuery = !term || `${product.name} ${product.collection} ${product.category}`.toLocaleLowerCase('ru').includes(term);
+            const matchesQuery = !term || `${product.name} ${product.collection} ${product.category}`.toLocaleLowerCase('lv-LV').includes(term);
             const matchesOccasion = !filters.value.occasions.length || filters.value.occasions.includes(product.occasion);
             const matchesCategory = !filters.value.categories.length || filters.value.categories.includes(product.category);
             const matchesMaterial = !filters.value.materials.length || filters.value.materials.includes(product.material);

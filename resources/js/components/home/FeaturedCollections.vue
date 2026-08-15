@@ -5,10 +5,10 @@ import { useGsapContext } from '../../composables/useGsapContext';
 const root = ref(null);
 const track = ref(null);
 const collections = [
-    { label: 'Главная коллекция', number: '01', title: 'Сувениры-оживайки', detail: 'Фото, кружки, майки, шоколад и другие подарки с QR-видео.', price: 'от 20 €', style: 'heritage' },
-    { label: 'Быстрый выбор', number: '02', title: 'Подарки по случаю', detail: 'Подберите подарок по празднику или получателю.', price: 'подбор', style: 'botanica' },
-    { label: 'Для близких', number: '03', title: 'Подарки для близких', detail: 'Мужчине, женщине, ребёнку, учителю или врачу.', price: 'индивидуально', style: 'mono' },
-    { label: 'Поводы', number: '04', title: 'Праздничные поводы', detail: 'Новый год, 14 февраля, 8 марта, День матери и другие даты.', price: 'по запросу', style: 'afternoon' },
+    { label: 'Galvenā kolekcija', number: '01', title: 'Suvenīri ar QR video', detail: 'Foto, krūzes, T-krekli, šokolāde un citas dāvanas ar QR video.', price: 'no 20 €', style: 'heritage' },
+    { label: 'Ātra izvēle', number: '02', title: 'Dāvanas pēc notikuma', detail: 'Izvēlieties dāvanu pēc svētkiem vai saņēmēja.', price: 'atlase', style: 'botanica' },
+    { label: 'Tuvajiem', number: '03', title: 'Dāvanas tuvajiem', detail: 'Vīrietim, sievietei, bērnam, skolotājam vai ārstam.', price: 'individuāli', style: 'mono' },
+    { label: 'Notikumi', number: '04', title: 'Svētku notikumi', detail: 'Jaunais gads, 14. februāris, 8. marts, Mātes diena un citi datumi.', price: 'pēc pieprasījuma', style: 'afternoon' },
 ];
 
 useGsapContext(root, ({ gsap, media, reduceMotion }) => {
@@ -28,14 +28,14 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
 
 <template>
     <section id="collections" ref="root" class="collection-section collection-story">
-        <div class="shell collection-header"><div><p class="eyebrow">03 — Выбор клиентов</p><h2>Подарки,<br><em>созданные оживать</em></h2></div><p>Четыре направления помогают быстро выбрать формат: по сувениру, поводу, получателю или личной истории.</p></div>
+        <div class="shell collection-header"><div><p class="eyebrow">03 — Klientu izvēle</p><h2>Dāvanas,<br><em>radītas atdzīvoties</em></h2></div><p>Četri virzieni palīdz ātri izvēlēties formātu: pēc suvenīra, notikuma, saņēmēja vai personīgā stāsta.</p></div>
         <div ref="track" class="collection-track">
             <article v-for="item in collections" :key="item.title" class="product-card tilt-card">
                 <div class="product-visual" :class="item.style"><span>{{ item.label }}</span><span class="product-number">{{ item.number }}</span><div class="mini-package"><b>QR</b><small>{{ item.title }}</small></div></div>
                 <div class="product-info"><div><h3>{{ item.title }}</h3><p>{{ item.detail }}</p></div><strong>{{ item.price }}</strong></div>
-                <v-btn class="product-action" icon="mdi-arrow-top-right" variant="outlined" aria-label="Открыть коллекцию" />
+                <v-btn class="product-action" icon="mdi-arrow-top-right" variant="outlined" aria-label="Atvērt kolekciju" />
             </article>
-            <a class="collection-end" href="/souvenirs"><span>Смотреть все<br>оживайки</span><i>→</i></a>
+            <a class="collection-end" href="/souvenirs"><span>Apskatīt visus<br>QR suvenīrus</span><i>→</i></a>
         </div>
     </section>
 </template>

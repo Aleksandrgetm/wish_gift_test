@@ -6,8 +6,8 @@ import { aliveProducts } from '../../data/aliveProducts';
     <section class="section alive-products-section motion-reveal">
         <div class="shell">
             <div class="section-heading">
-                <div><p class="eyebrow">06 — Примеры товаров</p><h2>Сувениры, которые<br>оживают в камере</h2></div>
-                <a href="/catalog">Открыть каталог <span>→</span></a>
+                <div><p class="eyebrow">06 — Produktu piemēri</p><h2>Suvenīri, kas<br>atdzīvojas kamerā</h2></div>
+                <a href="/catalog">Atvērt katalogu <span>→</span></a>
             </div>
             <div class="alive-product-grid">
                 <article v-for="(product, index) in aliveProducts" :key="product.title" class="alive-product-card tilt-card" :class="`alive-${product.tone}`">
