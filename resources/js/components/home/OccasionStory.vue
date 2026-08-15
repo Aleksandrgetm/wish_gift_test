@@ -4,11 +4,11 @@ import { useGsapContext } from '../../composables/useGsapContext';
 
 const root = ref(null);
 const stories = [
-    { number: '01', title: 'Foto ar QR video', subtitle: 'Vairāk nekā viens mirklis', text: 'Fotogrāfija, kas glabā vairāk nekā vienu mirkli.', tone: 'winter', mark: 'PHOTO', cta: 'Apskatīt foto dāvanas' },
-    { number: '02', title: 'Šokolāde ar QR video', subtitle: 'Apsveikums dizaina iekšpusē', text: 'Personalizēta dāvana ar jūsu foto, video un apsveikumu.', tone: 'march', mark: 'CHOCO', cta: 'Apskatīt šokolādi' },
-    { number: '03', title: 'Krūze ar QR video', subtitle: 'Rīts ar atmiņu', text: 'Katrs rīts sākas ar atmiņu.', tone: 'easter', mark: 'MUG', cta: 'Apskatīt krūzes' },
-    { number: '04', title: 'T-krekls ar QR video', subtitle: 'Stāsts, ko nēsā līdzi', text: 'Personīgs stāsts, ko var nēsāt.', tone: 'wedding', mark: 'TEE', cta: 'Apskatīt T-kreklus' },
-    { number: '05', title: 'Dziesmas plāksne', subtitle: 'Mūzika, foto un video', text: 'Foto, video un mīļākā mūzika vienā dāvanā.', tone: 'business', mark: 'TRACK', cta: 'Apskatīt plāksnes' },
+    { number: '01', title: 'Фото-оживайка', subtitle: 'Больше, чем один кадр', text: 'Фотография хранит момент, а QR-код открывает видео, голос или музыку.', tone: 'winter', mark: 'PHOTO', cta: 'Смотреть фото-подарки' },
+    { number: '02', title: 'Шоколад с QR', subtitle: 'Поздравление внутри дизайна', text: 'Персональная упаковка, фото, текст и скрытое видео для получателя.', tone: 'march', mark: 'CHOCO', cta: 'Смотреть шоколад' },
+    { number: '03', title: 'Кружка-оживайка', subtitle: 'Утро с воспоминанием', text: 'Каждый день может начинаться с личного послания, которое открывается камерой.', tone: 'easter', mark: 'MUG', cta: 'Смотреть кружки' },
+    { number: '04', title: 'Майка с QR', subtitle: 'История, которую носят', text: 'Личный сюжет становится частью вещи, а QR-код открывает его в нужный момент.', tone: 'wedding', mark: 'TEE', cta: 'Смотреть майки' },
+    { number: '05', title: 'Трек-пластинка', subtitle: 'Музыка, фото и видео', text: 'Любимая песня, фото и видео объединяются в одном подарочном формате.', tone: 'business', mark: 'TRACK', cta: 'Смотреть пластинки' },
 ];
 
 useGsapContext(root, ({ gsap, media, reduceMotion }) => {
@@ -33,10 +33,10 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
 <template>
     <section ref="root" class="occasion-story">
         <div class="occasion-pin">
-            <div class="occasion-label">02 — Suvenīri ar QR video</div>
+            <div class="occasion-label">06 — Главный WOW-момент</div>
             <article v-for="story in stories" :key="story.title" class="occasion-panel" :class="`occasion-${story.tone}`">
                 <div class="shell occasion-layout">
-                    <div class="occasion-copy"><span class="occasion-kicker">{{ story.number }} / 05</span><h2>{{ story.title }}</h2><h3>{{ story.subtitle }}</h3><p>{{ story.text }}</p><a class="story-link" href="/souvenirs">{{ story.cta }} <span>→</span></a></div>
+                    <div class="occasion-copy"><span class="occasion-kicker">{{ story.number }} / 05</span><h2>{{ story.title }}</h2><h3>{{ story.subtitle }}</h3><p>{{ story.text }}</p><router-link class="story-link" to="/souvenirs">{{ story.cta }} <span>→</span></router-link></div>
                     <div class="occasion-scene" aria-hidden="true"><span class="occasion-ghost">{{ story.mark }}</span><div class="occasion-package"><i></i><b>QR</b><small>{{ story.mark }}</small></div><div class="occasion-disc"></div></div>
                 </div>
             </article>

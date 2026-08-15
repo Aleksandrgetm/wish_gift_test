@@ -4,12 +4,11 @@ import { useGsapContext } from '../../composables/useGsapContext';
 
 const root = ref(null);
 const steps = [
-    'Izvēlieties suvenīru',
-    'Augšupielādējiet foto',
-    'Augšupielādējiet video',
-    'Ja nepieciešams, pievienojiet mūziku',
-    'Saskaņojiet pasūtījumu ar menedžeri',
-    'Saņemiet gatavu dāvanu ar QR kodu',
+    ['Выберите подарок', 'Фото, кружка, футболка, шоколад, брелок, открытка или музыкальная пластинка.'],
+    ['Отправьте фото и видео', 'Передайте материалы, которые должны стать частью личной истории.'],
+    ['Добавьте музыку или пожелание', 'Можно добавить песню, надпись, шарж или короткое поздравление.'],
+    ['Согласуйте макет', 'Мы проверяем материалы и согласуем дизайн перед изготовлением.'],
+    ['Получите готовый подарок', 'Сувенир приходит с QR-кодом, который открывает ваше послание.'],
 ];
 
 useGsapContext(root, ({ gsap, media, reduceMotion }) => {
@@ -34,20 +33,21 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
 </script>
 
 <template>
-    <section id="how-it-works" ref="root" class="section process-section motion-reveal">
+    <section id="how-it-works" ref="root" class="section process-section motion-reveal" aria-labelledby="process-title">
         <div class="shell">
             <div class="section-heading">
-                <div><p class="eyebrow">04 — Kā tas darbojas</p><h2>No personīga mirkļa<br>līdz dāvanai ar QR kodu</h2></div>
-                <a href="/souvenirs">Izvēlēties formātu <span>→</span></a>
+                <div>
+                    <p class="eyebrow">Как заказать</p>
+                    <h2 id="process-title">От идеи до готового подарка без лишней суеты</h2>
+                </div>
+                <a href="#finder">Подобрать формат <span>→</span></a>
             </div>
             <div class="process-line" aria-hidden="true"><i></i></div>
-            <div class="process-track">
-                <article v-for="(step, index) in steps" :key="step" class="process-card">
+            <div class="process-track process-journey">
+                <article v-for="(step, index) in steps" :key="step[0]" class="process-card">
                     <span>0{{ index + 1 }}</span>
-                    <h3>{{ step }}</h3>
-                    <p v-if="index === 0">Sāciet ar foto, krūzi, T-kreklu, šokolādi vai dziesmas plāksni.</p>
-                    <p v-else-if="index === 4">Menedžeris pārbaudīs materiālus un apstiprinās detaļas pirms noformēšanas.</p>
-                    <p v-else>Katrs solis veido jūsu stāstu rūpīgi sagatavotā personalizētā dāvanā.</p>
+                    <h3>{{ step[0] }}</h3>
+                    <p>{{ step[1] }}</p>
                 </article>
             </div>
         </div>
