@@ -12,9 +12,9 @@ const questions = [
 <template>
     <section class="section faq-section motion-reveal" aria-labelledby="faq-title">
         <div class="shell faq-layout">
-            <div>
+            <div class="faq-heading">
                 <p class="eyebrow">Jautājumi</p>
-                <h2 id="faq-title" class="section-title">Jautājumi, kas palīdz pieņemt lēmumu</h2>
+                <h2 id="faq-title" class="section-title">Biežāk uzdotie jautājumi</h2>
             </div>
             <v-expansion-panels class="faq-panels" variant="accordion" elevation="0">
                 <v-expansion-panel v-for="item in questions" :key="item[0]">

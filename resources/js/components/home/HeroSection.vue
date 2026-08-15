@@ -15,7 +15,7 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
         .from('.hero-line > span', { yPercent: 115, rotate: 2, duration: 1.05, stagger: 0.1 }, '-=.35')
         .from('.hero-lead, .hero-actions, .hero-proof', { y: 24, opacity: 0, duration: 0.75, stagger: 0.1 }, '-=.6')
         .from('.gift-box, .hero-product-card, .hero-phone-card', { y: 90, scale: 0.82, opacity: 0, rotate: 0, duration: 1.2, stagger: 0.12 }, '-=1')
-        .from('.stage-note, .hero-orbit', { opacity: 0, duration: 0.7 }, '-=.5');
+        .from('.hero-orbit', { opacity: 0, duration: 0.7 }, '-=.5');
 
     media.add('(min-width: 1001px)', () => {
         gsap.timeline({ scrollTrigger: { trigger: root.value, start: 'top top', end: 'bottom top', scrub: 1.2 } })
@@ -54,13 +54,12 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
                 <p class="hero-lead">Foto, video un īpaši mirkļi pārtop personalizētā dāvanā. Noskenē QR kodu, un dāvana atdzīvojas.</p>
                 <div class="hero-actions">
                     <span ref="primaryCta" class="magnetic-wrap"><v-btn color="primary" size="large" to="/souvenirs" append-icon="mdi-arrow-right">Izveidot dāvanu</v-btn></span>
-                    <v-btn class="link-underline" variant="text" size="large" to="/catalog">Apskatīt katalogu</v-btn>
+                    <v-btn class="hero-secondary-cta" variant="outlined" size="large" to="/catalog">Apskatīt katalogu</v-btn>
                 </div>
                 <div class="hero-proof"><strong>QR</strong><span>Foto + video + mūzika<small>Maketu saskaņojam pirms izgatavošanas</small></span></div>
             </div>
             <div ref="stage" class="gift-stage" aria-label="Dāvana ar QR kodu un video telefonā" role="img">
                 <div class="gift-stage-inner">
-                    <div class="stage-note">Jūsu foto<br><strong>kļūst par stāstu</strong></div>
                     <div class="hero-product-card">
                         <img :src="'/images/Products/день матери 4.png'" alt="Personalizēta šokolādes dāvana ar QR kodu">
                         <span>Foto / QR / apsveikums</span>

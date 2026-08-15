@@ -1,15 +1,12 @@
 <script setup>
 import { ref } from 'vue';
 import HeroSection from '../components/home/HeroSection.vue';
-import OzhivaykaExplainer from '../components/home/OzhivaykaExplainer.vue';
 import ProductExamples from '../components/home/ProductExamples.vue';
-import GiftChooser from '../components/home/GiftChooser.vue';
 import OccasionStory from '../components/home/OccasionStory.vue';
 import HowItWorks from '../components/home/HowItWorks.vue';
 import PackageFinder from '../components/home/PackageFinder.vue';
 import BenefitsSection from '../components/home/BenefitsSection.vue';
 import FaqSection from '../components/home/FaqSection.vue';
-import FinalCta from '../components/home/FinalCta.vue';
 import { useGsapContext } from '../composables/useGsapContext';
 
 const root = ref(null);
@@ -26,14 +23,11 @@ useGsapContext(root, ({ gsap, media, reduceMotion }) => {
 <template>
     <main ref="root" class="home-experience">
         <HeroSection />
-        <OzhivaykaExplainer />
         <ProductExamples />
-        <GiftChooser />
         <OccasionStory />
         <HowItWorks />
         <PackageFinder />
         <BenefitsSection />
         <FaqSection />
-        <FinalCta />
     </main>
 </template>
