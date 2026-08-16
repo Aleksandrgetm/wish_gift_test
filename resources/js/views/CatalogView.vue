@@ -28,7 +28,26 @@ onMounted(store.finishLoading);
 <template>
     <main class="catalog-page">
         <section class="catalog-hero">
-            <div class="shell"><nav class="breadcrumbs" aria-label="Atpakaļceļa navigācija"><router-link to="/">Sākumlapa</router-link><span>/</span><span>Katalogs</span></nav><p class="eyebrow">Suvenīri ar QR video</p><h1>Dāvanas ar foto,<br><em>video un QR kodu</em></h1><p>Izvēlieties virzienu un saskaņojiet ar menedžeri foto, video, mūziku un dāvanas gala dizainu.</p></div>
+            <div class="shell catalog-hero-layout">
+                <div class="catalog-hero-copy"><nav class="breadcrumbs" aria-label="Atpakaļceļa navigācija"><router-link to="/">Sākumlapa</router-link><span>/</span><span>Katalogs</span></nav><p class="eyebrow">Suvenīri ar QR video</p><h1>Dāvanas ar foto,<br><em>video un QR kodu</em></h1><p>Izvēlieties virzienu un saskaņojiet ar menedžeri foto, video, mūziku un dāvanas gala dizainu.</p></div>
+                <div class="catalog-hero-art" aria-hidden="true">
+                    <span class="qr-detail"><i></i>QR / VIDEO</span>
+                    <span class="qr-frame qr-frame-a"></span>
+                    <span class="qr-frame qr-frame-b"></span>
+                    <span class="qr-frame qr-frame-c"></span>
+                    <span class="qr-cell qr-cell-a"></span>
+                    <span class="qr-cell qr-cell-b"></span>
+                    <span class="qr-cell qr-cell-c"></span>
+                    <span class="qr-cell qr-cell-d"></span>
+                    <span class="qr-cell qr-cell-e"></span>
+                    <span class="qr-cell qr-cell-f"></span>
+                    <span class="qr-line qr-line-a"></span>
+                    <span class="qr-line qr-line-b"></span>
+                    <span class="qr-corner qr-corner-a"></span>
+                    <span class="qr-corner qr-corner-b"></span>
+                    <span class="qr-guide"></span>
+                </div>
+            </div>
         </section>
 
         <section class="catalog-results shell">
