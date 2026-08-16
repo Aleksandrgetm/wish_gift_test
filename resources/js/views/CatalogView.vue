@@ -7,7 +7,7 @@ import ProductCard from '../components/catalog/ProductCard.vue';
 import QuickViewDialog from '../components/catalog/QuickViewDialog.vue';
 
 const store = useCatalogStore();
-const { loading, error, query, sort, page, filters, favorites, filtered, pageCount, visibleProducts, activeFilterCount } = storeToRefs(store);
+const { loading, error, query, sort, page, filters, filtered, pageCount, visibleProducts, activeFilterCount } = storeToRefs(store);
 const mobileFiltersOpen = ref(false);
 const quickViewOpen = ref(false);
 const selectedProduct = ref(null);
@@ -43,7 +43,7 @@ onMounted(store.finishLoading);
                     <div v-if="loading" class="catalog-grid"><div v-for="item in 6" :key="item" class="catalog-skeleton"><v-skeleton-loader type="image, article" /></div></div>
                     <div v-else-if="error" class="catalog-empty"><div class="empty-icon"><v-icon icon="mdi-cloud-alert-outline" size="42" /></div><p class="eyebrow">Neizdevās ielādēt katalogu</p><h2>Mēģināsim vēlreiz?</h2><p>Pārbaudiet savienojumu un atkārtojiet ielādi. Izvēlētie filtri tiks saglabāti.</p><v-btn color="primary" @click="store.retry">Atkārtot</v-btn></div>
                     <div v-else-if="visibleProducts.length" class="catalog-grid">
-                        <ProductCard v-for="product in visibleProducts" :key="product.id" :product="product" :favorite="favorites.includes(product.id)" @favorite="store.toggleFavorite" @quick-view="openQuickView" />
+                        <ProductCard v-for="product in visibleProducts" :key="product.id" :product="product" @quick-view="openQuickView" />
                     </div>
                     <div v-else class="catalog-empty"><div class="empty-icon"><v-icon icon="mdi-package-variant-closed-remove" size="42" /></div><p class="eyebrow">Viss kārtībā</p><h2>Piemērotu variantu pagaidām nav</h2><p>Pamēģiniet noņemt kādu filtru vai mainīt meklēšanas vaicājumu.</p><v-btn color="primary" @click="store.reset">Atiestatīt filtrus</v-btn></div>
                     <v-pagination v-if="!loading && filtered.length > store.perPage" v-model="page" class="catalog-pagination" :length="pageCount" rounded="circle" active-color="primary" />
