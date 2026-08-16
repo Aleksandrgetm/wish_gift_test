@@ -258,7 +258,10 @@ h2 { margin-bottom: 12px; font-size: var(--type-h2); line-height: 1.08; }
 .finder-result-list span { padding: 9px 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--primary-dark); background: var(--primary-light); font-size: 12px; font-weight: 600; }
 .finder-result p { max-width: 460px; color: var(--brown); line-height: 1.7; }
 
-.process-section { background: linear-gradient(180deg, var(--paper), var(--primary-soft)); }
+.finder-section, .process-section, .alive-products-section { position: relative; overflow: hidden; isolation: isolate; background: linear-gradient(180deg, #fff, var(--cream) 52%, #fff); }
+.finder-section::before, .process-section::before, .alive-products-section::before { position: absolute; inset: 0; z-index: 0; background: linear-gradient(122deg, transparent 9%, rgba(255,255,255,.82) 13%, rgba(255,255,255,0) 22%) 4% 12% / 420px 230px no-repeat; content: ''; opacity: .7; pointer-events: none; }
+.finder-section::after, .process-section::after, .alive-products-section::after { position: absolute; inset: 0; z-index: 0; background-image: repeating-linear-gradient(118deg, rgba(103,52,155,.024) 0 1px, transparent 1px 54px), repeating-linear-gradient(28deg, rgba(184,145,70,.02) 0 1px, transparent 1px 68px); content: ''; mask-image: linear-gradient(180deg, transparent, #000 14%, #000 84%, transparent); pointer-events: none; }
+.finder-section .shell, .process-section .shell, .alive-products-section .shell { position: relative; z-index: 1; }
 .process-track { display: grid; gap: 16px; }
 .process-card { position: relative; display: flex; min-height: 292px; min-width: 0; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 26px; border: 1px solid rgba(103,52,155,.14); border-radius: 22px; background: rgba(255,255,255,.84); box-shadow: 0 16px 46px rgba(43,23,64,.06); }
 .process-card::after { position: absolute; right: -38px; bottom: -50px; width: 150px; aspect-ratio: 1; border: 1px solid rgba(30,161,181,.18); border-radius: 50%; content: ''; }
@@ -268,7 +271,6 @@ h2 { margin-bottom: 12px; font-size: var(--type-h2); line-height: 1.08; }
 .process-card h3 { max-width: 300px; margin-bottom: 14px; color: var(--chocolate); font-family: var(--font-body); font-size: clamp(21px, 1.7vw, 25px); font-weight: 600; line-height: 1.18; letter-spacing: 0; }
 .process-card p { max-width: 320px; margin: 0; color: var(--brown); font-size: var(--type-body-sm); line-height: 1.58; }
 
-.alive-products-section { background: var(--cream); }
 .alive-product-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
 .alive-product-card { position: relative; display: grid; min-height: 360px; align-content: space-between; overflow: hidden; padding: 26px; border: 1px solid rgba(103,52,155,.12); border-radius: 24px; background: var(--paper); }
 .alive-product-card::before { position: absolute; inset: auto -20% -35% auto; width: 72%; aspect-ratio: 1; border: 1px solid currentColor; border-radius: 50%; content: ''; opacity: .12; }
