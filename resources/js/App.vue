@@ -10,12 +10,26 @@ const links = [
     { title: 'Home', to: '/' },
     { title: 'Katalogs', to: '/catalog' },
     { title: 'Kolekcijas', to: '/occasion' },
-    { title: 'Personalizētas', to: '/souvenirs' },
-    { title: 'Piedāvājumi', to: '/catalog' },
     { title: 'Par mums', to: '/about' },
+    { title: 'Biežāk uzdotie jautājumi', to: { path: '/', hash: '#faq' } },
     { title: 'Kontakti', to: '/contacts' },
 ];
-const isActive = (to) => route.path === to || route.path.startsWith(`${to}/`);
+const getPath = (to) => (typeof to === 'string' ? to : to.path);
+const getHash = (to) => (typeof to === 'string' ? '' : to.hash || '');
+const isActive = (to) => {
+    const path = getPath(to);
+    const hash = getHash(to);
+
+    if (hash) {
+        return route.path === path && route.hash === hash;
+    }
+
+    if (path === '/') {
+        return route.path === path && !route.hash;
+    }
+
+    return route.path === path;
+};
 </script>
 
 <template>
@@ -58,7 +72,7 @@ const isActive = (to) => route.path === to || route.path.startsWith(`${to}/`);
         <footer class="site-footer">
             <div class="shell footer-grid">
                 <div><div class="footer-brand">Wish Gift</div><p>Dāvanas, kas atdzīvojas: foto, video, mūzika un QR kods personalizētā suvenīrā.</p><div class="footer-socials" aria-label="Sociālie tīkli"><v-btn icon="mdi-facebook" variant="text" aria-label="Facebook" /><v-btn icon="mdi-instagram" variant="text" aria-label="Instagram" /><v-btn icon="mdi-pinterest" variant="text" aria-label="Pinterest" /><v-btn icon="mdi-music-note" variant="text" aria-label="TikTok" /></div></div>
-                <div><h2>Shop</h2><router-link to="/catalog">Visi produkti</router-link><router-link to="/souvenirs">Jaunumi</router-link><router-link to="/catalog">Best sellers</router-link><router-link to="/catalog">Piedāvājumi</router-link></div>
+                <div><h2>Shop</h2><router-link to="/catalog">Visi produkti</router-link><router-link to="/souvenirs">Jaunumi</router-link><router-link to="/catalog">Best sellers</router-link></div>
                 <div><h2>Svētki</h2><router-link to="/occasion">Dzimšanas diena</router-link><router-link to="/occasion/mothers-day">Mātes diena</router-link><router-link to="/occasion/teachers-day">Skolotāju diena</router-link><router-link to="/occasion/christmas">Ziemassvētki</router-link></div>
                 <div><h2>Palīdzība</h2><a href="tel:+37128153310">+371 28153310</a><a href="mailto:ozivajka@inbox.lv">ozivajka@inbox.lv</a><router-link to="/contacts">Kontakti</router-link></div>
             </div>
