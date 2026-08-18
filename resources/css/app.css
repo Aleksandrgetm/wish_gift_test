@@ -460,7 +460,6 @@ body,
 .site-header {
     position: sticky;
     top: 0;
-    border-top: 3px solid var(--store-ultramarine);
     border-bottom: 1px solid var(--store-line);
     background: color-mix(in srgb, var(--store-honeydew) 92%, white);
     box-shadow: 0 12px 36px rgba(139, 65, 109, .08);

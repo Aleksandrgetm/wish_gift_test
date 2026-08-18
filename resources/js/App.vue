@@ -44,9 +44,7 @@ const isActive = (to) => {
                     <router-link v-for="link in links" :key="link.title" :class="{ 'router-link-active': isActive(link.to) }" :to="link.to">{{ link.title }}</router-link>
                 </nav>
                 <div class="header-actions">
-                    <v-btn icon="mdi-magnify" variant="text" aria-label="Meklēt" />
-                    <v-btn icon="mdi-account-outline" variant="text" aria-label="Profils" />
-                    <v-btn icon="mdi-heart-outline" variant="text" aria-label="Izlase" />
+                    <v-btn icon="mdi-earth" variant="text" aria-label="Mainīt valodu" />
                     <v-btn icon="mdi-cart-outline" variant="text" aria-label="Grozs" />
                     <v-btn class="menu-button" icon="mdi-menu" variant="text" aria-label="Atvērt izvēlni" :aria-expanded="menuOpen" @click="menuOpen = !menuOpen" />
                 </div>
@@ -58,9 +56,7 @@ const isActive = (to) => {
                 </router-link>
                 <router-link v-for="link in links" :key="link.title" :class="{ 'router-link-active': isActive(link.to) }" :to="link.to" @click="menuOpen = false">{{ link.title }}</router-link>
                 <div class="mobile-nav-actions" aria-label="Ātrās darbības">
-                    <v-btn icon="mdi-magnify" variant="text" aria-label="Meklēt" />
-                    <v-btn icon="mdi-account-outline" variant="text" aria-label="Profils" />
-                    <v-btn icon="mdi-heart-outline" variant="text" aria-label="Izlase" />
+                    <v-btn icon="mdi-earth" variant="text" aria-label="Mainīt valodu" />
                     <v-btn icon="mdi-cart-outline" variant="text" aria-label="Grozs" />
                 </div>
             </nav>
