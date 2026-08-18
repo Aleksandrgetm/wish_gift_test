@@ -13,7 +13,6 @@ const selectedLanguage = ref('RU');
 const links = [
     { title: 'Sākums', to: '/' },
     { title: 'Katalogs', to: '/catalog' },
-    { title: 'Dzīvie suvenīri', to: '/souvenirs' },
     { title: 'Biežāk uzdotie jautājumi', to: { path: '/', hash: '#faq' } },
     { title: 'Kontakti', to: '/contacts' },
 ];
@@ -35,7 +34,7 @@ const isActive = (to) => {
         return route.path === path && !route.hash;
     }
 
-    return route.path === path || route.path.startsWith(`${path}/`);
+    return route.path === path;
 };
 const updateHeaderState = () => { headerCompact.value = window.scrollY > 12; };
 
