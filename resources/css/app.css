@@ -433,6 +433,9 @@ html {
     --store-lavender: #a0a2bb;
     --store-fawn: #dab67d;
     --store-berry: #8b416d;
+    --store-turquoise: #177f93;
+    --store-turquoise-soft: #d4e6e8;
+    --store-turquoise-wash: color-mix(in srgb, var(--store-turquoise-soft) 54%, var(--store-porcelain));
     --store-honeydew: var(--store-porcelain);
     --store-custard: var(--store-fawn);
     --store-periwinkle: var(--store-lavender);
@@ -440,8 +443,8 @@ html {
     --store-ultramarine: #5c2346;
     --store-rose: var(--store-berry);
     --store-rose-soft: color-mix(in srgb, var(--store-berry) 12%, var(--store-porcelain));
-    --store-sage: var(--store-azure);
-    --store-sage-soft: var(--store-azure);
+    --store-sage: var(--store-turquoise);
+    --store-sage-soft: var(--store-turquoise-soft);
     --store-ink: #3f2436;
     --store-muted: #6c6371;
     --store-line: #d8d9e5;
@@ -572,7 +575,7 @@ body,
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(90deg, rgba(255, 255, 246, .94) 0%, rgba(255, 255, 246, .82) 35%, rgba(212, 230, 232, .38) 68%, rgba(139, 65, 109, .12) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 246, .94) 0%, rgba(255, 255, 246, .82) 35%, rgba(212, 230, 232, .48) 68%, rgba(23, 127, 147, .18) 100%);
     content: '';
     pointer-events: none;
     transition: opacity .8s ease;
@@ -637,7 +640,7 @@ body,
 .promo-card .v-btn:hover,
 .store-newsletter .v-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 30px rgba(139, 65, 109, .2);
+    box-shadow: 0 14px 30px rgba(23, 127, 147, .2);
 }
 
 .store-hero-actions .v-btn.bg-primary,
@@ -647,9 +650,14 @@ body,
 }
 
 .store-hero-actions .v-btn.v-btn--variant-outlined {
-    border-color: rgba(92, 35, 70, .54) !important;
+    border-color: color-mix(in srgb, var(--store-turquoise) 52%, var(--store-ultramarine)) !important;
     color: var(--store-ultramarine) !important;
     background: rgba(255, 255, 246, .82) !important;
+}
+
+.store-hero-actions .v-btn.v-btn--variant-outlined:hover {
+    border-color: var(--store-turquoise) !important;
+    color: var(--store-turquoise) !important;
 }
 
 .store-dots {
@@ -673,14 +681,14 @@ body,
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background: color-mix(in srgb, var(--store-periwinkle) 78%, white);
+    background: color-mix(in srgb, var(--store-turquoise-soft) 78%, white);
     content: '';
     transform: scale(1);
     transition: background-color .24s ease, transform .24s ease !important;
 }
 
 .store-dots button.active::before {
-    background: var(--store-rose);
+    background: var(--store-turquoise);
     transform: scale(1.08);
 }
 
@@ -724,14 +732,14 @@ body,
     padding: 18px;
     border-radius: 50%;
     color: #fff;
-    background: var(--store-amethyst);
+    background: var(--store-turquoise);
     text-align: center;
     transition: transform .45s cubic-bezier(.22, 1, .36, 1), box-shadow .45s ease;
 }
 
 .store-hero-media figcaption:hover {
     transform: translateY(-4px);
-    box-shadow: 0 18px 44px rgba(139, 65, 109, .28);
+    box-shadow: 0 18px 44px rgba(23, 127, 147, .28);
 }
 
 .home-motion {
@@ -807,8 +815,8 @@ body,
 }
 
 .service-strip article:hover {
-    background: color-mix(in srgb, var(--store-periwinkle) 36%, #fff);
-    box-shadow: inset 0 -2px 0 var(--store-rose);
+    background: var(--store-turquoise-wash);
+    box-shadow: inset 0 -2px 0 var(--store-turquoise);
 }
 
 .service-strip .v-icon {
@@ -816,7 +824,7 @@ body,
 }
 
 .service-strip article:hover .v-icon {
-    color: var(--store-rose);
+    color: var(--store-turquoise);
     transform: translateY(-1px) scale(1.05);
 }
 
@@ -867,7 +875,7 @@ body,
 .store-section-title span {
     width: 42px;
     height: 1px;
-    background: #e4c7c9;
+    background: color-mix(in srgb, var(--store-turquoise) 36%, var(--store-line));
 }
 
 .store-section-title h2 {
@@ -894,7 +902,7 @@ body,
     min-height: 44px;
     align-items: center;
     gap: 4px;
-    color: var(--store-rose);
+    color: var(--store-turquoise);
     font-weight: 600;
     transition: color .22s ease, transform .28s cubic-bezier(.22, 1, .36, 1);
 }
@@ -928,14 +936,14 @@ body,
     height: 112px;
     margin-bottom: 14px;
     border-radius: 50%;
-    background: color-mix(in srgb, var(--store-periwinkle) 56%, #fff);
+    background: var(--store-turquoise-wash);
     object-fit: cover;
     transition: transform .42s cubic-bezier(.22, 1, .36, 1), box-shadow .32s ease;
 }
 
 .category-card:hover img {
     transform: scale(1.045);
-    box-shadow: 0 16px 34px rgba(139, 65, 109, .14);
+    box-shadow: 0 16px 34px rgba(23, 127, 147, .16);
 }
 
 .category-card strong {
@@ -972,8 +980,8 @@ body,
 }
 
 .best-card:hover {
-    border-color: rgba(139, 65, 109, .34);
-    box-shadow: 0 18px 42px rgba(139, 65, 109, .14);
+    border-color: color-mix(in srgb, var(--store-turquoise) 42%, var(--store-line));
+    box-shadow: 0 18px 42px rgba(23, 127, 147, .13);
     transform: translateY(-6px);
 }
 
@@ -1037,8 +1045,8 @@ body,
 }
 
 .best-card-footer .v-btn:hover {
-    color: var(--store-rose) !important;
-    border-color: var(--store-rose) !important;
+    color: var(--store-turquoise) !important;
+    border-color: var(--store-turquoise) !important;
     transform: rotate(-4deg) scale(1.04);
 }
 
@@ -1105,22 +1113,22 @@ body,
 }
 
 .promo-card-green {
-    background: linear-gradient(135deg, var(--store-periwinkle), color-mix(in srgb, var(--store-custard) 54%, #fff));
+    background: linear-gradient(135deg, var(--store-turquoise-soft), color-mix(in srgb, var(--store-turquoise) 10%, #fff));
 }
 
 .promo-card-green p {
-    color: var(--store-ultramarine);
+    color: var(--store-turquoise);
 }
 
 .promo-card-green .v-btn.bg-secondary,
 .store-newsletter .v-btn.bg-secondary {
     color: var(--store-honeydew) !important;
-    background: var(--store-ultramarine) !important;
+    background: var(--store-turquoise) !important;
 }
 
 .store-newsletter {
     border-top: 1px solid var(--store-line);
-    background: color-mix(in srgb, var(--store-periwinkle) 24%, var(--store-honeydew));
+    background: color-mix(in srgb, var(--store-turquoise-soft) 42%, var(--store-honeydew));
 }
 
 .store-newsletter-inner {
@@ -1173,8 +1181,8 @@ body,
 }
 
 .store-newsletter input:focus {
-    border-color: var(--store-amethyst);
-    box-shadow: 0 0 0 3px rgba(139, 65, 109, .16);
+    border-color: var(--store-turquoise);
+    box-shadow: 0 0 0 3px rgba(23, 127, 147, .16);
     outline: 0;
 }
 
