@@ -13,7 +13,6 @@ const selectedLanguage = ref('RU');
 const links = [
     { title: 'Sākums', to: '/' },
     { title: 'Katalogs', to: '/catalog' },
-    { title: 'Biežāk uzdotie jautājumi', to: { path: '/', hash: '#faq' } },
     { title: 'Kontakti', to: '/contacts' },
 ];
 const languages = [
