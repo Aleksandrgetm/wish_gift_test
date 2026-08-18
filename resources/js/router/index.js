@@ -7,7 +7,13 @@ const placeholder = (path, name, title) => ({ path, name, component: Placeholder
 
 export default createRouter({
     history: createWebHistory(),
-    scrollBehavior: () => ({ top: 0 }),
+    scrollBehavior: (to) => {
+        if (to.hash) {
+            return { el: to.hash, behavior: 'smooth' };
+        }
+
+        return { top: 0 };
+    },
     routes: [
         { path: '/', name: 'home', component: HomeView },
         { path: '/catalog', name: 'catalog', component: CatalogView, meta: { title: 'Katalogs' } },
