@@ -11,7 +11,6 @@ const links = [
     { title: 'Katalogs', to: '/catalog' },
     { title: 'Kolekcijas', to: '/occasion' },
     { title: 'Par mums', to: '/about' },
-    { title: 'Biežāk uzdotie jautājumi', to: { path: '/', hash: '#faq' } },
     { title: 'Kontakti', to: '/contacts' },
 ];
 const getPath = (to) => (typeof to === 'string' ? to : to.path);
