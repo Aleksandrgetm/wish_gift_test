@@ -8,7 +8,7 @@ export const useCatalogStore = defineStore('catalog', () => {
     const query = ref('');
     const sort = ref('featured');
     const page = ref(1);
-    const perPage = 6;
+    const perPage = 12;
     const filters = ref({ occasions: [], categories: [], materials: [], capacity: null, maxPrice: 60, available: false });
     const favorites = ref([]);
 
