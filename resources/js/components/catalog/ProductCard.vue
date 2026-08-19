@@ -8,10 +8,11 @@ const { t } = useI18n();
 
 <template>
     <article class="catalog-product-card">
-        <div class="catalog-product-art" :style="{ '--product-color': product.palette[0], '--product-accent': product.palette[1] }">
+        <div class="catalog-product-art" :class="{ 'has-photo': product.image }" :style="{ '--product-color': product.palette[0], '--product-accent': product.palette[1] }">
             <div class="product-badges"><v-chip v-if="product.isNew" size="small" color="secondary">{{ t('product.new') }}</v-chip><v-chip v-if="product.oldPrice" size="small">−{{ Math.round((1 - product.price / product.oldPrice) * 100) }}%</v-chip></div>
             <button class="favorite-button" type="button" :aria-label="favorite ? t('product.removeFavorite') : t('product.addFavorite')" :aria-pressed="favorite" @click="$emit('favorite', product.id)"><v-icon :icon="favorite ? 'mdi-heart' : 'mdi-heart-outline'" /></button>
-            <div class="catalog-package"><span>QR</span><small>{{ product.collection }}</small></div>
+            <img v-if="product.image" class="catalog-product-photo" :src="product.image" :alt="product.name" loading="lazy">
+            <div v-else class="catalog-package"><span>QR</span><small>{{ product.collection }}</small></div>
             <button class="quick-view-button" type="button" @click="$emit('quick-view', product)"><v-icon icon="mdi-eye-outline" /> {{ t('product.quickView') }}</button>
         </div>
         <div class="catalog-product-content">

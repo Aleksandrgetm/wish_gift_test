@@ -539,7 +539,8 @@ export const useI18n = () => {
     };
     const routeTitle = (routeName, fallback) => lists.routeTitles[routeName]?.[locale.value] ?? fallback;
     const localizedProduct = (product) => {
-        const localized = catalogProducts[product.slug]?.[locale.value] ?? {};
+        const baseSlug = product.slug.replace(/-photo-\d+$/, '');
+        const localized = (catalogProducts[product.slug] ?? catalogProducts[baseSlug])?.[locale.value] ?? {};
         const category = translateOption(product.category);
         const occasion = translateOption(product.occasion);
         const material = translateOption(product.material);

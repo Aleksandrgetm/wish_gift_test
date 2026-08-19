@@ -32,7 +32,26 @@ onMounted(store.finishLoading);
 <template>
     <main class="catalog-page">
         <section class="catalog-hero">
-            <div class="shell"><nav class="breadcrumbs" :aria-label="t('catalog.breadcrumbs')"><router-link to="/">{{ t('catalog.home') }}</router-link><span>/</span><span>{{ t('catalog.title') }}</span></nav><p class="eyebrow">{{ t('catalog.eyebrow') }}</p><h1>{{ t('catalog.heroTitle') }}<br><em>{{ t('catalog.heroEmphasis') }}</em></h1><p>{{ t('catalog.heroText') }}</p></div>
+            <div class="shell catalog-hero-layout">
+                <div class="catalog-hero-copy"><nav class="breadcrumbs" :aria-label="t('catalog.breadcrumbs')"><router-link to="/">{{ t('catalog.home') }}</router-link><span>/</span><span>{{ t('catalog.title') }}</span></nav><p class="eyebrow">{{ t('catalog.eyebrow') }}</p><h1>{{ t('catalog.heroTitle') }}<br><em>{{ t('catalog.heroEmphasis') }}</em></h1><p>{{ t('catalog.heroText') }}</p></div>
+                <div class="catalog-hero-art" aria-hidden="true">
+                    <span class="qr-detail"><i></i>QR / VIDEO</span>
+                    <span class="qr-frame qr-frame-a"></span>
+                    <span class="qr-frame qr-frame-b"></span>
+                    <span class="qr-frame qr-frame-c"></span>
+                    <span class="qr-cell qr-cell-a"></span>
+                    <span class="qr-cell qr-cell-b"></span>
+                    <span class="qr-cell qr-cell-c"></span>
+                    <span class="qr-cell qr-cell-d"></span>
+                    <span class="qr-cell qr-cell-e"></span>
+                    <span class="qr-cell qr-cell-f"></span>
+                    <span class="qr-line qr-line-a"></span>
+                    <span class="qr-line qr-line-b"></span>
+                    <span class="qr-corner qr-corner-a"></span>
+                    <span class="qr-corner qr-corner-b"></span>
+                    <span class="qr-guide"></span>
+                </div>
+            </div>
         </section>
 
         <section class="catalog-results shell">
