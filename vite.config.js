@@ -16,8 +16,8 @@ export default defineConfig({
                     styles: ['normal', 'italic'],
                     subsets: ['latin', 'latin-ext', 'cyrillic'],
                 }),
-                bunny('Source Sans Pro', {
-                    weights: [400, 600],
+                bunny('Lato', {
+                    weights: [400, 700],
                     styles: ['normal'],
                     subsets: ['latin', 'latin-ext', 'cyrillic', 'cyrillic-ext'],
                 }),
