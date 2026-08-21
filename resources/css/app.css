@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Outfit:wght@400;500;600;700&display=swap');
 
 :root {
-    --font-body: 'TimesET 75', 'Times New Roman', Times, Georgia, serif;
+    --font-body: 'Outfit', 'Avenir Next', 'Segoe UI', Arial, sans-serif;
     --font-heading: var(--font-body);
     --font-display: 'Playfair Display', Georgia, serif;
     --font-description: var(--font-body);
@@ -48,6 +48,10 @@
     --error: #b04455;
     --info: #177f93;
     --shadow: 0 24px 70px rgba(139, 65, 109, .14);
+}
+
+:root:lang(ru) {
+    --font-body: 'TimesET 75', 'Times New Roman', Times, Georgia, serif;
 }
 
 * { box-sizing: border-box; }
