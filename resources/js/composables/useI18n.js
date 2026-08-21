@@ -38,6 +38,7 @@ const translations = {
             catalog: 'Katalogs',
             collections: 'Kolekcijas',
             about: 'Par mums',
+            faq: 'Biežāk uzdotie jautājumi',
             contacts: 'Kontakti',
         },
         footer: {
@@ -163,7 +164,7 @@ const translations = {
         mainNav: 'Main navigation',
         mobileNav: 'Mobile navigation',
         quickActions: 'Quick actions',
-        nav: { home: 'Home', catalog: 'Catalog', collections: 'Collections', about: 'About us', contacts: 'Contacts' },
+        nav: { home: 'Home', catalog: 'Catalog', collections: 'Collections', about: 'About us', faq: 'FAQ', contacts: 'Contacts' },
         footer: {
             description: 'Gifts that come alive: photo, video, music and a QR code in a personalized keepsake.',
             socials: 'Social networks',
@@ -273,7 +274,7 @@ const translations = {
         mainNav: 'Главная навигация',
         mobileNav: 'Мобильная навигация',
         quickActions: 'Быстрые действия',
-        nav: { home: 'Главная', catalog: 'Каталог', collections: 'Коллекции', about: 'О нас', contacts: 'Контакты' },
+        nav: { home: 'Главная', catalog: 'Каталог', collections: 'Коллекции', about: 'О нас', faq: 'Частые вопросы', contacts: 'Контакты' },
         footer: {
             description: 'Подарки, которые оживают: фото, видео, музыка и QR-код в персональном сувенире.',
             socials: 'Социальные сети',
@@ -475,6 +476,7 @@ const lists = {
         'occasion-students-day': { lv: 'Studentu diena', en: "Students' Day", ru: 'День студента' },
         'occasion-september-first': { lv: '1. septembris', en: 'September 1', ru: '1 сентября' },
         'occasion-fathers-day': { lv: 'Tēva diena', en: "Father's Day", ru: 'День отца' },
+        faq: { lv: 'Biežāk uzdotie jautājumi', en: 'FAQ', ru: 'Частые вопросы' },
         corporate: { lv: 'Korporatīvajiem klientiem', en: 'Corporate clients', ru: 'Корпоративным клиентам' },
         about: { lv: 'Par uzņēmumu', en: 'About the company', ru: 'О компании' },
         contacts: { lv: 'Kontakti', en: 'Contacts', ru: 'Контакты' },

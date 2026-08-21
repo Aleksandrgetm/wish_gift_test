@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 const HomeView = () => import('../views/HomeView.vue');
 const CatalogView = () => import('../views/CatalogView.vue');
+const FaqView = () => import('../views/FaqView.vue');
 const PlaceholderView = () => import('../views/PlaceholderView.vue');
 
 const placeholder = (path, name, title) => ({ path, name, component: PlaceholderView, meta: { title } });
@@ -42,6 +43,7 @@ export default createRouter({
         placeholder('/occasion/students-day', 'occasion-students-day', 'Studentu diena'),
         placeholder('/occasion/september-first', 'occasion-september-first', '1. septembris'),
         placeholder('/occasion/fathers-day', 'occasion-fathers-day', 'Tēva diena'),
+        { path: '/faq', name: 'faq', component: FaqView, meta: { title: 'Biežāk uzdotie jautājumi' } },
         { path: '/corporate', name: 'corporate', component: PlaceholderView, meta: { title: 'Korporatīvajiem klientiem' } },
         { path: '/about', name: 'about', component: PlaceholderView, meta: { title: 'Par uzņēmumu' } },
         { path: '/contacts', name: 'contacts', component: PlaceholderView, meta: { title: 'Kontakti' } },

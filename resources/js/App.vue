@@ -14,6 +14,7 @@ const links = [
     { title: 'nav.catalog', to: '/catalog' },
     { title: 'nav.collections', to: '/occasion' },
     { title: 'nav.about', to: '/about' },
+    { title: 'nav.faq', to: '/faq' },
     { title: 'nav.contacts', to: '/contacts' },
 ];
 const getPath = (to) => (typeof to === 'string' ? to : to.path);
