@@ -1,11 +1,12 @@
 <script setup>
-import { ref } from 'vue';
+import { onBeforeUnmount, onMounted, ref } from 'vue';
 import { RouterView, useRoute } from 'vue-router';
 import logoSrc from '../images/logo/logo.jpg';
 import { useI18n } from './composables/useI18n';
 
 const menuOpen = ref(false);
 const logoFailed = ref(false);
+const isHeaderCompact = ref(false);
 const route = useRoute();
 const { locale, languages, setLocale, t } = useI18n();
 const links = [
@@ -31,11 +32,24 @@ const isActive = (to) => {
 
     return route.path === path;
 };
+
+const updateHeaderState = () => {
+    isHeaderCompact.value = window.scrollY > 12;
+};
+
+onMounted(() => {
+    updateHeaderState();
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+});
+
+onBeforeUnmount(() => {
+    window.removeEventListener('scroll', updateHeaderState);
+});
 </script>
 
 <template>
     <v-app>
-        <header class="site-header">
+        <header class="site-header" :class="{ 'site-header--compact': isHeaderCompact }">
             <div class="shell header-inner">
                 <router-link class="brand" to="/" :aria-label="t('homeAria')">
                     <img v-if="!logoFailed" class="brand-logo" :src="logoSrc" alt="Wish Gift" @error="logoFailed = true">
