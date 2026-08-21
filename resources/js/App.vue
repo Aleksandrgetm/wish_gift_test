@@ -17,6 +17,26 @@ const links = [
     { title: 'nav.faq', to: '/faq' },
     { title: 'nav.contacts', to: '/contacts' },
 ];
+const footerQuickLinks = [
+    { title: 'nav.home', to: '/' },
+    { title: 'nav.catalog', to: '/catalog' },
+    { title: 'nav.collections', to: '/occasion' },
+    { title: 'nav.about', to: '/about' },
+    { title: 'nav.faq', to: '/faq' },
+    { title: 'nav.contacts', to: '/contacts' },
+];
+const footerOccasionLinks = [
+    { title: 'footer.birthday', to: '/occasion' },
+    { title: 'footer.christmas', to: '/occasion/christmas' },
+    { title: 'footer.newYear', to: '/occasion/new-year' },
+    { title: 'footer.valentine', to: '/occasion/valentine' },
+    { title: 'footer.womensDay', to: '/occasion/womens-day' },
+    { title: 'footer.mothersDay', to: '/occasion/mothers-day' },
+    { title: 'footer.teachersDay', to: '/occasion/teachers-day' },
+    { title: 'footer.studentsDay', to: '/occasion/students-day' },
+    { title: 'footer.septemberFirst', to: '/occasion/september-first' },
+    { title: 'footer.fathersDay', to: '/occasion/fathers-day' },
+];
 const getPath = (to) => (typeof to === 'string' ? to : to.path);
 const getHash = (to) => (typeof to === 'string' ? '' : to.hash || '');
 const isActive = (to) => {
@@ -107,10 +127,36 @@ onBeforeUnmount(() => {
 
         <footer class="site-footer">
             <div class="shell footer-grid">
-                <div><div class="footer-brand">Wish Gift</div><p>{{ t('footer.description') }}</p><div class="footer-socials" :aria-label="t('footer.socials')"><v-btn icon="mdi-facebook" variant="text" aria-label="Facebook" /><v-btn icon="mdi-instagram" variant="text" aria-label="Instagram" /><v-btn icon="mdi-pinterest" variant="text" aria-label="Pinterest" /><v-btn icon="mdi-music-note" variant="text" aria-label="TikTok" /></div></div>
-                <div><h2>{{ t('footer.shop') }}</h2><router-link to="/catalog">{{ t('footer.allProducts') }}</router-link><router-link to="/souvenirs">{{ t('footer.newItems') }}</router-link><router-link to="/catalog">{{ t('footer.bestSellers') }}</router-link></div>
-                <div><h2>{{ t('footer.occasions') }}</h2><router-link to="/occasion">{{ t('footer.birthday') }}</router-link><router-link to="/occasion/mothers-day">{{ t('footer.mothersDay') }}</router-link><router-link to="/occasion/teachers-day">{{ t('footer.teachersDay') }}</router-link><router-link to="/occasion/christmas">{{ t('footer.christmas') }}</router-link></div>
-                <div><h2>{{ t('footer.help') }}</h2><a href="tel:+37128153310">+371 28153310</a><a href="mailto:ozivajka@inbox.lv">ozivajka@inbox.lv</a><router-link to="/contacts">{{ t('nav.contacts') }}</router-link></div>
+                <div>
+                    <div class="footer-brand">Wish Gift</div>
+                    <p>{{ t('footer.description') }}</p>
+                    <div class="footer-socials" :aria-label="t('footer.socials')">
+                        <v-btn icon="mdi-facebook" variant="text" aria-label="Facebook" />
+                        <v-btn icon="mdi-instagram" variant="text" aria-label="Instagram" />
+                        <v-btn icon="mdi-pinterest" variant="text" aria-label="Pinterest" />
+                        <v-btn icon="mdi-music-note" variant="text" aria-label="TikTok" />
+                    </div>
+                </div>
+                <div>
+                    <h2>{{ t('footer.quickLinks') }}</h2>
+                    <div class="footer-links">
+                        <router-link v-for="link in footerQuickLinks" :key="link.to" :to="link.to">{{ t(link.title) }}</router-link>
+                    </div>
+                </div>
+                <div>
+                    <h2>{{ t('footer.occasions') }}</h2>
+                    <div class="footer-links footer-links--occasions">
+                        <router-link v-for="link in footerOccasionLinks" :key="link.to" :to="link.to">{{ t(link.title) }}</router-link>
+                    </div>
+                </div>
+                <div>
+                    <h2>{{ t('footer.help') }}</h2>
+                    <div class="footer-links">
+                        <a href="tel:+37128153310">+371 28153310</a>
+                        <a href="mailto:ozivajka@inbox.lv">ozivajka@inbox.lv</a>
+                        <router-link to="/contacts">{{ t('nav.contacts') }}</router-link>
+                    </div>
+                </div>
             </div>
             <div class="shell footer-bottom"><span>© 2026 wish_gift</span><span>{{ t('footer.privacy') }}</span></div>
         </footer>

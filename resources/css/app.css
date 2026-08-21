@@ -2532,8 +2532,8 @@ body,
 }
 
 .footer-grid {
-    grid-template-columns: minmax(260px, 1.35fr) repeat(3, minmax(150px, .8fr));
-    gap: clamp(28px, 4vw, 56px);
+    grid-template-columns: minmax(230px, 1.05fr) minmax(140px, .72fr) minmax(300px, 1.34fr) minmax(180px, .82fr);
+    gap: clamp(24px, 3.2vw, 44px);
     padding-bottom: 30px;
 }
 
@@ -2548,10 +2548,10 @@ body,
 .footer-grid h2 {
     color: #fff;
     font-family: var(--font-home);
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 500;
-    letter-spacing: .08em;
-    margin-bottom: 10px;
+    letter-spacing: .04em;
+    margin-bottom: 12px;
     text-transform: uppercase;
 }
 
@@ -2559,8 +2559,9 @@ body,
 .footer-grid p {
     color: color-mix(in srgb, var(--wish-cream) 72%, var(--wish-muted-rose));
     font-family: var(--font-home);
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.28;
+    line-height: 1.34;
 }
 
 .footer-grid a {
@@ -2568,6 +2569,20 @@ body,
     min-height: auto;
     margin-bottom: 6px;
     transition: color .2s ease, transform .2s ease;
+}
+
+.footer-links {
+    display: grid;
+    gap: 6px;
+}
+
+.footer-links a {
+    margin-bottom: 0;
+}
+
+.footer-links--occasions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
 }
 
 .footer-grid p {
@@ -2591,6 +2606,7 @@ body,
 .footer-bottom {
     border-top: 1px solid rgba(255, 253, 248, .12);
     color: color-mix(in srgb, var(--wish-cream) 50%, var(--wish-muted-rose));
+    font-size: 13px;
 }
 
 .site-header button:focus-visible,
@@ -2608,6 +2624,10 @@ body,
     .language-switch button {
         min-width: 34px;
         padding-inline: 8px;
+    }
+
+    .footer-grid {
+        grid-template-columns: minmax(220px, 1fr) minmax(280px, 1fr);
     }
 }
 
@@ -2647,6 +2667,14 @@ body,
 }
 
 @media (max-width: 560px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links--occasions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .site-header .shell {
         width: min(100% - 24px, 1240px);
     }
