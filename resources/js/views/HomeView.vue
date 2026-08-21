@@ -2,7 +2,7 @@
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useI18n } from '../composables/useI18n';
 
-const { t, translate } = useI18n();
+const { t, translate, locale } = useI18n();
 const categoryItems = [
     { title: 'Dzimšanas dienai', subtitle: 'Apskatīt', image: '/images/Products/день рождения.png', to: '/occasion' },
     { title: 'Personalizētas', subtitle: 'Apskatīt', image: '/images/Hero/hero.png', to: '/souvenirs' },
@@ -117,7 +117,20 @@ onBeforeUnmount(() => {
             <div class="shell store-hero-grid">
                 <div class="store-hero-copy home-motion home-motion-hero">
                     <p class="store-eyebrow">{{ t('home.eyebrow') }}</p>
-                    <h1 id="hero-title">{{ t('home.heroTitle') }} <em>{{ t('home.heroEmphasis') }}</em></h1>
+                    <h1 id="hero-title" :class="{ 'hero-title--ru': locale === 'ru' }">
+                        <span v-if="t('home.heroTitlePrefix') || t('home.heroTitleAccent')">
+                            <strong v-if="t('home.heroTitlePrefix')">{{ t('home.heroTitlePrefix') }}</strong>
+                            <em v-if="t('home.heroTitleAccent')">{{ t('home.heroTitleAccent') }}</em>
+                        </span>
+                        <span v-if="t('home.heroEmphasisPrefix') || t('home.heroEmphasisAccent')">
+                            <strong v-if="t('home.heroEmphasisPrefix')">{{ t('home.heroEmphasisPrefix') }}</strong>
+                            <em v-if="t('home.heroEmphasisAccent')">{{ t('home.heroEmphasisAccent') }}</em>
+                        </span>
+                        <span v-if="t('home.heroThirdPrefix') || t('home.heroThirdAccent')">
+                            <strong v-if="t('home.heroThirdPrefix')">{{ t('home.heroThirdPrefix') }}</strong>
+                            <em v-if="t('home.heroThirdAccent')">{{ t('home.heroThirdAccent') }}</em>
+                        </span>
+                    </h1>
                     <p>{{ t('home.heroText') }}</p>
                     <div class="store-hero-actions">
                         <v-btn color="primary" size="large" to="/catalog">{{ t('home.catalogCta') }}</v-btn>
