@@ -1,45 +1,43 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
-import { useLanguage } from '../stores/i18n';
+import { useI18n } from '../composables/useI18n';
 
-const { locale, t } = useLanguage();
-
-const categoryMeta = [
-    { image: '/images/Products/день рождения.png', to: '/occasion' },
-    { image: '/images/Hero/hero.png', to: '/souvenirs' },
-    { image: '/images/Products/8 марта.png', to: '/souvenirs/chocolate' },
-    { image: '/images/Products/день учителя.png', to: '/souvenirs/mug' },
-    { image: '/images/Products/8 марта 13.png', to: '/recipient/woman' },
-    { image: '/images/Products/23 февраля.png', to: '/recipient/man' },
-    { image: '/images/Products/1 сентября.png', to: '/recipient/teacher' },
-    { image: '/images/Products/день матери 4.png', to: '/souvenirs/card' },
+const { t, translate } = useI18n();
+const categoryItems = [
+    { title: 'Dzimšanas dienai', subtitle: 'Apskatīt', image: '/images/Products/день рождения.png', to: '/occasion' },
+    { title: 'Personalizētas', subtitle: 'Apskatīt', image: '/images/Hero/hero.png', to: '/souvenirs' },
+    { title: 'Šokolādes dāvanas', subtitle: 'Apskatīt', image: '/images/Products/8 марта.png', to: '/souvenirs/chocolate' },
+    { title: 'Krūzes', subtitle: 'Apskatīt', image: '/images/Products/день учителя.png', to: '/souvenirs/mug' },
+    { title: 'Sievietēm', subtitle: 'Apskatīt', image: '/images/Products/8 марта 13.png', to: '/recipient/woman' },
+    { title: 'Vīriešiem', subtitle: 'Apskatīt', image: '/images/Products/23 февраля.png', to: '/recipient/man' },
+    { title: 'Skolotājiem', subtitle: 'Apskatīt', image: '/images/Products/1 сентября.png', to: '/recipient/teacher' },
+    { title: 'Kartītes', subtitle: 'Apskatīt', image: '/images/Products/день матери 4.png', to: '/souvenirs/card' },
 ];
 
-const bestSellerMeta = [
-    { reviews: '128', image: '/images/Hero/hero.png' },
-    { reviews: '96', image: '/images/Products/8 марта.png' },
-    { reviews: '74', image: '/images/Products/день рождения.png' },
-    { reviews: '53', image: '/images/Products/день учителя.png' },
-    { reviews: '87', image: '/images/Products/день матери 3.png' },
+const bestSellerItems = [
+    { title: 'A4 foto ar QR video', price: '25 €', reviews: '128', image: '/images/Hero/hero.png' },
+    { title: 'Šokolādes komplekts', price: 'no 18 €', reviews: '96', image: '/images/Products/8 марта.png' },
+    { title: 'Dāvana dzimšanas dienai', price: 'no 24 €', reviews: '74', image: '/images/Products/день рождения.png' },
+    { title: 'Krūze ar QR video', price: 'pēc saskaņošanas', reviews: '53', image: '/images/Products/день учителя.png' },
+    { title: 'Mātes dienas dāvana', price: 'no 30 €', reviews: '87', image: '/images/Products/день матери 3.png' },
 ];
 
-const serviceIcons = [
-    { icon: 'mdi-truck-outline' },
-    { icon: 'mdi-shield-check-outline' },
-    { icon: 'mdi-diamond-stone' },
-    { icon: 'mdi-sync' },
-    { icon: 'mdi-headset' },
+const serviceItems = [
+    { icon: 'mdi-truck-outline', title: 'Piegāde Latvijā', text: 'Saskaņojam termiņu pirms izgatavošanas' },
+    { icon: 'mdi-shield-check-outline', title: 'Drošs process', text: 'Materiālus pārbaudām pirms drukas' },
+    { icon: 'mdi-diamond-stone', title: 'Roku darbs', text: 'Katrs makets tiek pielāgots personīgi' },
+    { icon: 'mdi-sync', title: 'Labojumi', text: 'Detaļas precizējam līdz rezultātam' },
+    { icon: 'mdi-headset', title: 'Atbalsts', text: 'Palīdzam izvēlēties piemērotu formātu' },
 ];
 
-const heroSlideImages = [
-    { image: '/images/Hero/hero.png' },
-    { image: '/images/Hero/hero1.png' },
-    { image: '/images/Hero/hero2.png' },
+const heroSlides = [
+    { image: '/images/Hero/hero.png', alt: 'Personalizēta Wish Gift dāvana ar QR video' },
+    { image: '/images/Hero/hero1.png', alt: 'Wish Gift hero kolekcijas foto' },
+    { image: '/images/Hero/hero2.png', alt: 'Wish Gift personalizētas dāvanas foto' },
 ];
-const categories = computed(() => t.value.home.categories.map((category, index) => ({ ...categoryMeta[index], ...category })));
-const bestSellers = computed(() => t.value.home.bestSellers.map((product, index) => ({ ...bestSellerMeta[index], ...product })));
-const services = computed(() => t.value.home.services.map((service, index) => ({ ...serviceIcons[index], ...service })));
-const heroSlides = computed(() => heroSlideImages.map((slide, index) => ({ ...slide, alt: t.value.home.hero.slideAlts[index] })));
+const categories = computed(() => categoryItems.map((item) => ({ ...item, title: translate('categories', item.title), subtitle: translate('categorySubtitle', item.subtitle) })));
+const bestSellers = computed(() => bestSellerItems.map((item) => ({ ...item, title: translate('products', item.title), price: translate('prices', item.price) })));
+const services = computed(() => serviceItems.map((item) => ({ ...item, title: translate('services', item.title), text: translate('services', item.text) })));
 const dealImage = '/images/Products/8 марта14.png';
 const newArrivalImage = '/images/Products/день матери 5.png';
 const activeHeroSlide = ref(0);
@@ -54,7 +52,7 @@ const selectHeroSlide = (index) => {
 };
 
 const showNextHeroSlide = () => {
-    activeHeroSlide.value = (activeHeroSlide.value + 1) % heroSlides.value.length;
+    activeHeroSlide.value = (activeHeroSlide.value + 1) % heroSlides.length;
 };
 
 const startHeroSlider = () => {
@@ -112,39 +110,26 @@ onBeforeUnmount(() => {
                 >
                 <figcaption>
                     <v-icon icon="mdi-gift-outline" aria-hidden="true" />
-                    <strong>{{ t.home.hero.captionTitle }}</strong>
-                    <span>{{ t.home.hero.captionText }}</span>
+                    <strong>{{ t('home.heroBadgeTitle') }}</strong>
+                    <span>{{ t('home.heroBadgeText') }}</span>
                 </figcaption>
             </figure>
             <div class="shell store-hero-grid">
                 <div class="store-hero-copy home-motion home-motion-hero">
-                    <p class="store-eyebrow">{{ t.home.hero.eyebrow }}</p>
-                    <h1 id="hero-title" :class="{ 'hero-title--ru': locale === 'ru' }">
-                        <span>
-                            <strong>{{ t.home.hero.titleLine1 }}</strong>
-                            <em v-if="t.home.hero.titleLove"> {{ t.home.hero.titleLove }}</em>
-                        </span>
-                        <span v-if="t.home.hero.titleLine2">
-                            <em v-if="t.home.hero.titleLine2Accent">{{ t.home.hero.titleLine2 }}</em>
-                            <template v-else>{{ t.home.hero.titleLine2 }}</template>
-                        </span>
-                        <span v-if="t.home.hero.titleCherished">
-                            <em v-if="t.home.hero.titleCherishedAccent !== false">{{ t.home.hero.titleCherished }}</em>
-                            <template v-else>{{ t.home.hero.titleCherished }}</template>
-                        </span>
-                    </h1>
-                    <p>{{ t.home.hero.description }}</p>
+                    <p class="store-eyebrow">{{ t('home.eyebrow') }}</p>
+                    <h1 id="hero-title">{{ t('home.heroTitle') }} <em>{{ t('home.heroEmphasis') }}</em></h1>
+                    <p>{{ t('home.heroText') }}</p>
                     <div class="store-hero-actions">
-                        <v-btn color="primary" size="large" to="/catalog">{{ t.home.hero.primaryCta }}</v-btn>
-                        <v-btn variant="outlined" size="large" to="/souvenirs">{{ t.home.hero.secondaryCta }}</v-btn>
+                        <v-btn color="primary" size="large" to="/catalog">{{ t('home.catalogCta') }}</v-btn>
+                        <v-btn variant="outlined" size="large" to="/souvenirs">{{ t('home.personalizedCta') }}</v-btn>
                     </div>
-                    <div class="store-dots" role="tablist" :aria-label="t.home.hero.dotsLabel">
+                    <div class="store-dots" role="tablist" :aria-label="t('home.heroTabs')">
                         <button
                             v-for="(slide, index) in heroSlides"
                             :key="slide.image"
                             type="button"
                             :class="{ active: activeHeroSlide === index }"
-                            :aria-label="`${t.home.hero.dotLabel} ${index + 1}`"
+                            :aria-label="`${t('home.showHero')} ${index + 1}`"
                             :aria-selected="activeHeroSlide === index"
                             role="tab"
                             @click="selectHeroSlide(index)"
@@ -154,7 +139,7 @@ onBeforeUnmount(() => {
             </div>
         </section>
 
-        <section class="service-strip" :aria-label="t.home.servicesLabel">
+        <section class="service-strip" :aria-label="t('home.services')">
             <div class="shell service-strip-grid">
                 <article v-for="(service, index) in services" :key="service.title" class="home-motion" :style="{ '--motion-delay': `${index * 70}ms` }">
                     <v-icon :icon="service.icon" size="28" aria-hidden="true" />
@@ -169,13 +154,14 @@ onBeforeUnmount(() => {
         <section class="store-section shell" aria-labelledby="category-title">
             <div class="store-section-title home-motion">
                 <span></span>
-                <h2 id="category-title">{{ t.home.categoriesTitle }}</h2>
+                <h2 id="category-title">{{ t('home.categoryTitle') }}</h2>
                 <span></span>
             </div>
             <div class="category-row">
                 <router-link v-for="(category, index) in categories" :key="category.title" class="category-card home-motion" :style="{ '--motion-delay': `${index * 55}ms` }" :to="category.to">
                     <img :src="category.image" :alt="category.title">
                     <strong>{{ category.title }}</strong>
+                    <small>{{ category.subtitle }}</small>
                 </router-link>
             </div>
         </section>
@@ -184,46 +170,45 @@ onBeforeUnmount(() => {
             <div class="store-section-heading home-motion">
                 <div class="store-section-title">
                     <span></span>
-                    <h2 id="best-title">{{ t.home.bestTitle }}</h2>
+                    <h2 id="best-title">{{ t('home.bestTitle') }}</h2>
                     <span></span>
                 </div>
-                <router-link to="/catalog">{{ t.home.allProducts }} <v-icon icon="mdi-arrow-right" size="18" aria-hidden="true" /></router-link>
+                <router-link to="/catalog">{{ t('home.allProducts') }} <v-icon icon="mdi-arrow-right" size="18" aria-hidden="true" /></router-link>
             </div>
             <div class="best-grid">
                 <article v-for="(product, index) in bestSellers" :key="product.title" class="best-card home-motion" :style="{ '--motion-delay': `${index * 75}ms` }">
                     <img :src="product.image" :alt="product.title">
                     <div class="best-card-body">
                         <h3>{{ product.title }}</h3>
-                        <p>{{ product.detail }}</p>
-                        <div class="rating" :aria-label="t.home.ratingLabel">
+                        <div class="rating" :aria-label="t('home.rating')">
                             <v-icon v-for="index in 5" :key="index" icon="mdi-star" size="14" aria-hidden="true" />
                             <small>({{ product.reviews }})</small>
                         </div>
                         <div class="best-card-footer">
                             <strong>{{ product.price }}</strong>
-                            <v-btn color="primary" size="small" :aria-label="`${t.home.addToCartLabel}: ${product.title}`">{{ t.home.addToCart }}</v-btn>
+                            <v-btn icon="mdi-cart-outline" variant="outlined" size="small" :aria-label="`${t('home.addToCart')}: ${product.title}`" />
                         </div>
                     </div>
                 </article>
             </div>
         </section>
 
-        <section class="promo-grid shell" :aria-label="t.home.promoLabel">
+        <section class="promo-grid shell" :aria-label="t('home.offers')">
             <article class="promo-card promo-card-rose home-motion">
                 <div>
-                    <p>{{ t.home.promo.offerEyebrow }}</p>
-                    <h2>{{ t.home.promo.offerTitle }}</h2>
-                    <v-btn color="primary" to="/catalog">{{ t.home.promo.offerCta }}</v-btn>
+                    <p>{{ t('home.offerLabel') }}</p>
+                    <h2>{{ t('home.offerTitle') }}</h2>
+                    <v-btn color="primary" to="/catalog">{{ t('home.offerCta') }}</v-btn>
                 </div>
-                <img :src="dealImage" :alt="t.home.promo.offerAlt">
+                <img :src="dealImage" alt="Personalizēta dāvanu kolekcija ar ziediem">
             </article>
             <article class="promo-card promo-card-green home-motion" style="--motion-delay: 90ms">
                 <div>
-                    <p>{{ t.home.promo.newEyebrow }}</p>
-                    <h2>{{ t.home.promo.newTitle }}</h2>
-                    <v-btn color="secondary" to="/souvenirs">{{ t.home.promo.newCta }}</v-btn>
+                    <p>{{ t('home.arrivalsLabel') }}</p>
+                    <h2>{{ t('home.arrivalsTitle') }}</h2>
+                    <v-btn color="secondary" to="/souvenirs">{{ t('home.arrivalsCta') }}</v-btn>
                 </div>
-                <img :src="newArrivalImage" :alt="t.home.promo.newAlt">
+                <img :src="newArrivalImage" alt="Jauna personalizētu dāvanu kolekcija">
             </article>
         </section>
 
@@ -232,14 +217,14 @@ onBeforeUnmount(() => {
                 <div>
                     <v-icon icon="mdi-email-outline" size="32" aria-hidden="true" />
                     <div>
-                        <h2 id="newsletter-title">{{ t.home.newsletter.title }}</h2>
-                        <p>{{ t.home.newsletter.text }}</p>
+                        <h2 id="newsletter-title">{{ t('home.newsletterTitle') }}</h2>
+                        <p>{{ t('home.newsletterText') }}</p>
                     </div>
                 </div>
                 <form>
-                    <label class="sr-only" for="newsletter-email">{{ t.home.newsletter.email }}</label>
-                    <input id="newsletter-email" type="email" :placeholder="t.home.newsletter.email">
-                    <v-btn color="secondary" type="submit">{{ t.home.newsletter.submit }}</v-btn>
+                    <label class="sr-only" for="newsletter-email">{{ t('home.email') }}</label>
+                    <input id="newsletter-email" type="email" :placeholder="t('home.email')">
+                    <v-btn color="secondary" type="submit">{{ t('home.subscribe') }}</v-btn>
                 </form>
             </div>
         </section>

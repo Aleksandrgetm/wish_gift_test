@@ -1,21 +1,25 @@
 import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 import { products } from '../data/products';
+import { useI18n } from '../composables/useI18n';
 
 export const useCatalogStore = defineStore('catalog', () => {
+    const { locale, localizedProduct } = useI18n();
     const loading = ref(true);
     const error = ref(false);
     const query = ref('');
     const sort = ref('featured');
     const page = ref(1);
-    const perPage = 6;
+    const perPage = 12;
     const filters = ref({ occasions: [], categories: [], materials: [], capacity: null, maxPrice: 60, available: false });
     const favorites = ref([]);
 
     const filtered = computed(() => {
-        const term = query.value.trim().toLocaleLowerCase('lv-LV');
+        const searchLocale = locale.value === 'lv' ? 'lv-LV' : locale.value;
+        const term = query.value.trim().toLocaleLowerCase(searchLocale);
         const result = products.filter((product) => {
-            const matchesQuery = !term || `${product.name} ${product.collection} ${product.category}`.toLocaleLowerCase('lv-LV').includes(term);
+            const translatedProduct = localizedProduct(product);
+            const matchesQuery = !term || `${product.name} ${product.collection} ${product.category} ${product.description} ${translatedProduct.name} ${translatedProduct.category} ${translatedProduct.description}`.toLocaleLowerCase(searchLocale).includes(term);
             const matchesOccasion = !filters.value.occasions.length || filters.value.occasions.includes(product.occasion);
             const matchesCategory = !filters.value.categories.length || filters.value.categories.includes(product.category);
             const matchesMaterial = !filters.value.materials.length || filters.value.materials.includes(product.material);
