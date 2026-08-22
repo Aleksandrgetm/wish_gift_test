@@ -87,8 +87,60 @@ export const products = [
 ];
 
 export const filterOptions = {
-    occasions: ['Ziemassvētki', 'Jaunais gads', '14. februāris', '8. marts', 'Mātes diena', 'Skolotāju diena', 'Studentu diena', '1. septembris', 'Tēva diena', 'Dzimšanas diena'],
-    categories: ['Foto ar QR video', 'Digitāla QR dāvana', 'Dziesmas plāksne', 'T-krekls', 'Krūze', 'Atslēgu piekariņš', 'Šokolāde', 'Kartīte'],
+    occasions: ['Ziemassvētki', 'Jaunais gads', '14. februāris', '8. marts', 'Mātes diena', 'Skolotāju diena', 'Studentu diena', '1. septembris', 'Tēva diena', 'Dzimšanas diena', 'Citi'],
+    categories: ['Foto ar QR video', 'Digitāla QR dāvana', 'Dziesmas plāksne', 'T-krekls', 'Krūze', 'Šokolāde', 'Kartīte', 'Saldumu komplekti', 'Citi'],
     materials: ['Druka + QR', 'Digitāls QR', 'Druka + statīvs', 'Tekstils + QR', 'Keramika + QR', 'Akrils + QR', 'Šokolāde + iesaiņojums', 'Kartons + QR'],
     capacities: [1, 2, 3],
 };
+
+export const catalogFilterGroups = [
+    {
+        id: 'occasions',
+        filterKey: 'occasions',
+        items: [
+            { value: 'Ziemassvētki', slug: 'ziemassvetki', image: '/images/Products/день матери 4.png', icon: 'mdi-snowflake', tone: 'berry' },
+            { value: 'Jaunais gads', slug: 'jaunais-gads', image: '/images/Hero/hero1.png', icon: 'mdi-party-popper', tone: 'night' },
+            { value: '14. februāris', slug: '14-februaris', image: '/images/Products/8 марта 5.png', icon: 'mdi-heart-outline', tone: 'rose' },
+            { value: '8. marts', slug: '8-marts', image: '/images/Products/8 марта.png', icon: 'mdi-flower-outline', tone: 'fawn' },
+            { value: 'Mātes diena', slug: 'mates-diena', image: '/images/Products/день матери 3.png', icon: 'mdi-flower-tulip-outline', tone: 'lavender' },
+            { value: 'Skolotāju diena', slug: 'skolotaju-diena', image: '/images/Products/день учителя.png', icon: 'mdi-school-outline', tone: 'azure' },
+            { value: 'Studentu diena', slug: 'studentu-diena', image: '/images/Products/день студента.png', icon: 'mdi-book-open-page-variant-outline', tone: 'berry' },
+            { value: '1. septembris', slug: '1-septembris', image: '/images/Products/1 сентября.png', icon: 'mdi-pencil-outline', tone: 'fawn' },
+            { value: 'Tēva diena', slug: 'teva-diena', image: '/images/Products/23 февраля.png', icon: 'mdi-account-tie-outline', tone: 'night' },
+            { value: 'Dzimšanas diena', slug: 'dzimsanas-diena', image: '/images/Products/день рождения.png', icon: 'mdi-cake-variant-outline', tone: 'rose' },
+            { value: 'Citi', slug: 'citi', image: '/images/Hero/hero2.png', icon: 'mdi-dots-horizontal-circle-outline', tone: 'lavender' },
+        ],
+    },
+    {
+        id: 'categories',
+        filterKey: 'categories',
+        items: [
+            { value: 'Foto ar QR video', slug: 'foto-ar-qr-video', image: '/images/Hero/hero.png', icon: 'mdi-image-outline', tone: 'berry' },
+            { value: 'Digitāla QR dāvana', slug: 'digitala-qr-davana', image: '/images/Hero/hero2.png', icon: 'mdi-qrcode', tone: 'azure' },
+            { value: 'Dziesmas plāksne', slug: 'dziesmas-plaksne', image: '/images/Products/23 февраля.png', icon: 'mdi-record-circle-outline', tone: 'night' },
+            { value: 'T-krekls', slug: 't-krekls', image: '/images/Products/день студента 1.png', icon: 'mdi-tshirt-crew-outline', tone: 'lavender' },
+            { value: 'Krūze', slug: 'kruze', image: '/images/Products/день учителя.png', icon: 'mdi-coffee-outline', tone: 'fawn' },
+            { value: 'Šokolāde', slug: 'sokolade', image: '/images/Products/8 марта 10.png', icon: 'mdi-candy-outline', tone: 'berry' },
+            { value: 'Kartīte', slug: 'kartite', image: '/images/Products/день матери 4.png', icon: 'mdi-card-outline', tone: 'azure' },
+            { value: 'Saldumu komplekti', slug: 'saldumu-komplekti', image: '/images/Products/8 марта 12.png', icon: 'mdi-gift-outline', tone: 'fawn' },
+            { value: 'Citi', slug: 'citi-suveniri', image: '/images/Hero/hero2.png', icon: 'mdi-dots-horizontal-circle-outline', tone: 'lavender' },
+        ],
+    },
+    {
+        id: 'materials',
+        filterKey: 'materials',
+        items: [
+            { value: 'Druka + QR', slug: 'druka-qr', image: '/images/Hero/hero.png', icon: 'mdi-printer-outline', tone: 'berry' },
+            { value: 'Digitāls QR', slug: 'digitals-qr', image: '/images/Hero/hero2.png', icon: 'mdi-cellphone-link', tone: 'azure' },
+            { value: 'Druka + statīvs', slug: 'druka-stativs', image: '/images/Products/23 февраля.png', icon: 'mdi-image-frame', tone: 'night' },
+            { value: 'Tekstils + QR', slug: 'tekstils-qr', image: '/images/Products/день студента 2.png', icon: 'mdi-hanger', tone: 'lavender' },
+            { value: 'Keramika + QR', slug: 'keramika-qr', image: '/images/Products/день учителя.png', icon: 'mdi-coffee-maker-outline', tone: 'fawn' },
+            { value: 'Akrils + QR', slug: 'akrils-qr', image: '/images/Products/1 сентября.png', icon: 'mdi-diamond-stone', tone: 'rose' },
+            { value: 'Šokolāde + iesaiņojums', slug: 'sokolade-iesainojums', image: '/images/Products/8 марта 12.png', icon: 'mdi-gift-outline', tone: 'berry' },
+            { value: 'Kartons + QR', slug: 'kartons-qr', image: '/images/Products/день матери 4.png', icon: 'mdi-card-text-outline', tone: 'azure' },
+        ],
+    },
+];
+
+export const catalogFilterEntries = catalogFilterGroups.flatMap((group) => group.items.map((item) => ({ ...item, groupId: group.id, filterKey: group.filterKey })));
+export const catalogFilterBySlug = Object.fromEntries(catalogFilterEntries.map((item) => [item.slug, item]));
