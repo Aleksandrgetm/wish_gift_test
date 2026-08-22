@@ -4,30 +4,30 @@ import { useI18n } from '../composables/useI18n';
 
 const { t, translate, locale } = useI18n();
 const categoryItems = [
-    { title: 'Dzimšanas dienai', subtitle: 'Apskatīt', image: '/images/Products/день рождения.png', to: '/occasion' },
-    { title: 'Personalizētas', subtitle: 'Apskatīt', image: '/images/Hero/hero.png', to: '/souvenirs' },
-    { title: 'Šokolādes dāvanas', subtitle: 'Apskatīt', image: '/images/Products/8 марта.png', to: '/souvenirs/chocolate' },
-    { title: 'Krūzes', subtitle: 'Apskatīt', image: '/images/Products/день учителя.png', to: '/souvenirs/mug' },
-    { title: 'Sievietēm', subtitle: 'Apskatīt', image: '/images/Products/8 марта 13.png', to: '/recipient/woman' },
-    { title: 'Vīriešiem', subtitle: 'Apskatīt', image: '/images/Products/23 февраля.png', to: '/recipient/man' },
-    { title: 'Skolotājiem', subtitle: 'Apskatīt', image: '/images/Products/1 сентября.png', to: '/recipient/teacher' },
-    { title: 'Kartītes', subtitle: 'Apskatīt', image: '/images/Products/день матери 4.png', to: '/souvenirs/card' },
+    { id: 'birthday', title: 'Dzimšanas dienai', subtitle: 'Apskatīt', image: '/images/Products/день рождения.png', to: '/occasion' },
+    { id: 'personalized', title: 'Personalizētas', subtitle: 'Apskatīt', image: '/images/Hero/hero.png', to: '/souvenirs' },
+    { id: 'chocolate', title: 'Šokolādes dāvanas', subtitle: 'Apskatīt', image: '/images/Products/8 марта.png', to: '/souvenirs/chocolate' },
+    { id: 'mugs', title: 'Krūzes', subtitle: 'Apskatīt', image: '/images/Products/день учителя.png', to: '/souvenirs/mug' },
+    { id: 'women', title: 'Sievietēm', subtitle: 'Apskatīt', image: '/images/Products/8 марта 13.png', to: '/recipient/woman' },
+    { id: 'men', title: 'Vīriešiem', subtitle: 'Apskatīt', image: '/images/Products/23 февраля.png', to: '/recipient/man' },
+    { id: 'teachers', title: 'Skolotājiem', subtitle: 'Apskatīt', image: '/images/Products/1 сентября.png', to: '/recipient/teacher' },
+    { id: 'cards', title: 'Kartītes', subtitle: 'Apskatīt', image: '/images/Products/день матери 4.png', to: '/souvenirs/card' },
 ];
 
 const bestSellerItems = [
-    { title: 'A4 foto ar QR video', price: '25 €', reviews: '128', image: '/images/Hero/hero.png' },
-    { title: 'Šokolādes komplekts', price: 'no 18 €', reviews: '96', image: '/images/Products/8 марта.png' },
-    { title: 'Dāvana dzimšanas dienai', price: 'no 24 €', reviews: '74', image: '/images/Products/день рождения.png' },
-    { title: 'Krūze ar QR video', price: 'pēc saskaņošanas', reviews: '53', image: '/images/Products/день учителя.png' },
-    { title: 'Mātes dienas dāvana', price: 'no 30 €', reviews: '87', image: '/images/Products/день матери 3.png' },
+    { id: 'photo-alive-a4', title: 'A4 foto ar QR video', price: '25 €', reviews: '128', image: '/images/Hero/hero.png' },
+    { id: 'chocolate-set', title: 'Šokolādes komplekts', price: 'no 18 €', reviews: '96', image: '/images/Products/8 марта.png' },
+    { id: 'birthday-gift', title: 'Dāvana dzimšanas dienai', price: 'no 24 €', reviews: '74', image: '/images/Products/день рождения.png' },
+    { id: 'mug-alive', title: 'Krūze ar QR video', price: 'pēc saskaņošanas', reviews: '53', image: '/images/Products/день учителя.png' },
+    { id: 'mothers-day-gift', title: 'Mātes dienas dāvana', price: 'no 30 €', reviews: '87', image: '/images/Products/день матери 3.png' },
 ];
 
 const serviceItems = [
-    { icon: 'mdi-truck-outline', title: 'Piegāde Latvijā', text: 'Saskaņojam termiņu pirms izgatavošanas' },
-    { icon: 'mdi-shield-check-outline', title: 'Drošs process', text: 'Materiālus pārbaudām pirms drukas' },
-    { icon: 'mdi-diamond-stone', title: 'Roku darbs', text: 'Katrs makets tiek pielāgots personīgi' },
-    { icon: 'mdi-sync', title: 'Labojumi', text: 'Detaļas precizējam līdz rezultātam' },
-    { icon: 'mdi-headset', title: 'Atbalsts', text: 'Palīdzam izvēlēties piemērotu formātu' },
+    { id: 'delivery', icon: 'mdi-truck-outline', title: 'Piegāde Latvijā', text: 'Saskaņojam termiņu pirms izgatavošanas' },
+    { id: 'safe-process', icon: 'mdi-shield-check-outline', title: 'Drošs process', text: 'Materiālus pārbaudām pirms drukas' },
+    { id: 'handmade', icon: 'mdi-diamond-stone', title: 'Roku darbs', text: 'Katrs makets tiek pielāgots personīgi' },
+    { id: 'revisions', icon: 'mdi-sync', title: 'Labojumi', text: 'Detaļas precizējam līdz rezultātam' },
+    { id: 'support', icon: 'mdi-headset', title: 'Atbalsts', text: 'Palīdzam izvēlēties piemērotu formātu' },
 ];
 
 const heroSlides = [
@@ -154,7 +154,7 @@ onBeforeUnmount(() => {
 
         <section class="service-strip" :aria-label="t('home.services')">
             <div class="shell service-strip-grid">
-                <article v-for="(service, index) in services" :key="service.title" class="home-motion" :style="{ '--motion-delay': `${index * 70}ms` }">
+                <article v-for="(service, index) in services" :key="service.id" class="home-motion" :style="{ '--motion-delay': `${index * 70}ms` }">
                     <v-icon :icon="service.icon" size="28" aria-hidden="true" />
                     <div>
                         <h2>{{ service.title }}</h2>
@@ -171,7 +171,7 @@ onBeforeUnmount(() => {
                 <span></span>
             </div>
             <div class="category-row">
-                <router-link v-for="(category, index) in categories" :key="category.title" class="category-card home-motion" :style="{ '--motion-delay': `${index * 55}ms` }" :to="category.to">
+                <router-link v-for="(category, index) in categories" :key="category.id" class="category-card home-motion" :style="{ '--motion-delay': `${index * 55}ms` }" :to="category.to">
                     <img :src="category.image" :alt="category.title">
                     <strong>{{ category.title }}</strong>
                     <small>{{ category.subtitle }}</small>
@@ -189,7 +189,7 @@ onBeforeUnmount(() => {
                 <router-link to="/catalog">{{ t('home.allProducts') }} <v-icon icon="mdi-arrow-right" size="18" aria-hidden="true" /></router-link>
             </div>
             <div class="best-grid">
-                <article v-for="(product, index) in bestSellers" :key="product.title" class="best-card home-motion" :style="{ '--motion-delay': `${index * 75}ms` }">
+                <article v-for="(product, index) in bestSellers" :key="product.id" class="best-card home-motion" :style="{ '--motion-delay': `${index * 75}ms` }">
                     <img :src="product.image" :alt="product.title">
                     <div class="best-card-body">
                         <h3>{{ product.title }}</h3>
