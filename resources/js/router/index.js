@@ -18,6 +18,7 @@ export default createRouter({
     routes: [
         { path: '/', name: 'home', component: HomeView },
         { path: '/catalog', name: 'catalog', component: CatalogView, meta: { title: 'Katalogs' } },
+        { path: '/catalog/:categorySlug', name: 'catalog-category', component: CatalogView, meta: { title: 'Katalogs' } },
         placeholder('/souvenirs', 'souvenirs', 'Suvenīri ar QR video'),
         placeholder('/souvenirs/photo', 'souvenirs-photo', 'Foto ar QR video'),
         placeholder('/souvenirs/tshirt', 'souvenirs-tshirt', 'T-krekls ar QR video'),
