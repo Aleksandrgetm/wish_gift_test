@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 const HomeView = () => import('../views/HomeView.vue');
 const CatalogView = () => import('../views/CatalogView.vue');
+const CollectionsView = () => import('../views/CollectionsView.vue');
 const FaqView = () => import('../views/FaqView.vue');
 const PlaceholderView = () => import('../views/PlaceholderView.vue');
 
@@ -34,7 +35,7 @@ export default createRouter({
         placeholder('/recipient/teacher', 'recipient-teacher', 'Dāvana skolotājam'),
         placeholder('/recipient/doctor', 'recipient-doctor', 'Dāvana ārstam'),
         placeholder('/recipient/other', 'recipient-other', 'Citas dāvanas'),
-        placeholder('/occasion', 'occasion', 'Svētki'),
+        { path: '/occasion', name: 'occasion', component: CollectionsView, meta: { title: 'Kolekcijas' } },
         placeholder('/occasion/christmas', 'occasion-christmas', 'Ziemassvētki'),
         placeholder('/occasion/new-year', 'occasion-new-year', 'Jaunais gads'),
         placeholder('/occasion/valentine', 'occasion-valentine', '14. februāris'),
