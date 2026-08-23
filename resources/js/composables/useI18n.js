@@ -89,6 +89,77 @@ const translations = {
             email: 'E-pasta adrese',
             subscribe: 'Pieteikties',
         },
+        about: {
+            hero: {
+                eyebrow: 'Par Wish Gift',
+                title: 'Dāvanas, kas atdzīvojas',
+                text: 'Wish Gift rada personalizētas dāvanas, kur fizisks suvenīrs satiekas ar foto, video, mūziku un QR kodu. Tās nav tikai lietas, bet mazi stāsti, kurus var atvērt vēl un vēl.',
+                imageAlt: 'Personalizēta Wish Gift dāvana ar QR video',
+                collageLabel: 'Wish Gift personalizēto produktu foto kolāža',
+                mediaBadge: 'Foto, video, mūzika un QR',
+            },
+            manifesto: 'Mēs ticam, ka īstā dāvana nav tikai tas, ko cilvēks saņem rokās. Tā ir balss, dziesma, fotogrāfija, mirklis un sajūta, kas paliek atmiņā.',
+            idea: {
+                eyebrow: 'Mūsu ideja',
+                title: 'Parasta dāvana var kļūt par personīgu atmiņu.',
+                text: 'Pievienojiet fotogrāfiju, mīļu video, dziesmu, apsveikumu vai citu digitālu saturu. Saņēmējs tur rokās īstu dāvanu, bet tajā ir paslēpts mirklis, kas nozīmē vairāk.',
+                note: 'Atveriet stāstu ar vienu skenējumu',
+                imageAlt: 'Personalizēta dāvana ar foto stāstu',
+            },
+            process: {
+                eyebrow: 'Kā top dāvana',
+                title: 'No idejas līdz emocijai',
+            },
+            steps: [
+                { number: '01', icon: 'mdi-gift-outline', title: 'Izvēlieties dāvanu', text: 'Atrodiet piemērotu formātu katalogā vai izvēlieties virzienu pēc notikuma.' },
+                { number: '02', icon: 'mdi-image-multiple-outline', title: 'Personalizējiet', text: 'Pievienojiet foto, video, mūziku, apsveikumu vai citu saturu.' },
+                { number: '03', icon: 'mdi-creation-outline', title: 'Mēs to izveidojam', text: 'Wish Gift sagatavo personalizētu dizainu un savieno to ar QR stāstu.' },
+                { number: '04', icon: 'mdi-heart-outline', title: 'Uzdāviniet emocijas', text: 'Saņēmējs saņem fizisku dāvanu ar personīgu vēstījumu iekšā.' },
+            ],
+            why: {
+                eyebrow: 'Kāpēc Wish Gift',
+                title: 'Mazāk nejaušības, vairāk personiska siltuma.',
+                text: 'Mēs koncentrējamies uz sajūtu, kuru dāvana atstāj pēc atvēršanas: lai tajā būtu redzams cilvēks, notikums un īstais vēstījums.',
+            },
+            benefits: [
+                'Personalizēta pieeja',
+                'Radīts ar rūpību',
+                'Dāvana ar personīgu stāstu',
+                'Foto, video, mūzika un QR',
+                'Piemērots dažādiem svētkiem',
+            ],
+            facets: [
+                { title: 'Dāvana', text: 'fizisks suvenīrs' },
+                { title: 'Atmiņa', text: 'foto, video, mūzika' },
+                { title: 'QR', text: 'stāsts vienā skenējumā' },
+            ],
+            balance: {
+                lines: [
+                    { title: 'Fiziska dāvana', size: '78%' },
+                    { title: 'Personīgs saturs', size: '88%' },
+                    { title: 'QR pieredze', size: '70%' },
+                ],
+            },
+            gallery: {
+                eyebrow: 'Dāvanas formāti',
+                title: 'Foto, saldumi un suvenīri kļūst par stāsta nesējiem.',
+                items: [
+                    { kicker: 'Foto + QR', title: 'Atmiņa, kuru var atvērt' },
+                    { kicker: 'Dizains + apsveikums', title: 'Salds pārsteigums ar personīgu vēstījumu' },
+                    { kicker: 'Video + mūzika', title: 'Dāvana, kas runā saņēmējam' },
+                ],
+            },
+            final: {
+                eyebrow: 'Nākamā dāvana',
+                title: 'Atrodiet dāvanu, kas paliks atmiņā.',
+                text: 'Izvēlieties formātu katalogā un piešķiriet tam savu foto, video, mūziku vai apsveikumu.',
+                imageAlt: 'Personalizēta Wish Gift produktu kolekcija',
+            },
+            cta: {
+                catalog: 'Atvērt katalogu',
+                faq: 'Kā tas strādā',
+            },
+        },
         catalog: {
             breadcrumbs: 'Atpakaļceļa navigācija',
             home: 'Sākumlapa',
@@ -221,6 +292,77 @@ const translations = {
             email: 'Email address',
             subscribe: 'Subscribe',
         },
+        about: {
+            hero: {
+                eyebrow: 'About Wish Gift',
+                title: 'Gifts that come alive',
+                text: 'Wish Gift creates personalized gifts where a physical keepsake meets photos, video, music and a QR code. They are not just objects, but small stories that can be opened again and again.',
+                imageAlt: 'Personalized Wish Gift present with QR video',
+                collageLabel: 'Wish Gift personalized product photo collage',
+                mediaBadge: 'Photo, video, music and QR',
+            },
+            manifesto: 'We believe the right gift is not only what someone holds in their hands. It is a voice, a song, a photo, a moment and a feeling that stays in memory.',
+            idea: {
+                eyebrow: 'Our idea',
+                title: 'An ordinary gift can become a personal memory.',
+                text: 'Add a photo, a favorite video, a song, a greeting or other digital content. The recipient holds a real gift, while a meaningful moment is hidden inside it.',
+                note: 'Open the story with one scan',
+                imageAlt: 'Personalized gift with a photo story',
+            },
+            process: {
+                eyebrow: 'How it is made',
+                title: 'From idea to emotion',
+            },
+            steps: [
+                { number: '01', icon: 'mdi-gift-outline', title: 'Choose a gift', text: 'Find the right format in the catalog or start from the occasion.' },
+                { number: '02', icon: 'mdi-image-multiple-outline', title: 'Personalize it', text: 'Add a photo, video, music, greeting or another piece of content.' },
+                { number: '03', icon: 'mdi-creation-outline', title: 'We create it', text: 'Wish Gift prepares the personalized design and connects it with the QR story.' },
+                { number: '04', icon: 'mdi-heart-outline', title: 'Give emotions', text: 'The recipient gets a physical gift with a personal message inside.' },
+            ],
+            why: {
+                eyebrow: 'Why Wish Gift',
+                title: 'Less random choice, more personal warmth.',
+                text: 'We focus on the feeling a gift leaves after it is opened: the person, the occasion and the right message should all be visible in it.',
+            },
+            benefits: [
+                'Personalized approach',
+                'Created with care',
+                'A gift with a personal story',
+                'Photo, video, music and QR',
+                'Suitable for different occasions',
+            ],
+            facets: [
+                { title: 'Gift', text: 'a physical keepsake' },
+                { title: 'Memory', text: 'photo, video, music' },
+                { title: 'QR', text: 'one-scan story' },
+            ],
+            balance: {
+                lines: [
+                    { title: 'Physical gift', size: '78%' },
+                    { title: 'Personal content', size: '88%' },
+                    { title: 'QR experience', size: '70%' },
+                ],
+            },
+            gallery: {
+                eyebrow: 'Gift formats',
+                title: 'Photos, sweets and keepsakes become carriers of a story.',
+                items: [
+                    { kicker: 'Photo + QR', title: 'A memory you can open' },
+                    { kicker: 'Design + greeting', title: 'A sweet surprise with a personal message' },
+                    { kicker: 'Video + music', title: 'A gift that speaks to the recipient' },
+                ],
+            },
+            final: {
+                eyebrow: 'The next gift',
+                title: 'Find a gift that will stay in memory.',
+                text: 'Choose a format in the catalog and add your own photo, video, music or greeting.',
+                imageAlt: 'Personalized Wish Gift product collection',
+            },
+            cta: {
+                catalog: 'Open catalog',
+                faq: 'How it works',
+            },
+        },
         catalog: {
             breadcrumbs: 'Breadcrumb navigation',
             home: 'Home',
@@ -338,6 +480,77 @@ const translations = {
             newsletterText: 'Получайте идеи, новости и специальные предложения на e-mail.',
             email: 'E-mail адрес',
             subscribe: 'Подписаться',
+        },
+        about: {
+            hero: {
+                eyebrow: 'О Wish Gift',
+                title: 'Подарки, которые оживают',
+                text: 'Wish Gift создаёт персонализированные подарки, где физический сувенир объединяется с фото, видео, музыкой и QR-кодом. Это не просто вещи, а маленькие истории, к которым можно возвращаться снова.',
+                imageAlt: 'Персональный подарок Wish Gift с QR-видео',
+                collageLabel: 'Фотоколлаж персональных продуктов Wish Gift',
+                mediaBadge: 'Фото, видео, музыка и QR',
+            },
+            manifesto: 'Мы верим, что настоящий подарок — это не только предмет в руках. Это голос, песня, фотография, момент и чувство, которое остается в памяти.',
+            idea: {
+                eyebrow: 'Наша идея',
+                title: 'Обычный подарок может стать личным воспоминанием.',
+                text: 'Добавьте фотографию, любимое видео, музыку, поздравление или другой цифровой контент. Получатель держит в руках настоящий подарок, а внутри него спрятан важный момент.',
+                note: 'Откройте историю одним сканированием',
+                imageAlt: 'Персональный подарок с фотоисторией',
+            },
+            process: {
+                eyebrow: 'Как создается подарок',
+                title: 'От идеи к эмоции',
+            },
+            steps: [
+                { number: '01', icon: 'mdi-gift-outline', title: 'Выберите подарок', text: 'Найдите подходящий формат в каталоге или начните с повода.' },
+                { number: '02', icon: 'mdi-image-multiple-outline', title: 'Персонализируйте', text: 'Добавьте фото, видео, музыку, поздравление или другой контент.' },
+                { number: '03', icon: 'mdi-creation-outline', title: 'Мы это создаем', text: 'Wish Gift готовит персональный дизайн и связывает его с QR-историей.' },
+                { number: '04', icon: 'mdi-heart-outline', title: 'Подарите эмоции', text: 'Получатель получает физический подарок с личным посланием внутри.' },
+            ],
+            why: {
+                eyebrow: 'Почему Wish Gift',
+                title: 'Меньше случайности, больше личного тепла.',
+                text: 'Мы фокусируемся на ощущении, которое остается после открытия подарка: в нем должны быть видны человек, событие и правильные слова.',
+            },
+            benefits: [
+                'Персональный подход',
+                'Создано с заботой',
+                'Подарок с личной историей',
+                'Фото, видео, музыка и QR',
+                'Подходит для разных праздников',
+            ],
+            facets: [
+                { title: 'Подарок', text: 'физический сувенир' },
+                { title: 'Память', text: 'фото, видео, музыка' },
+                { title: 'QR', text: 'история в одно сканирование' },
+            ],
+            balance: {
+                lines: [
+                    { title: 'Физический подарок', size: '78%' },
+                    { title: 'Личный контент', size: '88%' },
+                    { title: 'QR-впечатление', size: '70%' },
+                ],
+            },
+            gallery: {
+                eyebrow: 'Форматы подарков',
+                title: 'Фото, сладости и сувениры становятся носителями истории.',
+                items: [
+                    { kicker: 'Фото + QR', title: 'Воспоминание, которое можно открыть' },
+                    { kicker: 'Дизайн + поздравление', title: 'Сладкий сюрприз с личным посланием' },
+                    { kicker: 'Видео + музыка', title: 'Подарок, который говорит с получателем' },
+                ],
+            },
+            final: {
+                eyebrow: 'Следующий подарок',
+                title: 'Найдите подарок, который останется в памяти.',
+                text: 'Выберите формат в каталоге и добавьте свое фото, видео, музыку или поздравление.',
+                imageAlt: 'Персональная коллекция продуктов Wish Gift',
+            },
+            cta: {
+                catalog: 'Открыть каталог',
+                faq: 'Как это работает',
+            },
         },
         catalog: {
             breadcrumbs: 'Навигационная цепочка',
