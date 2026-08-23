@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'contact' => [
+        'recipient' => env('CONTACT_FORM_RECIPIENT', 'ozivajka@inbox.lv'),
+    ],
+
 ];
