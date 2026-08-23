@@ -12,7 +12,6 @@ const { locale, languages, setLocale, t } = useI18n();
 const links = [
     { title: 'nav.home', to: '/' },
     { title: 'nav.catalog', to: '/catalog' },
-    { title: 'nav.collections', to: '/occasion' },
     { title: 'nav.about', to: '/about' },
     { title: 'nav.faq', to: '/faq' },
     { title: 'nav.contacts', to: '/contacts' },
@@ -20,22 +19,9 @@ const links = [
 const footerQuickLinks = [
     { title: 'nav.home', to: '/' },
     { title: 'nav.catalog', to: '/catalog' },
-    { title: 'nav.collections', to: '/occasion' },
     { title: 'nav.about', to: '/about' },
     { title: 'nav.faq', to: '/faq' },
     { title: 'nav.contacts', to: '/contacts' },
-];
-const footerOccasionLinks = [
-    { title: 'footer.birthday', to: '/occasion' },
-    { title: 'footer.christmas', to: '/occasion/christmas' },
-    { title: 'footer.newYear', to: '/occasion/new-year' },
-    { title: 'footer.valentine', to: '/occasion/valentine' },
-    { title: 'footer.womensDay', to: '/occasion/womens-day' },
-    { title: 'footer.mothersDay', to: '/occasion/mothers-day' },
-    { title: 'footer.teachersDay', to: '/occasion/teachers-day' },
-    { title: 'footer.studentsDay', to: '/occasion/students-day' },
-    { title: 'footer.septemberFirst', to: '/occasion/september-first' },
-    { title: 'footer.fathersDay', to: '/occasion/fathers-day' },
 ];
 const getPath = (to) => (typeof to === 'string' ? to : to.path);
 const getHash = (to) => (typeof to === 'string' ? '' : to.hash || '');
@@ -141,12 +127,6 @@ onBeforeUnmount(() => {
                     <h2>{{ t('footer.quickLinks') }}</h2>
                     <div class="footer-links">
                         <router-link v-for="link in footerQuickLinks" :key="link.to" :to="link.to">{{ t(link.title) }}</router-link>
-                    </div>
-                </div>
-                <div>
-                    <h2>{{ t('footer.occasions') }}</h2>
-                    <div class="footer-links footer-links--occasions">
-                        <router-link v-for="link in footerOccasionLinks" :key="link.to" :to="link.to">{{ t(link.title) }}</router-link>
                     </div>
                 </div>
                 <div>

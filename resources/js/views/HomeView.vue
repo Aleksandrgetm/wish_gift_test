@@ -4,7 +4,7 @@ import { useI18n } from '../composables/useI18n';
 
 const { t, translate, locale } = useI18n();
 const categoryItems = [
-    { id: 'birthday', title: 'Dzimšanas dienai', subtitle: 'Apskatīt', image: '/images/Products/день рождения.png', to: '/occasion' },
+    { id: 'birthday', title: 'Dzimšanas dienai', subtitle: 'Apskatīt', image: '/images/Products/день рождения.png', to: '/catalog/dzimsanas-diena' },
     { id: 'personalized', title: 'Personalizētas', subtitle: 'Apskatīt', image: '/images/Hero/hero.png', to: '/souvenirs' },
     { id: 'chocolate', title: 'Šokolādes dāvanas', subtitle: 'Apskatīt', image: '/images/Products/8 марта.png', to: '/souvenirs/chocolate' },
     { id: 'mugs', title: 'Krūzes', subtitle: 'Apskatīt', image: '/images/Products/день учителя.png', to: '/souvenirs/mug' },
@@ -66,6 +66,8 @@ const restartHeroSlider = () => {
 };
 
 const setupHomeMotion = () => {
+    if (!root.value) return;
+
     const motionElements = [...root.value.querySelectorAll('.home-motion')];
 
     if (reduceHeroMotion || !('IntersectionObserver' in window)) {
