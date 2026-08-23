@@ -160,6 +160,57 @@ const translations = {
                 faq: 'Kā tas strādā',
             },
         },
+        contacts: {
+            hero: {
+                eyebrow: 'Sazinieties ar mums',
+                title: 'Kontakti',
+                text: 'Ja jums ir jautājumi par pasūtījumu, personalizāciju vai piegādi, sazinieties ar mums — mēs labprāt palīdzēsim.',
+            },
+            details: {
+                eyebrow: 'Wish Gift atbalsts',
+                title: 'Rakstiet vai zvaniet, ja dāvanai vajag personīgu pieskārienu.',
+                text: 'Par pasūtījumiem, personalizāciju, foto, video, mūziku un QR risinājumiem varat sazināties tieši ar mums.',
+                phone: 'Telefons',
+                email: 'E-pasts',
+                socials: 'Sociālie tīkli',
+            },
+            form: {
+                eyebrow: 'Ziņa Wish Gift',
+                title: 'Pastāstiet, kā varam palīdzēt',
+                fields: {
+                    name: 'Vārds',
+                    email: 'E-pasts',
+                    phone: 'Telefona numurs',
+                    subject: 'Tēma',
+                    message: 'Ziņa',
+                },
+                errors: {
+                    name: 'Ievadiet savu vārdu.',
+                    email: 'Ievadiet derīgu e-pasta adresi.',
+                    phone: 'Ievadiet derīgu telefona numuru.',
+                    subject: 'Norādiet ziņas tēmu.',
+                    message: 'Ziņai jābūt vismaz 10 rakstzīmes garai.',
+                },
+                validationError: 'Lūdzu, pārbaudiet laukus un mēģiniet vēlreiz.',
+                success: 'Paldies! Ziņa ir nosūtīta. Mēs sazināsimies ar jums pēc iespējas drīz.',
+                failure: 'Neizdevās nosūtīt ziņu. Lūdzu, mēģiniet vēlreiz vai rakstiet uz e-pastu.',
+                submit: 'Nosūtīt ziņu',
+            },
+            help: {
+                eyebrow: 'Ātrākai atbildei',
+                title: 'Ar kādu jautājumu varam palīdzēt?',
+                items: [
+                    { icon: 'mdi-package-variant-closed', title: 'Pasūtījums', text: 'Jautājumi par izvēlēto dāvanu, cenu vai pasūtījuma saskaņošanu.' },
+                    { icon: 'mdi-qrcode-scan', title: 'Personalizācija', text: 'Foto, video, mūzika, QR un dizaina detaļas pirms izgatavošanas.' },
+                    { icon: 'mdi-truck-outline', title: 'Piegāde', text: 'Jautājumi par piegādes veidu, adresi un saņemšanas laiku.' },
+                ],
+            },
+            faq: {
+                eyebrow: 'BUJ',
+                title: 'Varbūt atbilde jau ir mūsu BUJ?',
+                cta: 'Atvērt biežāk uzdotos jautājumus',
+            },
+        },
         catalog: {
             breadcrumbs: 'Atpakaļceļa navigācija',
             home: 'Sākumlapa',
@@ -363,6 +414,57 @@ const translations = {
                 faq: 'How it works',
             },
         },
+        contacts: {
+            hero: {
+                eyebrow: 'Get in touch',
+                title: 'Contacts',
+                text: 'If you have questions about an order, personalization or delivery, contact us — we will gladly help.',
+            },
+            details: {
+                eyebrow: 'Wish Gift support',
+                title: 'Write or call when your gift needs a personal touch.',
+                text: 'For orders, personalization, photos, video, music and QR details, you can contact us directly.',
+                phone: 'Phone',
+                email: 'Email',
+                socials: 'Social networks',
+            },
+            form: {
+                eyebrow: 'Message Wish Gift',
+                title: 'Tell us how we can help',
+                fields: {
+                    name: 'Name',
+                    email: 'Email',
+                    phone: 'Phone number',
+                    subject: 'Subject',
+                    message: 'Message',
+                },
+                errors: {
+                    name: 'Please enter your name.',
+                    email: 'Please enter a valid email address.',
+                    phone: 'Please enter a valid phone number.',
+                    subject: 'Please enter a subject.',
+                    message: 'Message must be at least 10 characters long.',
+                },
+                validationError: 'Please check the fields and try again.',
+                success: 'Thank you! Your message has been sent. We will contact you as soon as possible.',
+                failure: 'Could not send the message. Please try again or email us directly.',
+                submit: 'Send message',
+            },
+            help: {
+                eyebrow: 'For a faster answer',
+                title: 'What can we help with?',
+                items: [
+                    { icon: 'mdi-package-variant-closed', title: 'Order', text: 'Questions about the selected gift, price or order approval.' },
+                    { icon: 'mdi-qrcode-scan', title: 'Personalization', text: 'Photos, video, music, QR and design details before production.' },
+                    { icon: 'mdi-truck-outline', title: 'Delivery', text: 'Questions about delivery method, address and pickup timing.' },
+                ],
+            },
+            faq: {
+                eyebrow: 'FAQ',
+                title: 'Maybe the answer is already in our FAQ?',
+                cta: 'Open frequently asked questions',
+            },
+        },
         catalog: {
             breadcrumbs: 'Breadcrumb navigation',
             home: 'Home',
@@ -550,6 +652,57 @@ const translations = {
             cta: {
                 catalog: 'Открыть каталог',
                 faq: 'Как это работает',
+            },
+        },
+        contacts: {
+            hero: {
+                eyebrow: 'Свяжитесь с нами',
+                title: 'Контакты',
+                text: 'Если у вас есть вопросы по заказу, персонализации или доставке, свяжитесь с нами — мы с радостью поможем.',
+            },
+            details: {
+                eyebrow: 'Поддержка Wish Gift',
+                title: 'Напишите или позвоните, если подарку нужен личный акцент.',
+                text: 'По вопросам заказа, персонализации, фото, видео, музыки и QR можно связаться с нами напрямую.',
+                phone: 'Телефон',
+                email: 'E-mail',
+                socials: 'Социальные сети',
+            },
+            form: {
+                eyebrow: 'Сообщение Wish Gift',
+                title: 'Расскажите, чем можем помочь',
+                fields: {
+                    name: 'Имя',
+                    email: 'E-mail',
+                    phone: 'Номер телефона',
+                    subject: 'Тема',
+                    message: 'Сообщение',
+                },
+                errors: {
+                    name: 'Введите ваше имя.',
+                    email: 'Введите корректный e-mail.',
+                    phone: 'Введите корректный номер телефона.',
+                    subject: 'Укажите тему сообщения.',
+                    message: 'Сообщение должно быть не короче 10 символов.',
+                },
+                validationError: 'Проверьте поля и попробуйте ещё раз.',
+                success: 'Спасибо! Сообщение отправлено. Мы свяжемся с вами как можно скорее.',
+                failure: 'Не удалось отправить сообщение. Попробуйте ещё раз или напишите нам на e-mail.',
+                submit: 'Отправить сообщение',
+            },
+            help: {
+                eyebrow: 'Для быстрого ответа',
+                title: 'С каким вопросом можем помочь?',
+                items: [
+                    { icon: 'mdi-package-variant-closed', title: 'Заказ', text: 'Вопросы по выбранному подарку, цене или согласованию заказа.' },
+                    { icon: 'mdi-qrcode-scan', title: 'Персонализация', text: 'Фото, видео, музыка, QR и детали дизайна перед изготовлением.' },
+                    { icon: 'mdi-truck-outline', title: 'Доставка', text: 'Вопросы по способу доставки, адресу и времени получения.' },
+                ],
+            },
+            faq: {
+                eyebrow: 'FAQ',
+                title: 'Возможно, ответ уже есть в наших частых вопросах?',
+                cta: 'Открыть частые вопросы',
             },
         },
         catalog: {

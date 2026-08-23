@@ -3,6 +3,7 @@ const HomeView = () => import('../views/HomeView.vue');
 const CatalogView = () => import('../views/CatalogView.vue');
 const FaqView = () => import('../views/FaqView.vue');
 const AboutView = () => import('../views/AboutView.vue');
+const ContactView = () => import('../views/ContactView.vue');
 const PlaceholderView = () => import('../views/PlaceholderView.vue');
 
 const placeholder = (path, name, title) => ({ path, name, component: PlaceholderView, meta: { title } });
@@ -39,7 +40,7 @@ export default createRouter({
         { path: '/faq', name: 'faq', component: FaqView, meta: { title: 'Biežāk uzdotie jautājumi' } },
         { path: '/corporate', name: 'corporate', component: PlaceholderView, meta: { title: 'Korporatīvajiem klientiem' } },
         { path: '/about', name: 'about', component: AboutView, meta: { title: 'Par uzņēmumu' } },
-        { path: '/contacts', name: 'contacts', component: PlaceholderView, meta: { title: 'Kontakti' } },
+        { path: '/contacts', name: 'contacts', component: ContactView, meta: { title: 'Kontakti' } },
         { path: '/:pathMatch(.*)*', name: 'not-found', component: PlaceholderView, meta: { title: 'Lapa nav atrasta' } },
     ],
 });
