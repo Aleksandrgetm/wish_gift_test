@@ -1,0 +1,34 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: wishgift_app
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: php artisan serve --host=0.0.0.0 --port=8000
+
+  postgres:
+    image: postgres:16
+    container_name: wishgift_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: wishgift
+      POSTGRES_USER: wishgift
+      POSTGRES_PASSWORD: wishgift
+    volumes:
+      - wishgift_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wishgift -d wishgift"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  wishgift_postgres_data:
