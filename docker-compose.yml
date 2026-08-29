@@ -7,6 +7,14 @@ services:
     working_dir: /var/www
     volumes:
       - ./:/var/www
+    environment:
+      DB_CONNECTION: pgsql
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: wishgift
+      DB_USERNAME: wishgift
+      DB_PASSWORD: wishgift
+      FILESYSTEM_DISK: public
     ports:
       - "8000:8000"
     depends_on:

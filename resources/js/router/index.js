@@ -4,6 +4,7 @@ const CatalogView = () => import('../views/CatalogView.vue');
 const FaqView = () => import('../views/FaqView.vue');
 const AboutView = () => import('../views/AboutView.vue');
 const ContactView = () => import('../views/ContactView.vue');
+const AdminView = () => import('../views/AdminView.vue');
 const PlaceholderView = () => import('../views/PlaceholderView.vue');
 
 const placeholder = (path, name, title) => ({ path, name, component: PlaceholderView, meta: { title } });
@@ -19,6 +20,7 @@ export default createRouter({
     },
     routes: [
         { path: '/', name: 'home', component: HomeView },
+        { path: '/admin', name: 'admin', component: AdminView, meta: { title: 'Wish Gift Admin', admin: true } },
         { path: '/catalog', name: 'catalog', component: CatalogView, meta: { title: 'Katalogs' } },
         { path: '/catalog/:categorySlug', name: 'catalog-category', component: CatalogView, meta: { title: 'Katalogs' } },
         placeholder('/souvenirs', 'souvenirs', 'Suvenīri ar QR video'),

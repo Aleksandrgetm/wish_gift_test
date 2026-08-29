@@ -1,18 +1,9 @@
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { useI18n } from '../composables/useI18n';
+import { fallbackHeroSlides, homeCategoryItems } from '../data/homeContent';
 
 const { t, translate, locale } = useI18n();
-const categoryItems = [
-    { id: 'birthday', title: 'Dzimšanas dienai', subtitle: 'Apskatīt', image: '/images/Products/день рождения.png', to: '/catalog/dzimsanas-diena' },
-    { id: 'personalized', title: 'Personalizētas', subtitle: 'Apskatīt', image: '/images/Hero/hero.png', to: '/souvenirs' },
-    { id: 'chocolate', title: 'Šokolādes dāvanas', subtitle: 'Apskatīt', image: '/images/Products/8 марта.png', to: '/souvenirs/chocolate' },
-    { id: 'mugs', title: 'Krūzes', subtitle: 'Apskatīt', image: '/images/Products/день учителя.png', to: '/souvenirs/mug' },
-    { id: 'women', title: 'Sievietēm', subtitle: 'Apskatīt', image: '/images/Products/8 марта 13.png', to: '/recipient/woman' },
-    { id: 'men', title: 'Vīriešiem', subtitle: 'Apskatīt', image: '/images/Products/23 февраля.png', to: '/recipient/man' },
-    { id: 'teachers', title: 'Skolotājiem', subtitle: 'Apskatīt', image: '/images/Products/1 сентября.png', to: '/recipient/teacher' },
-    { id: 'cards', title: 'Kartītes', subtitle: 'Apskatīt', image: '/images/Products/день матери 4.png', to: '/souvenirs/card' },
-];
 
 const bestSellerItems = [
     { id: 'photo-alive-a4', title: 'A4 foto ar QR video', price: '25 €', reviews: '128', image: '/images/Hero/hero.png' },
@@ -30,12 +21,30 @@ const serviceItems = [
     { id: 'support', icon: 'mdi-headset', title: 'Atbalsts', text: 'Palīdzam izvēlēties piemērotu formātu' },
 ];
 
-const heroSlides = [
-    { image: '/images/Hero/hero.png', alt: 'Personalizēta Wish Gift dāvana ar QR video' },
-    { image: '/images/Hero/hero1.png', alt: 'Wish Gift hero kolekcijas foto' },
-    { image: '/images/Hero/hero2.png', alt: 'Wish Gift personalizētas dāvanas foto' },
-];
-const categories = computed(() => categoryItems.map((item) => ({ ...item, title: translate('categories', item.title), subtitle: translate('categorySubtitle', item.subtitle) })));
+const homeContent = ref({ hero_slides: [], category_images: [] });
+const categorySettings = computed(() => Object.fromEntries(homeContent.value.category_images.map((item) => [item.category_key, item])));
+const heroSlides = computed(() => {
+    const slides = homeContent.value.hero_slides
+        .filter((slide) => slide.image_url)
+        .map((slide) => ({ image: slide.image_url, alt: slide.alt || 'Wish Gift hero image' }));
+
+    return slides.length ? slides : fallbackHeroSlides;
+});
+const categories = computed(() => homeCategoryItems
+    .map((item, index) => {
+        const settings = categorySettings.value[item.id];
+
+        return {
+            ...item,
+            image: settings?.image_url || item.image,
+            isActive: settings?.is_active ?? true,
+            sortOrder: settings?.sort_order ?? index,
+            title: translate('categories', item.title),
+            subtitle: translate('categorySubtitle', item.subtitle),
+        };
+    })
+    .filter((item) => item.isActive)
+    .sort((a, b) => a.sortOrder - b.sortOrder));
 const bestSellers = computed(() => bestSellerItems.map((item) => ({ ...item, title: translate('products', item.title), price: translate('prices', item.price) })));
 const services = computed(() => serviceItems.map((item) => ({ ...item, title: translate('services', item.title), text: translate('services', item.text) })));
 const dealImage = '/images/Products/8 марта14.png';
@@ -52,7 +61,7 @@ const selectHeroSlide = (index) => {
 };
 
 const showNextHeroSlide = () => {
-    activeHeroSlide.value = (activeHeroSlide.value + 1) % heroSlides.length;
+    activeHeroSlide.value = (activeHeroSlide.value + 1) % heroSlides.value.length;
 };
 
 const startHeroSlider = () => {
@@ -86,8 +95,29 @@ const setupHomeMotion = () => {
     motionElements.forEach((element) => homeMotionObserver.observe(element));
 };
 
+const loadHomeContent = async () => {
+    try {
+        const response = await fetch('/api/home-content', {
+            headers: { Accept: 'application/json' },
+        });
+
+        if (response.ok) {
+            homeContent.value = await response.json();
+        }
+    } catch {
+        homeContent.value = { hero_slides: [], category_images: [] };
+    }
+};
+
+watch(heroSlides, (slides) => {
+    if (activeHeroSlide.value >= slides.length) {
+        activeHeroSlide.value = 0;
+    }
+});
+
 onMounted(() => {
     reduceHeroMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    loadHomeContent();
     startHeroSlider();
     setupHomeMotion();
 });
