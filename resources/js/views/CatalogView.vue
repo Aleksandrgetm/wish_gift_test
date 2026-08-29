@@ -7,12 +7,11 @@ import CatalogFilters from '../components/catalog/CatalogFilters.vue';
 import ProductCard from '../components/catalog/ProductCard.vue';
 import QuickViewDialog from '../components/catalog/QuickViewDialog.vue';
 import { useI18n } from '../composables/useI18n';
-import { catalogFilterBySlug, catalogFilterGroups, products } from '../data/products';
 
 const store = useCatalogStore();
-const { loading, error, query, sort, page, filters, favorites, filtered, pageCount, visibleProducts, activeFilterCount } = storeToRefs(store);
+const { loading, error, products, categoryGroups: catalogFilterGroups, filterOptions, query, sort, page, filters, favorites, filtered, pageCount, visibleProducts, activeFilterCount } = storeToRefs(store);
 const route = useRoute();
-const { t, localizedProduct, translateOption } = useI18n();
+const { t } = useI18n();
 const mobileFiltersOpen = ref(false);
 const quickViewOpen = ref(false);
 const selectedProduct = ref(null);
@@ -27,39 +26,42 @@ const sortOptions = computed(() => [
 ]);
 const catalogSlug = computed(() => route.params.categorySlug);
 const isCategoryPicker = computed(() => !catalogSlug.value);
-const selectedCatalogEntry = computed(() => catalogFilterBySlug[catalogSlug.value] ?? null);
+const catalogFilterEntries = computed(() => catalogFilterGroups.value.flatMap((group) => group.items.map((item) => ({ ...item, groupId: group.type, filterKey: group.filter_key }))));
+const selectedCatalogEntry = computed(() => catalogFilterEntries.value.find((item) => item.slug === catalogSlug.value) ?? null);
 const groupTitleKeys = { occasions: 'occasionGroup', categories: 'categoryGroup', materials: 'materialGroup' };
-const listedOccasions = catalogFilterGroups.find((group) => group.id === 'occasions')?.items.filter((item) => item.value !== otherOccasion).map((item) => item.value) ?? [];
-const listedCategories = catalogFilterGroups.find((group) => group.id === 'categories')?.items.filter((item) => item.value !== otherCategory).map((item) => item.value) ?? [];
+const listedOccasions = computed(() => catalogFilterGroups.value.find((group) => group.filter_key === 'occasions')?.items.filter((item) => item.name_lv !== otherOccasion).map((item) => item.name_lv) ?? []);
+const listedCategories = computed(() => catalogFilterGroups.value.find((group) => group.filter_key === 'categories')?.items.filter((item) => item.name_lv !== otherCategory).map((item) => item.name_lv) ?? []);
 const catalogItemCount = (group, item) => {
-    if (group.filterKey === 'occasions' && item.value === otherOccasion) {
-        return products.filter((product) => !listedOccasions.includes(product.occasion)).length;
+    if (group.filter_key === 'occasions' && item.value === otherOccasion) {
+        return products.value.filter((product) => !listedOccasions.value.includes(product.occasion)).length;
     }
 
-    if (group.filterKey === 'categories' && item.value === otherCategory) {
-        return products.filter((product) => !listedCategories.includes(product.category)).length;
+    if (group.filter_key === 'categories' && item.value === otherCategory) {
+        return products.value.filter((product) => !listedCategories.value.includes(product.category)).length;
     }
 
-    return products.filter((product) => product[productFilterFields[group.filterKey]] === item.value).length;
+    return products.value.filter((product) => product[productFilterFields[group.filter_key]] === item.value).length;
 };
-const categoryGroups = computed(() => catalogFilterGroups.map((group) => ({
+const categoryGroups = computed(() => catalogFilterGroups.value.map((group) => ({
     ...group,
-    title: t(`catalog.${groupTitleKeys[group.id]}`),
+    title: t(`catalog.${groupTitleKeys[group.filter_key]}`),
     items: group.items.map((item) => ({
         ...item,
-        title: translateOption(item.value),
+        value: item.name_lv,
+        image: item.image_url,
+        title: item.name,
         count: catalogItemCount(group, item),
         to: { name: 'catalog-category', params: { categorySlug: item.slug } },
     })),
 })));
-const localizedVisibleProducts = computed(() => visibleProducts.value.map((product) => localizedProduct(product)));
-const selectedProductLocalized = computed(() => (selectedProduct.value ? localizedProduct(selectedProduct.value) : null));
-const selectedCatalogTitle = computed(() => (selectedCatalogEntry.value ? translateOption(selectedCatalogEntry.value.value) : t('catalog.title')));
+const localizedVisibleProducts = computed(() => visibleProducts.value);
+const selectedProductLocalized = computed(() => selectedProduct.value);
+const selectedCatalogTitle = computed(() => (selectedCatalogEntry.value ? selectedCatalogEntry.value.name : t('catalog.title')));
 const selectedCatalogFilterActive = computed(() => {
     if (!selectedCatalogEntry.value) return false;
 
     const selected = filters.value[selectedCatalogEntry.value.filterKey];
-    return Array.isArray(selected) && selected.includes(selectedCatalogEntry.value.value);
+    return Array.isArray(selected) && selected.includes(selectedCatalogEntry.value.name_lv);
 });
 
 const openQuickView = (product) => { selectedProduct.value = visibleProducts.value.find((item) => item.id === product.id) ?? product; quickViewOpen.value = true; };
@@ -71,8 +73,8 @@ const applyInitialRouteFilter = () => {
     if (!selectedCatalogEntry.value) return;
 
     const selected = filters.value[selectedCatalogEntry.value.filterKey];
-    if (Array.isArray(selected) && !selected.includes(selectedCatalogEntry.value.value)) {
-        filters.value[selectedCatalogEntry.value.filterKey] = [...selected, selectedCatalogEntry.value.value];
+    if (Array.isArray(selected) && !selected.includes(selectedCatalogEntry.value.name_lv)) {
+        filters.value[selectedCatalogEntry.value.filterKey] = [...selected, selectedCatalogEntry.value.name_lv];
     }
 
     page.value = 1;
@@ -81,7 +83,7 @@ const resetFilters = () => {
     store.reset();
 };
 
-watch(catalogSlug, applyInitialRouteFilter, { immediate: true });
+watch([catalogSlug, catalogFilterGroups], applyInitialRouteFilter, { immediate: true });
 watch([query, sort, filters], () => { page.value = 1; }, { deep: true });
 watch(page, () => document.querySelector('.catalog-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
 onMounted(store.finishLoading);
@@ -148,7 +150,7 @@ onMounted(store.finishLoading);
             </div>
 
             <div class="catalog-layout">
-                <aside class="desktop-filters" :aria-label="t('catalog.filterAria')"><CatalogFilters :filters="filters" :active-count="activeFilterCount" @reset="resetFilters" /></aside>
+                <aside class="desktop-filters" :aria-label="t('catalog.filterAria')"><CatalogFilters :filters="filters" :options="filterOptions" :active-count="activeFilterCount" @reset="resetFilters" /></aside>
                 <div class="catalog-content" aria-live="polite" :aria-busy="loading">
                     <div v-if="loading" class="catalog-grid"><div v-for="item in 6" :key="item" class="catalog-skeleton"><v-skeleton-loader type="image, article" /></div></div>
                     <div v-else-if="error" class="catalog-empty"><div class="empty-icon"><v-icon icon="mdi-cloud-alert-outline" size="42" /></div><p class="eyebrow">{{ t('catalog.loadError') }}</p><h2>{{ t('catalog.retryTitle') }}</h2><p>{{ t('catalog.retryText') }}</p><v-btn color="primary" @click="store.retry">{{ t('catalog.retry') }}</v-btn></div>
@@ -161,7 +163,7 @@ onMounted(store.finishLoading);
             </div>
         </section>
 
-        <v-navigation-drawer v-model="mobileFiltersOpen" location="right" temporary width="360" class="mobile-filter-drawer"><div class="mobile-filter-head"><h2>{{ t('catalog.filters') }}</h2><v-btn icon="mdi-close" variant="text" :aria-label="t('catalog.closeFilters')" @click="mobileFiltersOpen = false" /></div><CatalogFilters :filters="filters" :active-count="activeFilterCount" @reset="resetFilters" /><div class="mobile-filter-actions"><v-btn variant="text" @click="resetFilters">{{ t('filters.reset') }}</v-btn><v-btn color="primary" @click="applyMobileFilters">{{ t('catalog.show') }} {{ filtered.length }}</v-btn></div></v-navigation-drawer>
+        <v-navigation-drawer v-model="mobileFiltersOpen" location="right" temporary width="360" class="mobile-filter-drawer"><div class="mobile-filter-head"><h2>{{ t('catalog.filters') }}</h2><v-btn icon="mdi-close" variant="text" :aria-label="t('catalog.closeFilters')" @click="mobileFiltersOpen = false" /></div><CatalogFilters :filters="filters" :options="filterOptions" :active-count="activeFilterCount" @reset="resetFilters" /><div class="mobile-filter-actions"><v-btn variant="text" @click="resetFilters">{{ t('filters.reset') }}</v-btn><v-btn color="primary" @click="applyMobileFilters">{{ t('catalog.show') }} {{ filtered.length }}</v-btn></div></v-navigation-drawer>
         <QuickViewDialog v-model="quickViewOpen" :product="selectedProductLocalized" />
     </main>
 </template>

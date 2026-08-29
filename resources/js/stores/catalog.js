@@ -1,36 +1,41 @@
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { defineStore } from 'pinia';
-import { filterOptions, products } from '../data/products';
+import { jsonRequest } from '../services/http';
 import { useI18n } from '../composables/useI18n';
 
 const otherOccasion = 'Citi';
-const listedOccasions = filterOptions.occasions.filter((occasion) => occasion !== otherOccasion);
 const otherCategory = 'Citi';
-const listedCategories = filterOptions.categories.filter((category) => category !== otherCategory);
 
 export const useCatalogStore = defineStore('catalog', () => {
-    const { locale, localizedProduct } = useI18n();
+    const { locale } = useI18n();
     const loading = ref(true);
     const error = ref(false);
+    const products = ref([]);
+    const categoryGroups = ref([]);
     const query = ref('');
     const sort = ref('featured');
     const page = ref(1);
     const perPage = 12;
     const filters = ref({ occasions: [], categories: [], materials: [], maxPrice: 60, available: false });
     const favorites = ref([]);
+    const filterOptions = computed(() => ({
+        occasions: categoryGroups.value.find((group) => group.filter_key === 'occasions')?.items.map((item) => item.name_lv) ?? [],
+        categories: categoryGroups.value.find((group) => group.filter_key === 'categories')?.items.map((item) => item.name_lv) ?? [],
+        materials: categoryGroups.value.find((group) => group.filter_key === 'materials')?.items.map((item) => item.name_lv) ?? [],
+    }));
+    const listedOccasions = computed(() => filterOptions.value.occasions.filter((occasion) => occasion !== otherOccasion));
+    const listedCategories = computed(() => filterOptions.value.categories.filter((category) => category !== otherCategory));
 
     const filtered = computed(() => {
-        const searchLocale = locale.value === 'lv' ? 'lv-LV' : locale.value;
-        const term = query.value.trim().toLocaleLowerCase(searchLocale);
-        const result = products.filter((product) => {
-            const translatedProduct = localizedProduct(product);
-            const matchesQuery = !term || `${product.name} ${product.collection} ${product.category} ${product.description} ${translatedProduct.name} ${translatedProduct.category} ${translatedProduct.description}`.toLocaleLowerCase(searchLocale).includes(term);
+        const term = query.value.trim().toLocaleLowerCase('lv-LV');
+        const result = products.value.filter((product) => {
+            const matchesQuery = !term || `${product.name} ${product.collection} ${product.category} ${product.description}`.toLocaleLowerCase('lv-LV').includes(term);
             const matchesOccasion = !filters.value.occasions.length
                 || filters.value.occasions.includes(product.occasion)
-                || (filters.value.occasions.includes(otherOccasion) && !listedOccasions.includes(product.occasion));
+                || (filters.value.occasions.includes(otherOccasion) && !listedOccasions.value.includes(product.occasion));
             const matchesCategory = !filters.value.categories.length
                 || filters.value.categories.includes(product.category)
-                || (filters.value.categories.includes(otherCategory) && !listedCategories.includes(product.category));
+                || (filters.value.categories.includes(otherCategory) && !listedCategories.value.includes(product.category));
             const matchesMaterial = !filters.value.materials.length || filters.value.materials.includes(product.material);
             return matchesQuery && matchesOccasion && matchesCategory && matchesMaterial && product.price <= filters.value.maxPrice && (!filters.value.available || product.available);
         });
@@ -47,8 +52,24 @@ export const useCatalogStore = defineStore('catalog', () => {
 
     const reset = () => { filters.value = { occasions: [], categories: [], materials: [], maxPrice: 60, available: false }; query.value = ''; page.value = 1; };
     const toggleFavorite = (id) => { favorites.value = favorites.value.includes(id) ? favorites.value.filter((item) => item !== id) : [...favorites.value, id]; };
-    const finishLoading = () => { error.value = false; window.setTimeout(() => { loading.value = false; }, 450); };
-    const retry = () => { loading.value = true; finishLoading(); };
+    const load = async () => {
+        loading.value = true;
+        error.value = false;
 
-    return { loading, error, query, sort, page, perPage, filters, favorites, filtered, pageCount, visibleProducts, activeFilterCount, reset, toggleFavorite, finishLoading, retry };
+        try {
+            const payload = await jsonRequest(`/api/catalog?locale=${locale.value}`);
+            products.value = payload.products || [];
+            categoryGroups.value = payload.categories || [];
+        } catch {
+            error.value = true;
+        } finally {
+            window.setTimeout(() => { loading.value = false; }, 250);
+        }
+    };
+    const finishLoading = load;
+    const retry = load;
+
+    watch(locale, load);
+
+    return { loading, error, products, categoryGroups, filterOptions, query, sort, page, perPage, filters, favorites, filtered, pageCount, visibleProducts, activeFilterCount, reset, toggleFavorite, finishLoading, retry };
 });
