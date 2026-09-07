@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 const HomeView = () => import('../views/HomeView.vue');
 const CatalogView = () => import('../views/CatalogView.vue');
+const ProductView = () => import('../views/ProductView.vue');
 const FaqView = () => import('../views/FaqView.vue');
 const AboutView = () => import('../views/AboutView.vue');
 const ContactView = () => import('../views/ContactView.vue');
@@ -23,6 +24,7 @@ export default createRouter({
         { path: '/admin', name: 'admin', component: AdminView, meta: { title: 'Wish Gift Admin', admin: true } },
         { path: '/catalog', name: 'catalog', component: CatalogView, meta: { title: 'Katalogs' } },
         { path: '/catalog/:categorySlug', name: 'catalog-category', component: CatalogView, meta: { title: 'Katalogs' } },
+        { path: '/product/:slug', name: 'product', component: ProductView, meta: { title: 'Prece' } },
         placeholder('/souvenirs', 'souvenirs', 'Suvenīri ar QR video'),
         placeholder('/souvenirs/photo', 'souvenirs-photo', 'Foto ar QR video'),
         placeholder('/souvenirs/tshirt', 'souvenirs-tshirt', 'T-krekls ar QR video'),

@@ -16,6 +16,8 @@ class CatalogController extends Controller
 
     public function show(Product $product, Request $request): JsonResponse
     {
+        abort_unless($product->is_active, 404);
+
         return response()->json([
             'product' => $product->load(['categories', 'productImages'])
                 ->localizedPayload($request->string('locale')->value() ?: 'lv'),

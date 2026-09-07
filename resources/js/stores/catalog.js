@@ -18,6 +18,8 @@ export const useCatalogStore = defineStore('catalog', () => {
     const perPage = 12;
     const filters = ref({ occasions: [], categories: [], materials: [], maxPrice: 60, available: false });
     const favorites = ref([]);
+    const cartItems = ref([]);
+    const cartNotice = ref('');
     const filterOptions = computed(() => ({
         occasions: categoryGroups.value.find((group) => group.filter_key === 'occasions')?.items.map((item) => item.name_lv) ?? [],
         categories: categoryGroups.value.find((group) => group.filter_key === 'categories')?.items.map((item) => item.name_lv) ?? [],
@@ -52,6 +54,10 @@ export const useCatalogStore = defineStore('catalog', () => {
 
     const reset = () => { filters.value = { occasions: [], categories: [], materials: [], maxPrice: 60, available: false }; query.value = ''; page.value = 1; };
     const toggleFavorite = (id) => { favorites.value = favorites.value.includes(id) ? favorites.value.filter((item) => item !== id) : [...favorites.value, id]; };
+    const addToCart = (product, options = {}) => {
+        cartItems.value = [...cartItems.value, { productId: product.id, slug: product.slug, size: options.size || null, quantity: options.quantity || 1 }];
+        cartNotice.value = product.name;
+    };
     const load = async () => {
         loading.value = true;
         error.value = false;
@@ -71,5 +77,5 @@ export const useCatalogStore = defineStore('catalog', () => {
 
     watch(locale, load);
 
-    return { loading, error, products, categoryGroups, filterOptions, query, sort, page, perPage, filters, favorites, filtered, pageCount, visibleProducts, activeFilterCount, reset, toggleFavorite, finishLoading, retry };
+    return { loading, error, products, categoryGroups, filterOptions, query, sort, page, perPage, filters, favorites, cartItems, cartNotice, filtered, pageCount, visibleProducts, activeFilterCount, reset, toggleFavorite, addToCart, finishLoading, retry };
 });
