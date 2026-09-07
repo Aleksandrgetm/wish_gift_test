@@ -149,7 +149,7 @@ onBeforeUnmount(() => {
             <div class="shell store-hero-grid">
                 <div class="store-hero-copy home-motion home-motion-hero">
                     <p class="store-eyebrow">{{ t('home.eyebrow') }}</p>
-                    <h1 id="hero-title" :class="{ 'hero-title--ru': locale === 'ru' }">
+                    <h1 class="store-display-heading" id="hero-title" :class="{ 'hero-title--ru': locale === 'ru' }">
                         <span v-if="t('home.heroTitlePrefix') || t('home.heroTitleAccent')">
                             <strong v-if="t('home.heroTitlePrefix')">{{ t('home.heroTitlePrefix') }}</strong>
                             <em v-if="t('home.heroTitleAccent')">{{ t('home.heroTitleAccent') }}</em>

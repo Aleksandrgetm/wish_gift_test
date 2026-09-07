@@ -106,7 +106,7 @@ const submit = async () => {
         <section class="contact-main shell" aria-labelledby="contact-details-title">
             <div class="contact-details">
                 <p class="eyebrow">{{ t('contacts.details.eyebrow') }}</p>
-                <h2 id="contact-details-title">{{ t('contacts.details.title') }}</h2>
+                <h2 class="store-display-heading" id="contact-details-title">{{ t('contacts.details.title') }}</h2>
                 <p>{{ t('contacts.details.text') }}</p>
 
                 <div class="contact-link-list">
@@ -123,7 +123,7 @@ const submit = async () => {
             <form class="contact-form" novalidate @submit.prevent="submit">
                 <div class="contact-form__header">
                     <p class="eyebrow">{{ t('contacts.form.eyebrow') }}</p>
-                    <h2>{{ t('contacts.form.title') }}</h2>
+                    <h2 class="store-display-heading">{{ t('contacts.form.title') }}</h2>
                 </div>
 
                 <div class="contact-field">
