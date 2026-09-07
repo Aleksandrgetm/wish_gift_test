@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\CatalogCategory;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\User;
 use App\Services\CatalogImportService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -165,6 +166,40 @@ class AdminCatalogTest extends TestCase
 
         $this->assertDatabaseHas('products', ['slug' => 'personalizeta-sokolade-mammai']);
         $this->assertDatabaseHas('products', ['slug' => 'personalizeta-sokolade-mammai-2']);
+    }
+
+    public function test_public_product_endpoint_returns_gallery_in_order_and_404_for_inactive_product(): void
+    {
+        app(CatalogImportService::class)->import();
+        $product = Product::query()->where('slug', 'postcard-alive')->firstOrFail();
+        $product->productImages()->delete();
+
+        ProductImage::query()->create([
+            'product_id' => $product->id,
+            'image_path' => 'images/Hero/hero2.png',
+            'disk' => 'asset',
+            'alt' => 'Second image',
+            'sort_order' => 2,
+        ]);
+        ProductImage::query()->create([
+            'product_id' => $product->id,
+            'image_path' => 'images/Hero/hero.png',
+            'disk' => 'asset',
+            'alt' => 'First image',
+            'is_primary' => true,
+            'sort_order' => 1,
+        ]);
+
+        $this->getJson('/api/catalog/products/postcard-alive?locale=en')
+            ->assertOk()
+            ->assertJsonPath('product.slug', 'postcard-alive')
+            ->assertJsonPath('product.images.0.image_url', '/images/Hero/hero.png')
+            ->assertJsonPath('product.images.1.image_url', '/images/Hero/hero2.png');
+
+        $product->update(['is_active' => false]);
+
+        $this->getJson('/api/catalog/products/postcard-alive')->assertNotFound();
+        $this->getJson('/api/catalog/products/missing-product')->assertNotFound();
     }
 
     private function fixtureImage(string $name): UploadedFile
