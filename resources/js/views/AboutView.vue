@@ -45,7 +45,7 @@ onBeforeUnmount(() => {
             <div class="shell about-femine-hero-grid">
                 <div class="about-femine-copy about-motion is-visible">
                     <p class="store-eyebrow">{{ t('about.hero.eyebrow') }}</p>
-                    <h1 id="about-hero-title">{{ t('about.hero.title') }}</h1>
+                    <h1 class="store-display-heading" id="about-hero-title">{{ t('about.hero.title') }}</h1>
                     <p>{{ t('about.hero.text') }}</p>
                     <div class="about-femine-actions">
                         <v-btn color="primary" size="large" to="/catalog" append-icon="mdi-arrow-right">{{ t('about.cta.catalog') }}</v-btn>
@@ -67,7 +67,7 @@ onBeforeUnmount(() => {
 
                 <div class="about-femine-welcome-copy about-motion" style="--motion-delay: 120ms">
                     <p class="eyebrow">{{ t('about.idea.eyebrow') }}</p>
-                    <h2 id="about-idea-title">{{ t('about.idea.title') }}</h2>
+                    <h2 class="store-display-heading" id="about-idea-title">{{ t('about.idea.title') }}</h2>
                     <p>{{ t('about.idea.text') }}</p>
                     <div class="about-femine-facets" aria-label="Wish Gift personalization">
                         <span v-for="facet in facets" :key="facet.title">
@@ -81,7 +81,7 @@ onBeforeUnmount(() => {
 
         <section class="about-femine-cta shell about-motion" aria-labelledby="about-cta-title">
             <p class="eyebrow">{{ t('about.final.eyebrow') }}</p>
-            <h2 id="about-cta-title">{{ t('about.final.title') }}</h2>
+            <h2 class="store-display-heading" id="about-cta-title">{{ t('about.final.title') }}</h2>
             <p>{{ t('about.final.text') }}</p>
             <v-btn color="primary" size="large" to="/catalog" append-icon="mdi-arrow-right">{{ t('about.cta.catalog') }}</v-btn>
         </section>
